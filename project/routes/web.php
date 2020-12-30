@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::resource('/comments', App\Http\Controllers\CommentController::class);
 
+Route::resource('/jobs', App\Http\Controllers\JobsController::class);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
