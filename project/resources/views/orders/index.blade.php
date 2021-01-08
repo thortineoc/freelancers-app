@@ -1,36 +1,45 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Jobs') }}
+            </h2>
+            <x-button>
+                Add new one...
+            </x-button>
+        </div>
     </x-slot>
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <h2>Zamówienia</h2>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            @forelse ($orders as $order)
-                <tr>
-                    <td>{{ $order->title }}</td>
-                </tr>
-                <tr>
-                    <td>{{ $order->description }}</td>
-                </tr>
-                <tr>
-                    <td>{{ $order->budget }}</td>
-                </tr>
-                <tr>
-                    <td>{{ $order->deadline }}</td>
-                </tr>
-            @empty
-                <p>Brak dostępnych zleceń</p>
-            @endforelse
+        @forelse ($orders as $order)
 
-        </div>
+            <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
-        <div class="rounded shadow p-2 m-3 text-blue-800 bg-gray-300">
-            <a href="/books/create">Create new...</a>
+                <h1 class="font-bold text-2xl">
+                    {{ $order->title }}
+                </h1>
+                <div class="my-5">
+                    {{ $order->description }}
+                </div>
+                <div>
+                    Payment: {{ $order->budget }} $
+                </div>
+                <div>
+                    Deadline: {{ $order->deadline }}
+                </div>
+                <div class="max-w-100 mt-8">
+                    <x-button>Apply</x-button>
+                </div>
+
+            </div>
+        @empty
+
+            <p>No job offer is currenty avaliable.</p>
+
+        @endforelse
+
         </div>
 
     </div>
