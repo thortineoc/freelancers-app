@@ -16,16 +16,7 @@ class OrdersController extends Controller
     {
         $orders = Order::all();
 
-        foreach ($orders as $order) {
-            echo $order->budget;
-            echo "<br>";
-            $offers=$order->offers;
-            foreach ($offers as $offer){
-                echo $offer->price;
-                echo "<br>";
-            }
-            echo "<br>";
-        }
+        return view('orders.index')->withOrders($orders);
     }
 
     /**
