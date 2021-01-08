@@ -5,9 +5,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Jobs') }}
             </h2>
-            <x-button>
-                Add new one...
-            </x-button>
+            <x-link-button href="/dashboard" text="Create new..."></x-link-button>
         </div>
     </x-slot>
 
@@ -26,14 +24,14 @@
                 <div>
                     Payment: {{ $order->budget }} $
                 </div>
-                <div>
+                <div class="mb-5">
                     Deadline: {{ $order->deadline }}
                 </div>
-                <div class="max-w-100 mt-8">
-                    <x-button>Apply</x-button>
+                <div class="flex-none w-30">
+                    <x-link-button href="{{ route('orders.offer.create', $order) }}" text="Apply"></x-link-button>
                 </div>
-
             </div>
+
         @empty
 
             <p>No job offer is currenty avaliable.</p>
