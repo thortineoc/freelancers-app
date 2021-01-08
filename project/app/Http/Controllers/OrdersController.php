@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -13,7 +14,18 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        echo "OrdersController index";
+        $orders = Order::all();
+
+        foreach ($orders as $order) {
+            echo $order->budget;
+            echo "<br>";
+            $offers=$order->offers;
+            foreach ($offers as $offer){
+                echo $offer->price;
+                echo "<br>";
+            }
+            echo "<br>";
+        }
     }
 
     /**

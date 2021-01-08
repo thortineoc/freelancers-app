@@ -18,7 +18,7 @@ class OrderSeeder extends Seeder
             'title' => 'new_order1',
             'description' => 'description1',
             'budget' => 500,
-            'principalID' => 1,
+            'user_id' => 1,
             'deadline' => '2012-01-20 15:00'
         ]);
 
@@ -26,7 +26,7 @@ class OrderSeeder extends Seeder
             'title' => 'new_order2',
             'description' => 'description2',
             'budget' => 100,
-            'principalID' => 2,
+            'user_id' => 2,
             'deadline' => '2012-01-30 14:00'
         ]);
 
@@ -34,7 +34,7 @@ class OrderSeeder extends Seeder
             'title' => 'new_order3',
             'description' => 'description3',
             'budget' => 2000,
-            'principalID' => 3,
+            'user_id' => 3,
             'deadline' => '2012-01-05 10:00'
         ]);
     }

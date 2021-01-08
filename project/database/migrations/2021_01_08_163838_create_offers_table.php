@@ -14,7 +14,7 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->id('offerID');
+            $table->id();
             $table->timestamps();
             $table->timestamp('deadline');
             $table->double('price');
@@ -24,8 +24,8 @@ class CreateOffersTable extends Migration
             $table->boolean('done')->default(false);;
             $table->integer('rate_time')->default(-1);;
             $table->integer('rate_quality')->default(-1);
-            $table->foreignId('doerID');
-            $table->foreignId('orderID');
+            $table->foreignId('user_id');
+            $table->foreignId('order_id');
         });
     }
 
