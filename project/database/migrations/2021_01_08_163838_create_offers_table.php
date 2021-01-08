@@ -19,11 +19,11 @@ class CreateOffersTable extends Migration
             $table->timestamp('deadline');
             $table->double('price');
             $table->string('details');
-            $table->integer('priority');
-            $table->boolean('accepted');
-            $table->boolean('done');
-            $table->integer('rate_time');
-            $table->integer('rate_quality');
+            $table->integer('priority')->default(-1);;
+            $table->boolean('accepted')->default(false);;
+            $table->boolean('done')->default(false);;
+            $table->integer('rate_time')->default(-1);;
+            $table->integer('rate_quality')->default(-1);
             $table->foreignId('doerID');
             $table->foreignId('orderID');
         });
