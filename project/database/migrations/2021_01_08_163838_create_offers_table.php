@@ -14,10 +14,22 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->id();
+            $table->id('offerID');
             $table->timestamps();
+            $table->timestamp('deadline');
+            $table->double('price');
+            $table->string('details');
+            $table->integer('priority');
+            $table->boolean('accepted');
+            $table->boolean('done');
+            $table->integer('rate_time');
+            $table->integer('rate_quality');
+            $table->foreignId('doerID');
+            $table->foreignId('orderID');
         });
     }
+
+
 
     /**
      * Reverse the migrations.

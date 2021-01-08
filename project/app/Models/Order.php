@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function offers(){
+        return $this->hasMany(Offer::class);
+    }
+
+    public function principall(){
+        return $this->belongsTo(User::class);
+    }
+
 }
