@@ -17,13 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/comments', App\Http\Controllers\CommentController::class);
-
-Route::resource('/jobs', App\Http\Controllers\JobsController::class);
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::resource('myorders', \App\Http\Controllers\MyOrdersController::Class);
+Route::resource('myorders.offers', \App\Http\Controllers\MyOrderOffersController::Class);
+Route::resource('myoffers', \App\Http\Controllers\AllMyOffersController::Class);
+Route::resource('orders', \App\Http\Controllers\OrdersController::Class);
+Route::resource('orders.offer', \App\Http\Controllers\MyOfferController::Class);
+
+
+
+
 
 require __DIR__.'/auth.php';
