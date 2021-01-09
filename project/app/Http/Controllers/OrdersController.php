@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class JobsController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class JobsController extends Controller
      */
     public function index()
     {
-        return view('jobs.index');
+        $orders = Order::all();
+
+        return view('orders.index')->withOrders($orders);
     }
 
     /**
@@ -23,7 +26,8 @@ class JobsController extends Controller
      */
     public function create()
     {
-        //
+        echo "OrdersController create";
+
     }
 
     /**
@@ -34,7 +38,7 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -45,7 +49,8 @@ class JobsController extends Controller
      */
     public function show($id)
     {
-        //
+        echo "OrdersController show";
+
     }
 
     /**
@@ -56,7 +61,8 @@ class JobsController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "OrdersController edit";
+
     }
 
     /**

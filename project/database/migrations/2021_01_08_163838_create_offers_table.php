@@ -15,13 +15,21 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->timestamp('deadline');
             $table->double('price');
             $table->string('details');
-            $table->foreignId('doerID');
-            $table->foreignId('orderID');
+            $table->integer('priority')->default(-1);;
+            $table->boolean('accepted')->default(false);;
+            $table->boolean('done')->default(false);;
+            $table->integer('rate_time')->default(-1);;
+            $table->integer('rate_quality')->default(-1);
+            $table->foreignId('user_id');
+            $table->foreignId('order_id');
         });
     }
+
+
 
     /**
      * Reverse the migrations.

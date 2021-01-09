@@ -9,12 +9,12 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function principal(){
-        return $this->belongsTo(User::Class);
+    public function offers(){
+        return $this->hasMany(Offer::class);
     }
 
-    public function offers(){
-       return $this->hasMany(Offer::class);
+    public function principall(){
+        return $this->belongsTo(User::class);
     }
 
 }
