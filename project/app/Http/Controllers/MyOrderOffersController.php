@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Offer;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class MyOrderOffersController extends Controller
@@ -11,9 +13,10 @@ class MyOrderOffersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Order $order)
     {
-        echo "MyOrderOffersController index";
+        $offers=Offer::where('order_id', $order->id)->get();
+        return view('myorderoffers.index')->withOffers($offers);
     }
 
     /**
@@ -23,7 +26,7 @@ class MyOrderOffersController extends Controller
      */
     public function create()
     {
-        echo "MyOrderOffersController create";
+        //you cannot create offer to your own order
     }
 
     /**
@@ -34,7 +37,7 @@ class MyOrderOffersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //you cannot create offer to your own order
     }
 
     /**
@@ -43,9 +46,9 @@ class MyOrderOffersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order, Offer $offer)
     {
-        echo "MyOrderOffersController show";
+        return view('myorderoffers.show')->withOrder($order)->withOffer($offer);
     }
 
     /**
@@ -54,9 +57,9 @@ class MyOrderOffersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order, Offer $offer)
     {
-        echo "MyOrderOffersController edit";
+        return view('myorderoffers.edit')->withOrder($order)->withOffer($offer);
     }
 
     /**
@@ -66,9 +69,28 @@ class MyOrderOffersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Offer $offer)
     {
-        //
+        if($request->post('priority')){
+            $offer->priority=$request->post('priority');
+        }
+
+        if($request->post('accepted')){
+            $offer->accepted=$request->post('accepted');
+        }
+
+        if($request->post('rate_time')){
+            $offer->rate_time=$request->post('rate_time');
+        }
+
+        if($request->post('rate_quality')){
+            $offer->rate_quality=$request->post('rate_quality');
+        }
+
+        $offer->save();
+
+        return view('myorder.index');
+
     }
 
     /**
@@ -79,6 +101,6 @@ class MyOrderOffersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //you cannot destroy offer to your own order
     }
 }
