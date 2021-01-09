@@ -25,16 +25,16 @@
                 @csrf
 
                 <div class="my-3">
-                    <x-label for="title" :value="__('Job type')" />
+                    <x-label for="title" :value="__('Job type')" class="font-semibold" />
                     <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
                 </div>
                 <div class="my-3">
                     <x-label for="description" :value="__('Description')" />
-                    <textarea id=description" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"></textarea>
+                    <textarea id="description" name="description" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4"></textarea>
                 </div>
                 <div class="my-3">
                     <x-label for="payment" :value="__('Payment')" />
-                    <x-input id="payment" class="block mt-1 w-full" type="text" name="payment" :value="old('payment')" required autofocus />
+                    <x-input id="payment" class="block mt-1 w-full" type="number" name="payment" placeholder="e.g. 799,99" :value="old('payment')" required autofocus />
                 </div>
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Deadline')" />
