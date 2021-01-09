@@ -5,7 +5,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Jobs') }}
             </h2>
-            <x-link-button href="/dashboard" text="Create new..."></x-link-button>
+            <x-link-button href="{{ route('myorders.create') }}">Create new...</x-link-button>
         </div>
     </x-slot>
 
@@ -28,7 +28,7 @@
                     Deadline: {{ $order->deadline }}
                 </div>
                 <div class="flex-none w-30">
-                    <x-link-button href="{{ route('orders.offer.create', $order) }}" text="Apply"></x-link-button>
+                    <x-link-button href="{{ route('orders.offer.create', $order) }}">Apply</x-link-button>
                 </div>
             </div>
 

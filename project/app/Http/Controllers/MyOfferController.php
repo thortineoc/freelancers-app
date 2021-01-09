@@ -24,7 +24,6 @@ class MyOfferController extends Controller
     public function create()
     {
         echo "MyOfferController create";
-
     }
 
     /**

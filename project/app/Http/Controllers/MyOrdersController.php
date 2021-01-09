@@ -26,7 +26,7 @@ class MyOrdersController extends Controller
      */
     public function create()
     {
-        echo "MyOrdersController create";
+        return view('myorders.create');
 
     }
 
