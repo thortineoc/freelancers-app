@@ -42,7 +42,8 @@ class MyOrdersController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'payment' => 'required|numeric',
-            'deadline' => 'required|date'
+            'deadline' => 'required|date',
+            'description' => 'required'
         ]);
 
         $newOrder = new Order();
