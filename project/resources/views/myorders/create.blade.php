@@ -21,7 +21,7 @@
         @endif
 
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            <form class="m-3" method="post" action="/dashboard">
+            <form class="m-3" method="post" action="{{route('myorders.store')}}">
                 @csrf
 
                 <div class="my-3">

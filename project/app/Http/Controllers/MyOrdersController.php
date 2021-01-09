@@ -16,7 +16,9 @@ class MyOrdersController extends Controller
      */
     public function index()
     {
-        echo "MyOrdersController index";
+        $myOrders=Order::where('user_id', Auth::id())->get();
+
+        return view('myorders.index')->withOrders($myOrders);
     }
 
     /**
@@ -27,7 +29,6 @@ class MyOrdersController extends Controller
     public function create()
     {
         return view('myorders.create');
-
     }
 
     /**
@@ -38,7 +39,23 @@ class MyOrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            //'description'=>'requirted',
+            'payment' => 'required|numeric',
+            'deadline' => 'required|date'
+        ]);
+
+        $newOrder = new Order();
+        $newOrder->title = $request->post('title');
+        $newOrder->description = 'test';
+        //$newOrder->description=$request->post('description');
+        $newOrder->budget = $request->post('payment');
+        $newOrder->deadline = $request->post('deadline');
+        $newOrder->user_id = Auth::id();
+        $newOrder->save();
+
+        return redirect()->route('myorders.index');
     }
 
     /**
