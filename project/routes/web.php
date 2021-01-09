@@ -23,11 +23,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::resource('myorders', \App\Http\Controllers\MyOrdersController::Class);
-Route::resource('myorders.offers', \App\Http\Controllers\MyOrderOffersController::Class);
-Route::resource('myoffers', \App\Http\Controllers\AllMyOffersController::Class);
-Route::resource('orders', \App\Http\Controllers\OrdersController::Class);
-Route::resource('orders.offer', \App\Http\Controllers\MyOfferController::Class);
+Route::resource('myorders', \App\Http\Controllers\MyOrdersController::Class)->middleware('auth');
+Route::resource('myorders.offers', \App\Http\Controllers\MyOrderOffersController::Class)->middleware('auth');
+Route::resource('myoffers', \App\Http\Controllers\AllMyOffersController::Class)->middleware('auth');
+Route::resource('orders', \App\Http\Controllers\OrdersController::Class)->middleware('auth');
+Route::resource('orders.offer', \App\Http\Controllers\MyOfferController::Class)->middleware('auth');
 
 
 
