@@ -66,7 +66,8 @@ class MyOrdersController extends Controller
      */
     public function show($id)
     {
-        echo "MyOrdersController show";
+        $order=Order::find($id);
+        return view('myorders.show')->withOrder($order);
 
     }
 
@@ -78,7 +79,8 @@ class MyOrdersController extends Controller
      */
     public function edit($id)
     {
-        echo "MyOrdersController edit";
+        $order = Order::find($id);
+        return view('myorders.create')->withOrder($order);
     }
 
     /**
@@ -90,7 +92,22 @@ class MyOrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            //'description'=>'requirted',
+            'payment' => 'required|numeric',
+            'deadline' => 'required|date'
+        ]);
+
+        $newOrder = Order::find($id);
+        $newOrder->title = $request->post('title');
+        $newOrder->description = 'test';
+        //$newOrder->description=$request->post('description');
+        $newOrder->budget = $request->post('payment');
+        $newOrder->deadline = $request->post('deadline');
+        $newOrder->save();
+
+        return redirect()->route('myorders.index');
     }
 
     /**
@@ -101,6 +118,7 @@ class MyOrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Order::destroy($id);
+        return redirect()->route('myorders.index');
     }
 }
