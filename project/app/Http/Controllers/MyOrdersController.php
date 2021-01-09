@@ -99,7 +99,6 @@ class MyOrdersController extends Controller
         $newOrder = Order::find($id);
         $newOrder->title = $request->post('title');
         $newOrder->description = 'test';
-        //$newOrder->description=$request->post('description');
         $newOrder->budget = $request->post('payment');
         $newOrder->deadline = $request->post('deadline');
         $newOrder->save();
