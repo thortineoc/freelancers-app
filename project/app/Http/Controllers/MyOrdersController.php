@@ -17,7 +17,6 @@ class MyOrdersController extends Controller
     public function index()
     {
         $myOrders=Order::where('user_id', Auth::id())->get();
-
         return view('myorders.index')->withOrders($myOrders);
     }
 
@@ -39,15 +38,17 @@ class MyOrdersController extends Controller
      */
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'title' => 'required',
             'payment' => 'required|numeric',
-            'deadline' => 'required|date'
+            'deadline' => 'required|date',
+            'description' => 'required'
         ]);
 
         $newOrder = new Order();
         $newOrder->title = $request->post('title');
-        $newOrder->description = 'test';
+        $newOrder->description = $request->post('description');
         $newOrder->budget = $request->post('payment');
         $newOrder->deadline = $request->post('deadline');
         $newOrder->user_id = Auth::id();
@@ -66,7 +67,6 @@ class MyOrdersController extends Controller
     {
         $order=Order::find($id);
         return view('myorders.show')->withOrder($order);
-
     }
 
     /**
@@ -90,10 +90,12 @@ class MyOrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $validated = $request->validate([
             'title' => 'required',
             'payment' => 'required|numeric',
-            'deadline' => 'required|date'
+            'deadline' => 'required|date',
+            'description' => 'required'
         ]);
 
         $newOrder = Order::find($id);
