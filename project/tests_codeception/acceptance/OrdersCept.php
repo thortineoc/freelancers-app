@@ -1,8 +1,8 @@
 <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('browse and create orders');
-
-/*$I->amOnPage('/orders');
+/*
+$I->amOnPage('/orders');
 
 $I->seeCurrentUrlEquals('/login');
 
@@ -10,11 +10,13 @@ $I->fillField('email', 'john.doe@gmail.com');
 $I->fillField('password', 'secret');
 $I->click('Login');*/
 
+//--------use below part until middleware is added
 $I->amOnPage('/login');
 $I->fillField('email', 'john.doe@gmail.com');
 $I->fillField('password', 'secret');
 $I->click('Login');
 $I->amOnPage('/orders');
+//-------------------------------------------------------
 
 $I->seeCurrentUrlEquals('/orders');
 
