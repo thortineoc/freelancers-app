@@ -30,7 +30,7 @@
                 </div>
                 <div class="my-3">
                     <x-label for="description" :value="__('Description')" />
-                    <textarea id="description" name="description" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4"></textarea>
+                    <textarea id="description" name="description" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ old('description') }}</textarea>
                 </div>
                 <div class="my-3">
                     <x-label for="payment" :value="__('Payment')" />

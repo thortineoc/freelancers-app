@@ -13,10 +13,11 @@ class MyOrderOffersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Order $order)
+    public function index($id)
     {
-        $offers=Offer::where('order_id', $order->id)->get();
-        return view('myorderoffers.index')->withOffers($offers);
+        $offers=Offer::where('order_id', $id)->get();
+        $order=Order::find($id)->get();
+        return view('myorderoffers.index')->withOffers($offers)->withOrder($order[0]);
     }
 
     /**
