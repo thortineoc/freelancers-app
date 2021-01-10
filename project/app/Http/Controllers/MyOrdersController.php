@@ -54,7 +54,7 @@ class MyOrdersController extends Controller
         $newOrder->user_id = Auth::id();
         $newOrder->save();
 
-        //return redirect()->route('myorders.index');
+        return redirect()->route('myorders.index');
     }
 
     /**
@@ -67,7 +67,6 @@ class MyOrdersController extends Controller
     {
         $order=Order::find($id);
         return view('myorders.show')->withOrder($order);
-
     }
 
     /**
