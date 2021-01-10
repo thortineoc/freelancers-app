@@ -78,7 +78,7 @@ class MyOrdersController extends Controller
     public function edit($id)
     {
         $order = Order::find($id);
-        return view('myorders.create')->withOrder($order);
+        return view('myorders.edit')->withOrder($order);
     }
 
     /**
