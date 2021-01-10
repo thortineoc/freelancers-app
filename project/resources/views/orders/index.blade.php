@@ -27,8 +27,11 @@
                 <div class="mb-5">
                     Deadline: {{ $order->deadline }}
                 </div>
-                <div class="flex-none w-30">
-                    <x-link-button href="{{ route('orders.offer.create', $order) }}">Apply</x-link-button>
+                <div class="flex">
+                    <div class="m-w-50">
+                        <x-link-button href="{{ route('orders.offer.create', $order) }}">Apply</x-link-button>
+                    </div>
+
                 </div>
             </div>
 
