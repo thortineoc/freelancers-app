@@ -5,7 +5,7 @@ $I->wantTo('login with existing user');
 
 $I->amOnPage('/');
 
-$I->seeLink('Login', 'localhost:8888/login');
+$I->seeLink('Login', '/login');
 
 $I->click('Login');
 
@@ -21,9 +21,9 @@ $I->seeCurrentUrlEquals('/dashboard');
 $I->see('John Doe');
 
 
-$I->seeLink('My Orders', 'lovalhost:8888/myorders');
-$I->seeLink('My Offers', 'lovalhost:8888/myoffers');
-$I->seeLink('Orders', 'lovalhost:8888/orders');
-$I->seeLink('About Me', 'lovalhost:8888/aboutme');
+$I->seeLink('My Orders', '/myorders');
+$I->seeLink('My Offers', '/myoffers');
+$I->seeLink('Orders', '/orders');
+$I->seeLink('About Me', '/aboutme');
 
 

@@ -5,8 +5,12 @@ $I->wantTo('see Laravel links on homepage');
 
 $I->amOnPage('/');
 
-$I->seeInTitle('Laravel');
+//$I->seeInTitle('Laravel');  //company name xD
 
-$I->seeLink("Documentation", "https://laravel.com/docs");
-$I->seeLink("Laracasts", "https://laracasts.com");
-$I->seeLink("Forge", "https://forge.laravel.com");
+$I->seeLink("Login", "localhost:8888");
+$I->seeLink("Register", "https://laracasts.com");
+$I->seeLink("Orders", "https://forge.laravel.com");
+
+
+
+

@@ -4,7 +4,7 @@ $I->wantTo('register new user');
 
 $I->amOnPage('/');
 
-$I->seeLink('Register', 'localhost:8888/register');
+$I->seeLink('Register', '/register');
 $I->click('Register');
 
 $I->seeCurrentUrlEquals('/register');
@@ -26,9 +26,9 @@ $I->click('Register');
 
 $I->seeCurrentUrlEquals('/dashboard');
 $I->see('Jack Frost');
-$I->seeLink('My Orders', 'lovalhost:8888/myorders');
-$I->seeLink('My Offers', 'lovalhost:8888/myoffers');
-$I->seeLink('Orders', 'lovalhost:8888/orders');
-$I->seeLink('About Me', 'lovalhost:8888/aboutme');
+$I->seeLink('My Orders', '/myorders');
+$I->seeLink('My Offers', '/myoffers');
+$I->seeLink('Orders', '/orders');
+$I->seeLink('About Me', '/aboutme');
 
 $I->seeInDatabase('users', ['name' => 'Jack Frost', 'email' => 'jack.frost@gmail.com']);
