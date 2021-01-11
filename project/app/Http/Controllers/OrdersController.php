@@ -14,7 +14,6 @@ class OrdersController extends Controller
      */
     public function __invoke()
     {
-        // > is correct operator in this case
         $orders = Order::where('deadline', '>', Carbon::now())->get();
         return view('orders.index')->withOrders($orders);
     }
