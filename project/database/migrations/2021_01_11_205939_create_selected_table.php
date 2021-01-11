@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompletedTable extends Migration
+class CreateSelectedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCompletedTable extends Migration
      */
     public function up()
     {
-        Schema::create('completed', function (Blueprint $table) {
+        Schema::create('selected', function (Blueprint $table) {
             $table->id();
+            $table->boolean('finished')->default(false);
             $table->integer('rate_time');
             $table->integer('rate_quality');
             $table->foreignId('offer_id');
@@ -30,6 +31,6 @@ class CreateCompletedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('finished');
+        Schema::dropIfExists('selected');
     }
 }

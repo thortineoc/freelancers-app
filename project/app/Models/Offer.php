@@ -17,8 +17,8 @@ class Offer extends Model
         return $this->belongsTo(Order::class);
     }
 
-    public function completed(){
-        return $this->hasOne(Completed::class);
+    public function selected(){
+        return $this->hasOne(Selected::class);
     }
 
     public function accepted(){

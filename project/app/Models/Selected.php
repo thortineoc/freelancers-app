@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Completed extends Model
+class Selected extends Model
 {
     use HasFactory;
 
@@ -13,5 +13,5 @@ class Completed extends Model
         return $this->belongsTo(Offer::class);
     }
 
-    protected $table = 'completed';
+    protected $table = 'selected';
 }
