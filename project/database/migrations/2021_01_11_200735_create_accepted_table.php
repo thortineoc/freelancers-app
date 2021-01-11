@@ -15,8 +15,8 @@ class CreateAcceptedTable extends Migration
     {
         Schema::create('accepted', function (Blueprint $table) {
             $table->id();
-            $table->integer('priority')->nullable(false);
-            $table->foreignId('offer_id')->nullable(false);
+            $table->integer('priority');
+            $table->foreignId('offer_id');
             $table->foreign('offer_id')->references('id')->on('offers');
             $table->timestamps();
         });
