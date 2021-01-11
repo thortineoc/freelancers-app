@@ -16,4 +16,13 @@ class Offer extends Model
     public function order(){
         return $this->belongsTo(Order::class);
     }
+
+    public function completed(){
+        return $this->hasOne(Completed::class);
+    }
+
+    public function accepted(){
+        return $this->hasMany(Accepted::class);
+    }
+
 }

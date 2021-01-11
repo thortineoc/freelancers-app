@@ -37,5 +37,13 @@ class OrderSeeder extends Seeder
             'user_id' => 3,
             'deadline' => '2012-01-05 10:00'
         ]);
+
+        DB::table('orders')->insert([
+            'title' => 'new_order4_no_offer',
+            'description' => 'description4_no_offer',
+            'budget' => 200,
+            'user_id' => 3,
+            'deadline' => '2012-01-05 11:00'
+        ]);
     }
 }
