@@ -13,5 +13,9 @@ class Accepted extends Model
         return $this->belongsTo(Offer::class);
     }
 
+    public function selected(){
+        return $this->hasMany(Selected::class);
+    }
+
     protected $table = 'accepted';
 }

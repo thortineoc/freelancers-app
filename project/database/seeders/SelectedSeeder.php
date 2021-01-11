@@ -20,7 +20,7 @@ class SelectedSeeder extends Seeder
             'rejected' => false,
             'rate_time' => 1,
             'rate_quality' => 5,
-            'offer_id' => 1
+            'accepted_id' => 1
         ]);
     }
 }

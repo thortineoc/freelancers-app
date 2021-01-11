@@ -9,8 +9,8 @@ class Selected extends Model
 {
     use HasFactory;
 
-    public function offer(){
-        return $this->belongsTo(Offer::class);
+    public function accepted(){
+        return $this->belongsTo(Accepted::class);
     }
 
     protected $table = 'selected';
