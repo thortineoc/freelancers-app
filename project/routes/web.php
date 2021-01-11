@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AllMyOffersController;
+use App\Http\Controllers\MyOfferController;
+use App\Http\Controllers\MyOrderOffersController;
+use App\Http\Controllers\MyOrdersController;
+use App\Http\Controllers\OrdersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,11 +28,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::resource('myorders', \App\Http\Controllers\MyOrdersController::Class)->middleware('auth');
-Route::resource('myorders.offers', \App\Http\Controllers\MyOrderOffersController::Class)->middleware('auth');
-Route::resource('myoffers', \App\Http\Controllers\AllMyOffersController::Class)->middleware('auth');
-Route::resource('orders', \App\Http\Controllers\OrdersController::Class)->middleware('auth');
-Route::resource('orders.offer', \App\Http\Controllers\MyOfferController::Class)->middleware('auth');
+Route::resource('myorders', MyOrdersController::Class)->middleware('auth');
+Route::resource('myorders.offers', MyOrderOffersController::Class)->middleware('auth');
+Route::resource('myoffers', AllMyOffersController::Class)->middleware('auth');
+Route::get('orders', OrdersController::Class)->middleware('auth');
+Route::resource('orders.offer', MyOfferController::Class)->middleware('auth');
 
 
 
