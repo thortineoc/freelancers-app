@@ -19,8 +19,8 @@ class CreateSelectedTable extends Migration
             $table->boolean('rejected')->default(false);
             $table->integer('rate_time');
             $table->integer('rate_quality');
-            $table->foreignId('offer_id');
-            $table->foreign('offer_id')->references('id')->on('offers');
+            $table->foreignId('accepted_id');
+            $table->foreign('accepted_id')->references('id')->on('accepted');
             $table->timestamps();
         });
     }
