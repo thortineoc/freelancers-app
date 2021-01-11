@@ -16,6 +16,7 @@ class CreateSelectedTable extends Migration
         Schema::create('selected', function (Blueprint $table) {
             $table->id();
             $table->boolean('finished')->default(false);
+            $table->boolean('rejected')->default(false);
             $table->integer('rate_time');
             $table->integer('rate_quality');
             $table->foreignId('offer_id');
