@@ -9,7 +9,7 @@ class Offer extends Model
 {
     use HasFactory;
 
-    public function doer(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
