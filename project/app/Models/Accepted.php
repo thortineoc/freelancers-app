@@ -14,7 +14,7 @@ class Accepted extends Model
     }
 
     public function selected(){
-        return $this->hasMany(Selected::class);
+        return $this->hasOne(Selected::class);
     }
 
     protected $table = 'accepted';

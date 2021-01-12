@@ -35,7 +35,7 @@ class OfferSeeder extends Seeder
             'price'=>1000,
             'details' => 'details3',
             'user_id'=>1,
-            'order_id'=>2
+            'order_id'=>1
         ]);
 
         DB::table('offers')->insert([
@@ -43,6 +43,14 @@ class OfferSeeder extends Seeder
             'price'=>2000,
             'details' => 'details4',
             'user_id'=>3,
+            'order_id'=>1
+        ]);
+
+        DB::table('offers')->insert([
+            'deadline' => '2012-01-20 15:00',
+            'price'=>1000,
+            'details' => 'details5',
+            'user_id'=>1,
             'order_id'=>2
         ]);
 
