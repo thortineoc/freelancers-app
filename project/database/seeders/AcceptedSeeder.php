@@ -15,19 +15,22 @@ class AcceptedSeeder extends Seeder
     public function run()
     {
         DB::table('accepted')->insert([
-            'id' => 1,
-            'priority' => 1,
+            'priority' => 2,
             'offer_id'=>1
         ]);
         DB::table('accepted')->insert([
-            'id' => 2,
-            'priority' => 2,
+            'priority' => 1,
             'offer_id' => 2
         ]);
         DB::table('accepted')->insert([
-            'id' => 3,
             'priority' => 3,
             'offer_id' => 3
+        ]);
+
+
+        DB::table('accepted')->insert([
+            'priority' => 1,
+            'offer_id' => 5
         ]);
     }
 }
