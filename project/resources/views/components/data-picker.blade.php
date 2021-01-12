@@ -1,5 +1,10 @@
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+@props([
+    'name',
+    'id'
+])
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 
     <style>
         [x-cloak] {
@@ -21,7 +26,9 @@
                             @click="showDatepicker = !showDatepicker"
                             @keydown.escape="showDatepicker = false"
                             class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-gray-600 font-medium"
-                            placeholder="Select date">
+                            name="{{ $name }}"
+                            id="{{ $id }}"
+                        >
 
                         <div class="absolute top-0 right-0 px-3 py-2">
                             <svg class="h-6 w-6 text-gray-400"  fill="none" viewBox="0 0 24 24" stroke="currentColor">

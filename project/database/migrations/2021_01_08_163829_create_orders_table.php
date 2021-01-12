@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('description');
-            $table->timestamp('deadline');
+            $table->string('deadline');
             $table->double('budget');
             $table->foreignId('user_id');
         });

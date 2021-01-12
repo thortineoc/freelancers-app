@@ -38,7 +38,7 @@
                 </div>
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Deadline')" />
-                    <x-data-picker />
+                    <x-data-picker name="deadline" id="deadline" />
                 </div>
 
                 <div class="m-500">
