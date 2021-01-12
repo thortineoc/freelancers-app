@@ -9,7 +9,7 @@ class Offer extends Model
 {
     use HasFactory;
 
-    public function doer(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
@@ -17,12 +17,8 @@ class Offer extends Model
         return $this->belongsTo(Order::class);
     }
 
-    public function selected(){
-        return $this->hasOne(Selected::class);
-    }
-
     public function accepted(){
-        return $this->hasMany(Accepted::class);
+        return $this->hasOne(Accepted::class);
     }
 
 }

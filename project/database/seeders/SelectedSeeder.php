@@ -15,12 +15,27 @@ class SelectedSeeder extends Seeder
     public function run()
     {
         DB::table('selected')->insert([
-            'id' => 1,
             'finished' => false,
             'rejected' => false,
-            'rate_time' => 1,
-            'rate_quality' => 5,
+            'rate_time' => 0,
+            'rate_quality' => 0,
             'accepted_id' => 1
+        ]);
+
+        DB::table('selected')->insert([
+            'finished' => false,
+            'rejected' => true,
+            'rate_time' => 4,
+            'rate_quality' => 3,
+            'accepted_id' => 2
+        ]);
+
+        DB::table('selected')->insert([
+            'finished' => false,
+            'rejected' => false,
+            'rate_time' => 4,
+            'rate_quality' => 3,
+            'accepted_id' => 4
         ]);
     }
 }
