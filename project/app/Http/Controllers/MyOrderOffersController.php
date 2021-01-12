@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
+use App\Models\Selected;
 use Illuminate\Http\Request;
 
 class MyOrderOffersController extends Controller
@@ -16,8 +18,21 @@ class MyOrderOffersController extends Controller
     public function index($id)
     {
         $order=Order::whereId($id)->first();
-        $offers=Offer::with('user', 'order')->where('order_id', $id)->get();
-        return view('myorderoffers.index')->withOffers($offers);
+        $offers=Offer::with('user', 'accepted')->where('order_id', $id)->get();
+
+
+        $selected = null;
+        foreach ($offers as $offer) {
+            $accepted = Accepted::with('selected')->where('offer_id', $offer->id)->first();
+
+            if(isset($accepted->selected)){
+                if(!$accepted->selected->rejected){
+                    $selected=$offer;
+                }
+            }
+        }
+
+       return view('myorderoffers.index')->withOffers($offers)->withOrder($order)->withSelected($selected);
     }
 
     /**
