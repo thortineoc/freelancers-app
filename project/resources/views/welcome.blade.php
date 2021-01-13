@@ -50,14 +50,15 @@
                                     @endauth
                         <div class="p-6">
                             <div class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold ">Dashboard</div>
+                                <div class="ml-4 text-lg leading-7 font-semibold">Dashboard</div>
                             </div>
                             <div class="ml-2">
-                                <div class=" text-gray-600 dark:text-gray-400 text-center">
+                                <div class="text-gray-600 dark:text-gray-400 text-center">
                                 some informatiion <br>
                                     -inf 1 <br>
                                     -inf 2 <br>
                                     -inf 3 <br>
+                                    <!-- tutaj będą jakieś informacje jak wygląda to u nas -->
                                 </div>
                             </div>
                         </div>
@@ -66,6 +67,31 @@
                     </div>
                 </div>
 
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        @auth
+                            <a href="{{ url('/orders') }}">
+                                @else
+                                    <a href="{{ route('login') }}">
+                                        @endauth
+                                        <div class="p-6">
+                                            <div class="flex items-center">
+                                                <div class="ml-4 text-lg leading-7 font-semibold">Orders</div>
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="text-gray-600 dark:text-gray-400 text-center">
+                                                    some informatiion about orders<br>
+                                                    -inf 1 <br>
+                                                    -inf 2 <br>
+                                                    -inf 3 <br>
+                                                    <!-- tutaj będą jakieś informacje co zawierają oferty itp -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                            </a>
+                    </div>
+                </div>
 
             </div>
         </div>
