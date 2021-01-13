@@ -35,13 +35,13 @@ $I->click('Create');
 $I->seeCurrentUrlEquals('/myorders/create');
 $I->see('Creating a new order');
 $I->seeInField('title', 'Grafik');
-$I->fillField('payment', '100$');
+$I->fillField('payment', 'Ethernal gratitude');
 $I->click('Create');
 
 $I->seeCurrentUrlEquals('/myorders/create');
 $I->see('Creating a new order');
 $I->seeInField('title', 'DevOps');
-$I->seeInField('payment', '100$');
+$I->seeInField('payment', '10');
 $I->fillField('description', 'Needed: someone who can make photo editor with QTCreator.');
 $I->fillField('deadline', '2021-02-02 00:00');
 $I->click('Create');
