@@ -1,9 +1,9 @@
 <?php
-//will be uncommented when homepage added
-/*
 $I = new AcceptanceTester($scenario);
 $I->wantTo('see proper homepage');
 
+//will be uncommented when homepage added
+/*
 $I->amOnPage('/');
 
 //$I->seeInTitle('Laravel');  //company name xD
