@@ -5,5 +5,12 @@ $I->wantTo('see Laravel links on homepage');
 
 $I->amOnPage('/');
 
-$I->seeInTitle('Main Page');
-// należy dodać testy akceptacyjne do main pagea
+$I->seeInTitle('Order Directory For Freelancers');
+if(!$I->see('Login')) {
+    $I->see("Dashboard");
+    $I->see("Orders");
+}
+else
+    $I->see('Dashboard');
+/*$I->seeLink("Dashboard", "url('/dashboard')");
+$I->seeLink("Orders", "url('/orders')");*/

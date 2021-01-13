@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Main Page</title>
+        <title>Order Directory For Freelancers</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="grid grid-cols-1 ">
                         @auth
                         <a href="{{ url('/dashboard') }}">
                             @else
@@ -53,11 +53,10 @@
                                 <div class="ml-4 text-lg leading-7 font-semibold">Dashboard</div>
                             </div>
                             <div class="ml-2">
-                                <div class="text-gray-600 dark:text-gray-400 text-center">
-                                some informatiion <br>
-                                    -inf 1 <br>
-                                    -inf 2 <br>
-                                    -inf 3 <br>
+                                <div class="text-gray-600 dark:text-gray-400 sm:text-left">
+                                    -Zleceniodawca składa ofertę na wykonanie pewnego zadania, przy którym może określić maksymalną cenę, którą jest w stanie zapłacić za jego wykonanie oraz maksymalny czas jego wykonania
+                                    <br>
+                                    -Użytkownicy serwisu mogą składać oferty na wykonanie danego zadania (określając cenę, czas wykonania i inne szczegóły swojej oferty)
                                     <!-- tutaj będą jakieś informacje jak wygląda to u nas -->
                                 </div>
                             </div>
@@ -68,7 +67,7 @@
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="grid grid-cols-1">
                         @auth
                             <a href="{{ url('/orders') }}">
                                 @else
@@ -79,12 +78,31 @@
                                                 <div class="ml-4 text-lg leading-7 font-semibold">Orders</div>
                                             </div>
                                             <div class="ml-2">
-                                                <div class="text-gray-600 dark:text-gray-400 text-center">
-                                                    some informatiion about orders<br>
-                                                    -inf 1 <br>
-                                                    -inf 2 <br>
-                                                    -inf 3 <br>
-                                                    <!-- tutaj będą jakieś informacje co zawierają oferty itp -->
+                                                <div class="text-gray-600 dark:text-gray-400 sm:text-left">
+                                                    -Zleceniodawca przegląda następnie listę wszystkich ofert i wybiera osoby najbardziej mu odpowiadające (np.: dwie/trzy osoby/oferty w wybranej kolejności)
+                                                    <br>
+                                                    -Podczas przeglądania ofert można wykonać porównanie poprzednich ocen wystawionych dla użytkowników składających oferty: dostępne kryteria to np.: czas wykonania zlecenia lub jakość.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                            </a>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 ">
+                                        <div class="p-6">
+                                            <div class="flex items-center">
+                                                <div class="ml-4 text-lg leading-7 font-semibold">About Us</div>
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="text-gray-600 dark:text-gray-400 sm:text-left">
+                                                    Po wybraniu wykonawców pierwsza osoba z listy otrzymuje powiadomienie, w którym musi potwierdzić, że wykona dane zlecenie
+                                                    <br>
+                                                    W przypadku, kiedy pierwsza osoba nie potwierdzi chęci wykonania zadania powiadomienie zostaje wysłane do kolejnej osoby z listy
+                                                    <br>
+                                                    Po zakończeniu zlecenia wykonawca jest oceniany przez zleceniodawcę
                                                 </div>
                                             </div>
                                         </div>
