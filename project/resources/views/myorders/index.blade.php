@@ -43,7 +43,6 @@
                         </form>
 
                         <form method="post" action="{{route('myorders.destroy', $order)}}">
-
                             @csrf
                             @method("DELETE")
 
