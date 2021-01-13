@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
 
 Route::get('/dashboard', function () {
@@ -30,8 +30,8 @@ Route::get('/dashboard', function () {
 
 Route::resource('myorders', MyOrdersController::Class)->middleware('auth');
 Route::resource('myorders.offers', MyOrderOffersController::Class)->middleware('auth');
-Route::get('myoffers', AllMyOffersController::Class)->middleware('auth');
-Route::get('orders', OrdersController::Class)->middleware('auth');
+Route::get('myoffers', AllMyOffersController::Class)->middleware('auth')->name('myoffers');
+Route::get('orders', OrdersController::Class)->middleware('auth')->name('orders');;
 Route::resource('orders.offer', MyOfferController::Class)->middleware('auth');
 
 require __DIR__.'/auth.php';
