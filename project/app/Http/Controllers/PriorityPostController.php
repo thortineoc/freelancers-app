@@ -33,9 +33,9 @@ class PriorityPostController extends Controller
                 $newAccepted->priority = $d[1];
                 $newAccepted->save();
             }
-
         }
 
+        return redirect('myorders');
     }
 }
 
