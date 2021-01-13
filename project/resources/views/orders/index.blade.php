@@ -37,7 +37,7 @@
 
         @empty
 
-            <p>No job offer is currenty avaliable.</p>
+            <p>No job offer is currently available.</p>
 
         @endforelse
 

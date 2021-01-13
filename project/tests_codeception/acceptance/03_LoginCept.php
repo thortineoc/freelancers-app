@@ -3,7 +3,11 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('login with existing user');
 
-$I->amOnPage('/dashboard');
+$I->amOnPage('/');
+
+$I->seeLink('Login', '/login');
+
+$I->click('Login');
 
 $I->seeCurrentUrlEquals('/login');
 
@@ -15,4 +19,10 @@ $I->click('Login');
 $I->seeCurrentUrlEquals('/dashboard');
 
 $I->see('John Doe');
-$I->see("You're logged in!");
+
+
+$I->seeLink('My Orders', '/myorders');
+$I->seeLink('My Offers', '/myoffers');
+$I->seeLink('Orders', '/orders');
+
+
