@@ -1,7 +1,8 @@
 <?php
-
+//will be uncommented when homepage added
+/*
 $I = new AcceptanceTester($scenario);
-$I->wantTo('see Laravel links on homepage');
+$I->wantTo('see proper homepage');
 
 $I->amOnPage('/');
 
@@ -10,7 +11,7 @@ $I->amOnPage('/');
 $I->seeLink("Login", "/login");
 $I->seeLink("Register", "/register");
 $I->seeLink("Orders", "/orders");
-
+*/
 
 
 
