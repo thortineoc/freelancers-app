@@ -54,9 +54,9 @@
                             </div>
                             <div class="ml-2">
                                 <div class="text-gray-600 dark:text-gray-400 sm:text-left">
-                                    -Zleceniodawca składa ofertę na wykonanie pewnego zadania, przy którym może określić maksymalną cenę, którą jest w stanie zapłacić za jego wykonanie oraz maksymalny czas jego wykonania
+                                    -Zleceniodawca składa ofertę na wykonanie pewnego zadania,<br> przy którym może określić maksymalną cenę, którą jest w stanie<br> zapłacić za jego wykonanie oraz maksymalny czas jego wykonania
                                     <br>
-                                    -Użytkownicy serwisu mogą składać oferty na wykonanie danego zadania (określając cenę, czas wykonania i inne szczegóły swojej oferty)
+                                    -Użytkownicy serwisu mogą składać oferty na wykonanie danego<br> zadania (określając cenę, czas wykonania i inne szczegóły swojej oferty)
                                     <!-- tutaj będą jakieś informacje jak wygląda to u nas -->
                                 </div>
                             </div>
@@ -79,9 +79,9 @@
                                             </div>
                                             <div class="ml-2">
                                                 <div class="text-gray-600 dark:text-gray-400 sm:text-left">
-                                                    -Zleceniodawca przegląda następnie listę wszystkich ofert i wybiera osoby najbardziej mu odpowiadające (np.: dwie/trzy osoby/oferty w wybranej kolejności)
+                                                    -Zleceniodawca przegląda następnie listę wszystkich ofert<br> i wybiera osoby najbardziej mu odpowiadające <br>(np.: dwie/trzy osoby/oferty w wybranej kolejności)
                                                     <br>
-                                                    -Podczas przeglądania ofert można wykonać porównanie poprzednich ocen wystawionych dla użytkowników składających oferty: dostępne kryteria to np.: czas wykonania zlecenia lub jakość.
+                                                    -Podczas przeglądania ofert można wykonać porównanie <br>poprzednich ocen wystawionych dla użytkowników składających <br>oferty: dostępne kryteria to np.: czas wykonania zlecenia lub jakość.
                                                 </div>
                                             </div>
                                         </div>
@@ -98,9 +98,9 @@
                                             </div>
                                             <div class="ml-2">
                                                 <div class="text-gray-600 dark:text-gray-400 sm:text-left">
-                                                    Po wybraniu wykonawców pierwsza osoba z listy otrzymuje powiadomienie, w którym musi potwierdzić, że wykona dane zlecenie
+                                                    Po wybraniu wykonawców pierwsza osoba z listy otrzymuje powiadomienie,<br> w którym musi potwierdzić, że wykona dane zlecenie
                                                     <br>
-                                                    W przypadku, kiedy pierwsza osoba nie potwierdzi chęci wykonania zadania powiadomienie zostaje wysłane do kolejnej osoby z listy
+                                                    W przypadku, kiedy pierwsza osoba nie potwierdzi chęci wykonania <br>zadania powiadomienie zostaje wysłane do kolejnej osoby z listy
                                                     <br>
                                                     Po zakończeniu zlecenia wykonawca jest oceniany przez zleceniodawcę
                                                 </div>
