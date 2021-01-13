@@ -10,14 +10,6 @@ $I->fillField('email', 'john.doe@gmail.com');
 $I->fillField('password', 'secret');
 $I->click('Login');
 
-//--------use below part until middleware is added
-/*$I->amOnPage('/login');
-$I->fillField('email', 'john.doe@gmail.com');
-$I->fillField('password', 'secret');
-$I->click('Login');
-$I->amOnPage('/orders');*/
-//-------------------------------------------------------
-
 $I->seeCurrentUrlEquals('/orders');
 
 $I->see('No job offer is currently available');
@@ -50,3 +42,5 @@ $I->click('Create');
 $I->seeInDatabase('orders', ['title' => 'DevOps', 'budget' => '10', 'deadline' => '2021-02-02 00:00']);
 
 
+$I->amOnPage('/myorders');
+$I->see('DevOps');
