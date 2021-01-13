@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Offer;
+use Illuminate\Support\Facades\Auth;
 
 class AllMyOffersController extends Controller
 {
@@ -13,7 +15,8 @@ class AllMyOffersController extends Controller
      */
     public function index()
     {
-        echo "AllMyOffersController index";
+        $myOffers=Offer::where('user_id', Auth::id())->get();
+        return view('allmyoffers.index')->withOffers($myOffers);
     }
 
     /**

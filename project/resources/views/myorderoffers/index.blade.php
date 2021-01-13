@@ -10,6 +10,8 @@
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
 
+        <p class="my-10">You can choose up to 3 applications. The order in which you select is going to indicate the priorities.</p>
+
         @forelse ($offers as $offer)
 
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -29,7 +31,6 @@
                 <div class="flex justify-end">
                     <input type="checkbox" name="{{ $offer->id }}" id="{{ $offer->id }}" class="focus:outline-none form-checkbox h-10 w-10 text-green-600">
                 </div>
-                {{ $offer->id }}
             </div>
 
         @empty
@@ -38,29 +39,41 @@
 
         @endforelse
 
+        <form id="sampleForm" name="sampleForm" method="post" action="" >
+            <input type="hidden" name="total" id="total" value="">
+            <a href="#" onclick="setValue();">Click to submit</a>
+        </form>
+
     </div>
     </div>
 
     <script>
         let elementList = document.querySelectorAll('input[type=checkbox]');
         let ids = [...elementList].map(item => item.id);
-        //console.log(elementList[0]);
-        //let array = Array.from(elementList);
-        console.log(elementList);
         let map = new Map();
         ids.forEach(element => map.set(element, 0))
-        console.log(map);
 
         let priority = 1;
         elementList.forEach(element => element.addEventListener('change', function() {
             if(this.checked) {
                 map.set(this.id, priority);
+                console.log(this.id, 'has priority', priority);
                 priority++;
-
             } else {
-                console.log("unchecked")
+                map.set(this.id, 0);
+                priority--;
             }
         }))
+
+        function mapToJson(m) {
+            return JSON.stringify([...m]);
+        }
+
+        function setValue() {
+            document.sampleForm.total.value = mapToJson(map);
+            console.log(document.sampleForm.total.value);
+            document.forms["sampleForm"].submit();
+        }
 
     </script>
 
