@@ -119,4 +119,5 @@ class MyOrderOffersController extends Controller
     {
         //you cannot destroy offer to your own order
     }
+
 }

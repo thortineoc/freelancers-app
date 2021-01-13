@@ -30,7 +30,7 @@
 
                 <div class="flex justify-between text-gray-500">
                     <div class="m-2 ml-0 underline hover:text-gray-700">
-                        <a href="\dashboard">See offers...</a>
+                        <a href="{{route('myorders.offers.index', $order)}}">See offers...</a>
                     </div>
                     <div class="flex">
 
@@ -43,7 +43,6 @@
                         </form>
 
                         <form method="post" action="{{route('myorders.destroy', $order)}}">
-
                             @csrf
                             @method("DELETE")
 

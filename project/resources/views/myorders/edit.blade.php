@@ -20,7 +20,7 @@
             </div>
         @endif
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md sm:rounded-lg">
             <form class="m-3" method="post" action="{{ route('myorders.update', $order) }}">
                 @csrf
                 @method("PUT")
@@ -39,7 +39,7 @@
                 </div>
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Deadline')" />
-                    <x-input id="deadline" class="block mt-1 w-full" type="text" name="deadline" :value="$order->deadline" required autofocus />
+                    <x-data-picker name="deadline" id="deadline" />
                 </div>
 
                 <x-my-button>Update</x-my-button>
