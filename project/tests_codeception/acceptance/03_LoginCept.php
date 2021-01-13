@@ -24,6 +24,5 @@ $I->see('John Doe');
 $I->seeLink('My Orders', '/myorders');
 $I->seeLink('My Offers', '/myoffers');
 $I->seeLink('Orders', '/orders');
-$I->seeLink('About Me', '/aboutme');
 
 
