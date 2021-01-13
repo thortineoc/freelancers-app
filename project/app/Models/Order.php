@@ -13,7 +13,7 @@ class Order extends Model
         return $this->hasMany(Offer::class);
     }
 
-    public function principall(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

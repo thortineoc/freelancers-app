@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(OrderSeeder::class);
         $this->call(OfferSeeder::class);
+        $this->call(AcceptedSeeder::class);
+        $this->call(SelectedSeeder::class);
     }
 }
