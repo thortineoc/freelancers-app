@@ -29,6 +29,5 @@ $I->see('Jack Frost');
 $I->seeLink('My Orders', '/myorders');
 $I->seeLink('My Offers', '/myoffers');
 $I->seeLink('Orders', '/orders');
-$I->seeLink('About Me', '/aboutme');
 
 $I->seeInDatabase('users', ['name' => 'Jack Frost', 'email' => 'jack.frost@gmail.com']);
