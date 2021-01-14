@@ -16,9 +16,11 @@ class MyOfferController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Order $order)
     {
-
+        $offers = Offer::where('order_id', $order->id)->with('accepted')->get();
+        echo $offers;
+        // idk view
     }
 
     /**
