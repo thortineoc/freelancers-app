@@ -11,11 +11,44 @@
                 </div>
 
                 <!-- Navigation Links -->
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('/')" :active="request()->routeIs('/')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+                </div>
+
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('orders')" :active="request()->routeIs('orders')">
+                        {{ __('Orders') }}
+                    </x-nav-link>
+                </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('myorders.index')" :active="request()->routeIs('myorders')">
+                        {{ __('My Orders') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('myoffers')" :active="request()->routeIs('myoffers')">
+                        {{ __('My Offers') }}
+                    </x-nav-link>
+                </div>
+
+
+
+
+
+
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -35,11 +68,20 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+
+                        <x-dropdown-link :href="route('myoffers')">
+                            {{ __('My Offers') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('myorders.index')">
+                            {{ __('My Orders') }}
+                        </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
+
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Logout') }}
                             </x-dropdown-link>
@@ -62,11 +104,24 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('/')" :active="request()->routeIs('/')">
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('orders')" :active="request()->routeIs('orders')">
+                {{ __('Orders') }}
+            </x-responsive-nav-link>
+        </div>
+
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -85,6 +140,12 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
+                <x-responsive-nav-link :href="route('myoffers')">
+                    {{ __('My Offers') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('myorders.index')">
+                    {{ __('My Orders') }}
+                </x-responsive-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
