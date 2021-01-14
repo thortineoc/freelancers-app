@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Offer;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,7 +67,7 @@ class MyOfferController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order, Offer $offer)
     {
         echo "MyOfferController show";
 
@@ -75,10 +76,11 @@ class MyOfferController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @param Offer $offer
+     * @return void
      */
-    public function edit($id)
+    public function edit(Order $order, Offer $offer)
     {
         echo "MyOfferController edit";
 
@@ -87,11 +89,12 @@ class MyOfferController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Order $order
+     * @param Offer $offer
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order, Offer $offer)
     {
 
     }
@@ -99,10 +102,11 @@ class MyOfferController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @param Offer $offer
+     * @return void
      */
-    public function destroy($id)
+    public function destroy(Order $order, Offer $offer)
     {
         //
     }
