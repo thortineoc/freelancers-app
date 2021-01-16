@@ -10,7 +10,7 @@
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
 
-        <p class="my-10">You can choose up to 3 applications. The order in which you select is going to indicate the priorities.</p>
+        <p class="my-10">You can choose a few applications. The order in which you select is going to indicate the priorities.</p>
 
         @forelse ($offers as $offer)
 
@@ -29,6 +29,7 @@
                     Deadline: {{ $offer->deadline }}
                 </div>
                 <div class="flex justify-end">
+                    <span class="m-2 justify-center text-gray-500" id="{{ $offer->id }}_priority"></span>
                     <input type="checkbox" name="{{ $offer->id }}" id="{{ $offer->id }}" class="focus:outline-none form-checkbox h-10 w-10 text-green-600">
                 </div>
             </div>
@@ -39,12 +40,16 @@
 
         @endforelse
 
+        @isset($offers)
+
         <form id="sampleForm" name="sampleForm" method="post" action="" >
             <input type="hidden" name="total" id="total" value="">
-            <a href="#" onclick="setValue();">Click to submit</a>
+            <x-my-button onclick="setValue();" class="my-10">Sumbit</x-my-button>
+            <!--<a href="#" onclick="setValue();">Click to submit</a>-->
         </form>
 
-    </div>
+        @endisset
+
     </div>
 
     <script>
@@ -57,10 +62,13 @@
         elementList.forEach(element => element.addEventListener('change', function() {
             if(this.checked) {
                 map.set(this.id, priority);
-                console.log(this.id, 'has priority', priority);
+                let spanId = this.id + "_priority";
+                document.getElementById(spanId).innerHTML = "priority " + priority;
                 priority++;
             } else {
                 map.set(this.id, 0);
+                let spanId = this.id + "_priority";
+                document.getElementById(spanId).innerHTML = "";
                 priority--;
             }
         }))
@@ -71,7 +79,6 @@
 
         function setValue() {
             document.sampleForm.total.value = mapToJson(map);
-            console.log(document.sampleForm.total.value);
             document.forms["sampleForm"].submit();
         }
 
