@@ -50,7 +50,7 @@ class OrderSeeder extends Seeder
             'title' => 'new_order4_future_date',
             'description' => 'description4_future_date',
             'budget' => 20000,
-            'user_id' => 1,
+            'user_id' => 2,
             'deadline' => '2022-01-05 11:00'
         ]);
     }
