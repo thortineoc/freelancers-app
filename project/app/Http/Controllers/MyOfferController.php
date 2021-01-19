@@ -108,7 +108,7 @@ class MyOfferController extends Controller
         $offer->details =  $request->post('details');
         $offer->order_id = $order->id;
         $offer->user_id = Auth::id();
-        $offer->update();
+        $offer->save();
 
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
