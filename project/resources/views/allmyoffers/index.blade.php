@@ -15,7 +15,7 @@
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
                 <h1 class="font-bold text-2xl">
-                    Order title
+                    {{ $order->title }}
                 </h1>
                 <div class="my-5">
                     {{ $offer->details}}
@@ -26,12 +26,8 @@
                 <div class="mb-5">
                     Deadline: {{ $order->deadline }}
                 </div>
-                <div>
-                    <a href="\dashboard">Link to order?</a>
-                </div>
 
                 </div>
-            </div>
 
         @empty
 
@@ -41,5 +37,4 @@
 
     </div>
 
-    </div>
 </x-app-layout>

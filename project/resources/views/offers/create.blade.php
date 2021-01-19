@@ -37,7 +37,7 @@
                     <x-input id="price" class="block mt-1 w-full" type="number" name="price" placeholder="e.g. 799,99" :value="old('price')" required autofocus />
                 </div>
                 <div class="mb-8 mt-3">
-                    <x-label for="deadline" :value="__('Deadline')" />
+                    <x-label for="deadline" :value="__('Time needed')" />
                     <x-data-picker name="deadline" id="deadline" value="old('deadline')"/>
                 </div>
 
