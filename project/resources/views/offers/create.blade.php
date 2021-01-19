@@ -29,7 +29,7 @@
                 @csrf
 
                 <div class="my-3">
-                    <x-label for="details" :value="__('Details')" />
+                    <x-label for="details" :value="__('Describe your offer')" />
                     <textarea id="details" name="details" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ old('details') }}</textarea>
                 </div>
                 <div class="my-3">
