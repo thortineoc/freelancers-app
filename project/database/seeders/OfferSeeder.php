@@ -15,7 +15,7 @@ class OfferSeeder extends Seeder
     public function run()
     {
         DB::table('offers')->insert([
-            'deadline' => '2012-01-20 1-:00',
+            'deadline' => '2012-01-20 10:00',
             'price'=>200,
             'details' => 'details1',
             'user_id'=>2,
