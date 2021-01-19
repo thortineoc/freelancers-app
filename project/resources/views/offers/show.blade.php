@@ -40,6 +40,13 @@
                     <x-my-button>Edit</x-my-button>
                 </div>
             </form>
+            <form method="post" action="{{route('orders.offer.destroy', [$order, $offer])}}">
+                @method('DELETE')
+                @csrf
+                <div class="m-500">
+                    <x-my-button>Delete</x-my-button>
+                </div>
+            </form>
         </div>
 
     </div>

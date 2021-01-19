@@ -124,9 +124,10 @@ class MyOfferController extends Controller
     {
         if( $order->id != $offer->order_id || $offer->user_id != Auth::id() )
         {
+            echo "fail";
             return redirect()->route('orders');
         }
         $offer->delete();
-        return redirect()->route('orders.offers.index', $book->id);
+        return redirect()->route('orders', $order);
     }
 }
