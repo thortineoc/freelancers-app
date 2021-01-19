@@ -12,34 +12,18 @@ use Illuminate\Support\Facades\Auth;
 class MyOfferController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index(Order $order)
-    {
-        $offers = Offer::where('order_id', $order->id)->with('accepted.selected')->get();
-        echo "redundant";
-        // idk view
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
+     * @param Order $order
      * @return Response
      */
     public function create(Order $order)
     {
-//        echo "MyOfferController create";
-//        echo "<br/>";
-//        echo $order;
-//        echo "<br/>";
         if ($order->user_id == Auth::id())
         {
             // set notification string and redirect to order.index?
             echo "You cant create ofer for your own order";
         }
-        // idk view name
         return view('offers.create')->withOrder($order);
     }
 
@@ -66,9 +50,7 @@ class MyOfferController extends Controller
         $newOffer->user_id = Auth::id();
         $newOffer->save();
 
-        echo $newOffer;
-        // idk view name
-        //return redirect()->route('myorders.index');
+        return redirect()->route('orders.offer.show', [$order, $newOffer]);
     }
 
     /**
@@ -80,17 +62,12 @@ class MyOfferController extends Controller
      */
     public function show(Order $order, Offer $offer)
     {
-        echo "MyOfferController show";
-        echo "<br/>Order:<br/>";
-        echo $order;
-        echo "<br/>Offer:<br/>";
-        echo $offer;
         if( $offer->user_id != Auth::id())
         {
             echo "<br>UNAUTHORIZED<br/>";
             return redirect()->route('orders');
         }
-
+        return view('offers.show')->withOrder($order)->withOffer($offer);
     }
 
     /**
@@ -107,9 +84,7 @@ class MyOfferController extends Controller
             echo "UNAUTHORIZED";
             return redirect()->route('orders');
         }
-        echo $order;
-        // idk view name
-        //return view('offers.edit')->withOffer($offer);
+        return view('offers.edit')->withOrder($order)->withOffer($offer);
     }
 
     /**
@@ -118,11 +93,24 @@ class MyOfferController extends Controller
      * @param Request $request
      * @param Order $order
      * @param Offer $offer
-     * @return void
+     * @return RedirectResponse
      */
     public function update(Request $request, Order $order, Offer $offer)
     {
+        $validated = $request->validate([
+            'price' => 'required|numeric',
+            'deadline' => 'required|date',
+            'details' => 'required'
+        ]);
 
+        $offer->price =  $request->post('price');
+        $offer->deadline =  $request->post('deadline');
+        $offer->details =  $request->post('details');
+        $offer->order_id = $order->id;
+        $offer->user_id = Auth::id();
+        $offer->update();
+
+        return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 
     /**
