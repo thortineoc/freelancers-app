@@ -18,8 +18,8 @@ class MyOfferController extends Controller
      */
     public function index(Order $order)
     {
-        $offers = Offer::where('order_id', $order->id)->with('accepted')->get();
-        echo $offers;
+        $offers = Offer::where('order_id', $order->id)->with('accepted.selected')->get();
+        echo "redundant";
         // idk view
     }
 
@@ -30,17 +30,17 @@ class MyOfferController extends Controller
      */
     public function create(Order $order)
     {
-        echo "MyOfferController create";
-        echo "<br/>";
-        echo $order;
-        echo "<br/>";
+//        echo "MyOfferController create";
+//        echo "<br/>";
+//        echo $order;
+//        echo "<br/>";
         if ($order->user_id == Auth::id())
         {
             // set notification string and redirect to order.index?
             echo "You cant create ofer for your own order";
         }
         // idk view name
-        //return view('myorderoffers.index')->withOrder($order);
+        return view('offers.create')->withOrder($order);
     }
 
     /**
