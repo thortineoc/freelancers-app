@@ -21,8 +21,7 @@ class MyOfferController extends Controller
     {
         if ($order->user_id == Auth::id())
         {
-            // set notification string and redirect to order.index?
-            echo "You cant create ofer for your own order";
+            abort(403, 'Unauthorized action.');
         }
         return view('offers.create')->withOrder($order);
     }
@@ -64,8 +63,7 @@ class MyOfferController extends Controller
     {
         if( $offer->user_id != Auth::id())
         {
-            echo "<br>UNAUTHORIZED<br/>";
-            return redirect()->route('orders');
+            abort(403, 'Unauthorized action.');
         }
         return view('offers.show')->withOrder($order)->withOffer($offer);
     }
@@ -81,8 +79,7 @@ class MyOfferController extends Controller
     {
         if( $offer->user_id != Auth::id() )
         {
-            echo "UNAUTHORIZED";
-            return redirect()->route('orders');
+            abort(403, 'Unauthorized action.');
         }
         return view('offers.edit')->withOrder($order)->withOffer($offer);
     }
@@ -124,8 +121,7 @@ class MyOfferController extends Controller
     {
         if( $order->id != $offer->order_id || $offer->user_id != Auth::id() )
         {
-            echo "fail";
-            return redirect()->route('orders');
+            abort(403, 'Unauthorized action.');
         }
         $offer->delete();
         return redirect()->route('orders', $order);
