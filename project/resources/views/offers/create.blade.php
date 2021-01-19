@@ -20,11 +20,11 @@
             </div>
         @endif
 
-        <div class="w-full sm:max-w-md mt-6 mb-0 px-6 py-4 font-bold text-white text-lg items-start bg-green-900 shadow-md sm:rounded-lg">
-            <h2>{{$order->title}}</h2>
-        </div>
-
         <div class="w-full sm:max-w-md mt-0 px-6 py-4 bg-white shadow-md sm:rounded-lg">
+
+            <h2 class="font-bold text-2xl m-3">
+                {{ $order->title }}
+            </h2>
             <form class="m-3" method="post" action="{{ route('orders.offer.store', $order) }}">
                 @csrf
 

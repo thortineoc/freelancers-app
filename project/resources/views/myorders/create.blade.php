@@ -21,16 +21,20 @@
         @endif
 
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md sm:rounded-lg">
-            <form class="m-3" method="post" action="{{route('orders.offer.store', $order)}}">
+            <form class="m-3" method="post" action="{{route('myorders.store')}}">
                 @csrf
 
                 <div class="my-3">
-                    <x-label for="price" :value="__('price')" class="font-semibold" />
-                    <x-input id="price" class="block mt-1 w-full" type="text" name="price" :value="old('price')" required autofocus />
+                    <x-label for="title" :value="__('Job type')" class="font-semibold" />
+                    <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
                 </div>
                 <div class="my-3">
-                    <x-label for="details" :value="__('details')" />
-                    <textarea id="details" name="details" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ old('details') }}</textarea>
+                    <x-label for="description" :value="__('Description')" />
+                    <textarea id="description" name="description" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ old('description') }}</textarea>
+                </div>
+                <div class="my-3">
+                    <x-label for="payment" :value="__('Payment')" />
+                    <x-input id="payment" class="block mt-1 w-full" type="number" name="payment" placeholder="e.g. 799,99" :value="old('payment')" required autofocus />
                 </div>
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Deadline')" />

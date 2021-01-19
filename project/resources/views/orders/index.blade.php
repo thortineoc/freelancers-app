@@ -15,9 +15,9 @@
 
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
-                <h1 class="font-bold text-2xl">
+                <h2 class="font-bold text-2xl">
                     {{ $order->title }}
-                </h1>
+                </h2>
                 <div class="my-5">
                     {{ $order->description }}
                 </div>
