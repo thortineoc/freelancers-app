@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Offer;
 use App\Models\Order;
+use App\Models\Selected;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -129,6 +130,14 @@ class MyOfferController extends Controller
 
     public function accept_offer(Order $order, Offer $offer)
     {
-        echo "test";
+        if ($offer->user_id != Auth::id())
+        {
+            abort(403, 'Unauthorized action.');
+        }
+        $selected = new Selected();
+        $selected->finished = false;
+        $selected->rejected = !$request->post('accepted');
+        $selected->save();
+        return redirect()->route('orders');
     }
 }
