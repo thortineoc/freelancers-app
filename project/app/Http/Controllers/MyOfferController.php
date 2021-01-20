@@ -124,6 +124,11 @@ class MyOfferController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $offer->delete();
-        return redirect()->route('orders', $order);
+        return redirect()->route('orders');
+    }
+
+    public function accept_offer(Order $order, Offer $offer)
+    {
+        echo "test";
     }
 }
