@@ -35,8 +35,8 @@
                     <textarea id="details" name="details" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ $offer->details }}</textarea>
                 </div>
                 <div class="my-3">
-                    <x-label for="price" :value="__('price')" class="font-semibold" />
-                    <x-input id="price" class="block mt-1 w-full" type="text" name="price" :value="$offer->price" required autofocus />
+                    <x-label for="price" :value="__('Price (in $)')" class="font-semibold" />
+                    <x-input id="price" class="block mt-1 w-full" type="text" name="price" min="0.00" step="0.01" placeholder="e.g. 799.99" :value="$offer->price" required autofocus />
                 </div>
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Time needed')" />
