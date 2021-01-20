@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Order;
+use App\Models\Offer;
 use Illuminate\Support\Facades\Auth;
 
 class AllMyOffersController extends Controller
