@@ -85,6 +85,11 @@ class MyOfferController extends Controller
         {
             abort(403, 'Unauthorized action.');
         }
+        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        if( $offer->accepted )
+        {
+            abort(403, 'Cant change already selected offer');
+        }
         return view('offers.edit')->withOrder($order)->withOffer($offer);
     }
 
@@ -138,12 +143,17 @@ class MyOfferController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        if ( $offer->accepted->selected )
+        {
+            abort(403, 'Cannot revert acceptation.');
+        }
         $selected = new Selected();
+        $selected->finished = false;
         $selected->rejected = !boolval($request->post('accept'));
         $selected->rate_time = -1;
         $selected->rate_quality = -1;
         $selected->accepted_id = $offer->accepted->id;
         $selected->save();
-        return redirect()->route('orders');
+        return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 }
