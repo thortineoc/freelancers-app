@@ -20,9 +20,9 @@
                     {{ $offer->user->name }}
                 </h2>
                 <div class="text-gray-600 flex-start">
-                    <button id="toogle_{{$offer->id}}" onclick="myFunction({{$offer->id}}); getRankStars({{$offer->user->avg_rate_quality}}, {{$offer->id}}, 'quality_'); " class="focus:outline-none">Show user ratings</button>
+                    <button id="toogle_{{$offer->id}}" onclick="myFunction({{$offer->id}}); getRankStars({{$offer->user->avg_rate_quality}}, {{$offer->id}}, 'quality_'); getRankStars({{$offer->user->avg_rate_time}}, {{$offer->id}}, 'time_');" class="focus:outline-none p-5 pl-0">Show user ratings</button>
                 </div>
-                <div id="ratings_{{$offer->id}}" class="bg-gray-200 m-0 p-5 hidden">
+                <div id="ratings_{{$offer->id}}" class="bg-gray-200 m-0 p-5" style="display: none">
 
                     <div id="quality p-3">
                         <div>
@@ -37,7 +37,10 @@
                         <div>
                             Satisfaction with time:
                         </div>
-                        {{ $offer->user->avg_rate_time }}
+                        <div class="m-3 flex">
+                            <div id="time_{{$offer->id}}" class="flex flex-row"></div>
+                            <span class="text-gray-600 mx-6 justify-center">Exact rate: {{ $offer->user->avg_rate_time }}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="my-5">
