@@ -16,34 +16,16 @@
         body {font-family: Verdana, sans-serif;}
         .mySlides1 {display: none;}
         .mySlides2 {display: none;}
+        .myText1 {display: none;}
+        .myText2 {display: none;}
         img {vertical-align: middle;}
-        .image {vertical-align: middle;}
-        /* Slideshow container */
+
         .slideshow-container {
             max-width: 1000px;
             position: relative;
             margin: auto;
         }
 
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
 
         /* The dots/bullets/indicators */
         .dot {
@@ -100,7 +82,6 @@
                 <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                 @endif
@@ -122,9 +103,29 @@
             </div>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-               some text
+                <div class="myText1 fade">
+                    <ul>
+                        <li> World's biggest company! </li>
+                        <li> Top service reviews! </li>
+                        <li> For free! </li>
+                    </ul>
+                </div>
+                <div class="myText1 fade">
+                    <ul>
+                        <li> Hire naive students! </li>
+                        <li> Pay as much as you want! </li>
+                        <li> Give them a rating! </li>
+                    </ul>
+                </div>
+                <div class="myText1 fade">
+                    <ul>
+                        <li> 100% satisfied customers! </li>
+                        <li> The largest number of orders! </li>
+                        <li> Simplest application handling! </li>
+                    </ul>
+                </div>
             </div>
-            
+
             <div class="slideshow-container">
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     @for($i=1; $i<4; $i++)
@@ -137,7 +138,27 @@
 
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                some text
+                <div class="myText2 fade">
+                    <ul>
+                        <li> World's biggest company! </li>
+                        <li> Top service reviews! </li>
+                        <li> For free! </li>
+                    </ul>
+                </div>
+                <div class="myText2 fade">
+                    <ul>
+                        <li> Hire naive students! </li>
+                        <li> Pay as much as you want! </li>
+                        <li> Give them a rating! </li>
+                    </ul>
+                </div>
+                <div class="myText2 fade">
+                    <ul>
+                        <li> 100% satisfied customers! </li>
+                        <li> The largest number of orders! </li>
+                        <li> Simplest application handling! </li>
+                    </ul>
+                </div>
             </div>
 
 
@@ -162,11 +183,15 @@
         var i;
         var slide_one = document.getElementsByClassName("mySlides1");
         var slide_two = document.getElementsByClassName("mySlides2");
+        var text_one = document.getElementsByClassName("myText1");
+        var text_two = document.getElementsByClassName("myText2");
 
         var dots = document.getElementsByClassName("dot");
         for (i = 0; i < slide_one.length; i++) {
             slide_one[i].style.display = "none";
             slide_two[i].style.display = "none";
+            text_one[i].style.display = "none";
+            text_two[i].style.display = "none";
         }
         slideIndex++;
         if (slideIndex > slide_one.length) {slideIndex = 1}
@@ -175,8 +200,10 @@
         }
         slide_one[slideIndex-1].style.display = "block";
         slide_two[slideIndex-1].style.display = "block";
+        text_one[slideIndex-1].style.display = "block";
+        text_two[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 5000); // Change image every 2 seconds
+        setTimeout(showSlides, 4000); // Change image every 2 seconds
     }
 </script>
 
