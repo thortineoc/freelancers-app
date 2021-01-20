@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
 use App\Models\Selected;
@@ -66,6 +67,8 @@ class MyOfferController extends Controller
         {
             abort(403, 'Unauthorized action.');
         }
+        $offer = $offer::where('id', $offer->id)->with('accepted.selected')->first();
+        echo $offer;
         return view('offers.show')->withOrder($order)->withOffer($offer);
     }
 
@@ -128,15 +131,18 @@ class MyOfferController extends Controller
         return redirect()->route('orders');
     }
 
-    public function accept_offer(Order $order, Offer $offer)
+    public function accept_offer(Order $order, Offer $offer, Request $request)
     {
         if ($offer->user_id != Auth::id())
         {
             abort(403, 'Unauthorized action.');
         }
+        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
         $selected = new Selected();
-        $selected->finished = false;
-        $selected->rejected = !$request->post('accepted');
+        $selected->rejected = !boolval($request->post('accept'));
+        $selected->rate_time = -1;
+        $selected->rate_quality = -1;
+        $selected->accepted_id = $offer->accepted->id;
         $selected->save();
         return redirect()->route('orders');
     }
