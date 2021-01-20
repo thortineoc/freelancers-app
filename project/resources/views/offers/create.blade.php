@@ -3,7 +3,7 @@
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Creating a new order') }}
+                {{ __('Creating a new offer ') }}
             </h2>
         </div>
     </x-slot>
@@ -20,21 +20,25 @@
             </div>
         @endif
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md sm:rounded-lg">
-            <form class="m-3" method="post" action="{{route('orders.offer.store', $order)}}">
+        <div class="w-full sm:max-w-md mt-0 px-6 py-4 bg-white shadow-md sm:rounded-lg">
+
+            <h2 class="font-bold text-2xl m-3">
+                {{ $order->title }}
+            </h2>
+            <form class="m-3" method="post" action="{{ route('orders.offer.store', $order) }}">
                 @csrf
 
                 <div class="my-3">
-                    <x-label for="price" :value="__('price')" class="font-semibold" />
-                    <x-input id="price" class="block mt-1 w-full" type="text" name="price" :value="old('price')" required autofocus />
-                </div>
-                <div class="my-3">
-                    <x-label for="details" :value="__('details')" />
+                    <x-label for="details" :value="__('Describe your offer')" />
                     <textarea id="details" name="details" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ old('details') }}</textarea>
                 </div>
+                <div class="my-3">
+                    <x-label for="price" :value="__('Price')" />
+                    <x-input id="price" class="block mt-1 w-full" type="number" name="price" placeholder="e.g. 799,99" :value="old('price')" required autofocus />
+                </div>
                 <div class="mb-8 mt-3">
-                    <x-label for="deadline" :value="__('Deadline')" />
-                    <x-data-picker name="deadline" id="deadline" />
+                    <x-label for="deadline" :value="__('Time needed')" />
+                    <x-data-picker name="deadline" id="deadline" value="old('deadline')"/>
                 </div>
 
                 <div class="m-500">
