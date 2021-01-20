@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->double('rate_time_sum')->default(0);
             $table->double('rate_quality_sum')->default(0);
-            $table->double('number_of_rates')->nullable();
+            $table->integer('number_of_rates')->nullable();
             $table->double('avg_rate_time')->storedAs('rate_time_sum / number_of_rates')->nullable();
             $table->double('avg_rate_quality')->storedAs('rate_quality_sum / number_of_rates')->nullable();
 

@@ -19,11 +19,21 @@
                 <h2 class="font-bold text-2">
                     {{ $offer->user->name }}
                 </h2>
-                <div id="ratings">
+                <div class="text-gray-600 flex-start">
+                    <button id="toogle" onclick="myFunction()" class="focus:outline-none">Show user ratings</button>
+                </div>
+                <div id="ratings" class="bg-gray-200 m-0 p-5">
+
                     <div id="quality">
+                        <div>
+                            Quality of work:
+                        </div>
                         {{ $offer->user->avg_rate_quality }}
                     </div>
                     <div id="time">
+                        <div>
+                            Satisfaction with time:
+                        </div>
                         {{ $offer->user->avg_rate_time }}
                     </div>
                 </div>
@@ -88,6 +98,21 @@
             document.forms["sampleForm"].submit();
         }
 
+    </script>
+
+
+    <script>
+        function myFunction() {
+            const x = document.getElementById("ratings");
+            const button = document.getElementById("toogle");
+            if(x.style.display === "none") {
+                x.style.display = "block";
+                button.innerHTML = "Hide";
+            } else {
+                x.style.display = "none";
+                button.innerHTML = "Show user ratings";
+            }
+        }
     </script>
 
 </x-app-layout>
