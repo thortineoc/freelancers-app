@@ -46,7 +46,6 @@
             @csrf <!-- {{ csrf_field() }} -->
             <input type="hidden" name="total" id="total" value="">
             <x-my-button onclick="setValue();" class="my-10">Sumbit</x-my-button>
-            <!--<a href="#" onclick="setValue();">Click to submit</a>-->
         </form>
 
         @endif
@@ -54,10 +53,8 @@
     </div>
 
     <script>
-        let elementList = document.querySelectorAll('input[type=checkbox]');
-        let ids = [...elementList].map(item => item.id);
-        let map = new Map();
-        ids.forEach(element => map.set(element, 0))
+        const elementList = document.querySelectorAll('input[type=checkbox]');
+        const map = new Map();
 
         let priority = 1;
         elementList.forEach(element => element.addEventListener('change', function() {
@@ -67,7 +64,7 @@
                 document.getElementById(spanId).innerHTML = "priority " + priority;
                 priority++;
             } else {
-                map.set(this.id, 0);
+                map.delete(this.id);
                 let spanId = this.id + "_priority";
                 document.getElementById(spanId).innerHTML = "";
                 priority--;

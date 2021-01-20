@@ -36,6 +36,7 @@
                     <x-label for="payment" :value="__('Payment')" />
                     <x-input id="payment" class="block mt-1 w-full" type="number" name="payment" placeholder="e.g. 799,99" :value="old('payment')" required autofocus />
                 </div>
+
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Deadline')" />
                     <x-data-picker name="deadline" id="deadline" />
