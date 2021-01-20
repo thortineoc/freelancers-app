@@ -20,9 +20,9 @@
                     {{ $offer->user->name }}
                 </h2>
                 <div class="text-gray-600 flex-start">
-                    <button id="toogle_{{$offer->id}}" onclick="myFunction({{$offer->id}});" class="focus:outline-none">Show user ratings</button>
+                    <button id="toogle_{{$offer->id}}" onclick="myFunction({{$offer->id}}); getRankStars({{$offer->user->avg_rate_quality}}, {{$offer->id}}, 'quality_'); " class="focus:outline-none">Show user ratings</button>
                 </div>
-                <div id="ratings_{{$offer->id}}" class="bg-gray-200 m-0 p-5">
+                <div id="ratings_{{$offer->id}}" class="bg-gray-200 m-0 p-5 hidden">
 
                     <div id="quality p-3">
                         <div>
@@ -119,9 +119,9 @@
     </script>
 
     <script>
-        const r1 = document.getElementById("res1");
 
-        function getRankStars(rank, id){
+        function getRankStars(rank, id, field) {
+            const r1 = document.getElementById(field + id);
             const wStars = Math.floor(rank);
             let output="";
             for(let i=1; i<=5; i++) {
@@ -132,7 +132,7 @@
 
                 }
             }
-            res1.innerHTML = output;
+            r1.innerHTML = output;
         }
     </script>
 
