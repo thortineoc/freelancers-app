@@ -68,7 +68,6 @@ class MyOfferController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $offer = $offer::where('id', $offer->id)->with('accepted.selected')->first();
-        echo $offer;
         return view('offers.show')->withOrder($order)->withOffer($offer);
     }
 
