@@ -33,8 +33,8 @@
                     <textarea id="description" name="description" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{ old('description') }}</textarea>
                 </div>
                 <div class="my-3">
-                    <x-label for="payment" :value="__('Payment')" />
-                    <x-input id="payment" class="block mt-1 w-full" type="number" name="payment" placeholder="e.g. 799,99" :value="old('payment')" required autofocus />
+                    <x-label for="payment" :value="__('Payment (in $)')" />
+                    <x-input id="payment" class="block mt-1 w-full" type="number" min="0.00" step="0.01" name="payment" placeholder="e.g. 799.99" :value="old('payment')" required autofocus />
                 </div>
 
                 <div class="mb-8 mt-3">
