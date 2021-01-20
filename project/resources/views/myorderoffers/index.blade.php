@@ -19,6 +19,14 @@
                 <h2 class="font-bold text-2">
                     {{ $offer->user->name }}
                 </h2>
+                <div id="ratings">
+                    <div id="quality">
+                        {{ $offer->user->avg_rate_quality }}
+                    </div>
+                    <div id="time">
+                        {{ $offer->user->avg_rate_time }}
+                    </div>
+                </div>
                 <div class="my-5">
                     {{ $offer->details }}
                 </div>

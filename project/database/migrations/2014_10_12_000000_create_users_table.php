@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('rate_time_sum')->default(0);
-            $table->integer('rate_quality_sum')->default(0);
-            $table->integer('number_of_rates')->nullable();
+            $table->double('rate_time_sum')->default(0);
+            $table->double('rate_quality_sum')->default(0);
+            $table->double('number_of_rates')->nullable();
             $table->double('avg_rate_time')->storedAs('rate_time_sum / number_of_rates')->nullable();
             $table->double('avg_rate_quality')->storedAs('rate_quality_sum / number_of_rates')->nullable();
 
