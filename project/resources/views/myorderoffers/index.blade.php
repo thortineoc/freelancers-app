@@ -20,17 +20,18 @@
                     {{ $offer->user->name }}
                 </h2>
                 <div class="text-gray-600 flex-start">
-                    <button id="toogle" onclick="myFunction(); getRankStars({{$offer->user->avg_rate_quality}})" class="focus:outline-none">Show user ratings</button>
+                    <button id="toogle_{{$offer->id}}" onclick="myFunction({{$offer->id}});" class="focus:outline-none">Show user ratings</button>
                 </div>
-                <div id="ratings" class="bg-gray-200 m-0 p-5">
+                <div id="ratings_{{$offer->id}}" class="bg-gray-200 m-0 p-5">
 
-                    <div id="quality">
+                    <div id="quality p-3">
                         <div>
                             Quality of work:
                         </div>
-                        <div id="res1" class="flex flex-row">
+                        <div class="m-3 flex">
+                            <div id="quality_{{$offer->id}}" class="flex flex-row"></div>
+                            <span class="text-gray-600 mx-6 justify-center">Exact rate: {{ $offer->user->avg_rate_quality }}</span>
                         </div>
-                        {{ $offer->user->avg_rate_quality }}
                     </div>
                     <div id="time">
                         <div>
@@ -104,9 +105,9 @@
 
 
     <script>
-        function myFunction() {
-            const x = document.getElementById("ratings");
-            const button = document.getElementById("toogle");
+        function myFunction(id) {
+            const x = document.getElementById("ratings_" + id);
+            const button = document.getElementById("toogle_" + id);
             if(x.style.display === "none") {
                 x.style.display = "block";
                 button.innerHTML = "Hide";
@@ -120,18 +121,12 @@
     <script>
         const r1 = document.getElementById("res1");
 
-        function getRankStars(rank){
+        function getRankStars(rank, id){
             const wStars = Math.floor(rank);
-            const halfStars = (wStars < rank);
             let output="";
             for(let i=1; i<=5; i++) {
                 if(i <= wStars){
                     output += "<svg class=\"mx-1 w-4 h-4 fill-current text-yellow-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z\"/></svg>"
-                    /*
-                }else if( i==wStars+1 && halfStars==true ){
-                    output+="<i class='fas fa-star-half-alt' style='color:#fbcc05'></i>";
-*/
-                    //Otherwise, display a gray empty star:
                 } else {
                     output += "<svg class=\"mx-1 w-4 h-4 fill-current text-gray-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z\"/></svg>"
 
