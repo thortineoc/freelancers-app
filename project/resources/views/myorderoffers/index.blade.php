@@ -19,6 +19,10 @@
                 <h2 class="font-bold text-2">
                     {{ $offer->user->name }}
                 </h2>
+
+
+                @if($offer->user->number_of_rates)
+
                 <div class="text-gray-600 flex-start">
                     <button id="toogle_{{$offer->id}}" onclick="myFunction({{$offer->id}}); getRankStars({{$offer->user->avg_rate_quality}}, {{$offer->id}}, 'quality_'); getRankStars({{$offer->user->avg_rate_time}}, {{$offer->id}}, 'time_');" class="focus:outline-none p-5 pl-0">Show user ratings</button>
                 </div>
@@ -43,6 +47,15 @@
                         </div>
                     </div>
                 </div>
+
+                @else
+
+                    <div class="text-gray-600 flex-start my-5">
+                        <p>This user has no rating yet.</p>
+                    </div>
+
+                @endif
+
                 <div class="my-5">
                     {{ $offer->details }}
                 </div>

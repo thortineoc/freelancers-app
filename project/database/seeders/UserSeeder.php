@@ -18,9 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'John Doe',
             'email' => 'john.doe@gmail.com',
             'password' => bcrypt('secret'),
-            'rate_time_sum' => 5,
-            'rate_quality_sum' => 4,
-            'number_of_rates' => 1
+
 
         ]);
 
@@ -37,9 +35,7 @@ class UserSeeder extends Seeder
             'name' => 'Joe Doe',
             'email' => 'joe.doe@gmail.com',
             'password' => bcrypt('secret'),
-            'rate_time_sum' => 4.1,
-            'rate_quality_sum' => 4.32,
-            'number_of_rates' => 1
+
         ]);
     }
 }
