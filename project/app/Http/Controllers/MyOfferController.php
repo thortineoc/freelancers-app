@@ -39,7 +39,7 @@ class MyOfferController extends Controller
     {
         $validated = $request->validate([
             'price' => 'required|numeric',
-            'deadline' => 'required|date',
+            'deadline' => 'required|date|after:today',
             'details' => 'required'
         ]);
 
@@ -104,7 +104,7 @@ class MyOfferController extends Controller
     {
         $validated = $request->validate([
             'price' => 'required|numeric',
-            'deadline' => 'required|date',
+            'deadline' => 'required|date|after:today',
             'details' => 'required'
         ]);
 
