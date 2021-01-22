@@ -121,14 +121,14 @@
 
 <body>
 
-<div class="flex justify-center pt-8 bg-gray-100  sm:pt-0">
+<div class="flex justify-center  bg-gray-100 top-0 " >
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 </div>
 
 
 <div class="relative flex items-top justify-center mx-auto bg-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        <div class=" fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
                 <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
             @else
@@ -155,21 +155,21 @@
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                 <div class="myText1 fade">
-                    <ul>
-                        <li> World's biggest company! </li>
-                        <li> Top service reviews! </li>
-                        <li> For free! </li>
+                    <ul class="bg-white">
+                        <li class="bg-white"> World's biggest company! </li>
+                        <li class="bg-white"> Top service reviews! </li>
+                        <li class="bg-white"> For free! </li>
                     </ul>
                 </div>
                 <div class="myText1 fade">
-                    <ul>
-                        <li> Hire naive students! </li>
-                        <li> Pay as much as you want! </li>
-                        <li> Give them a rating! </li>
+                    <ul class="bg-white">
+                        <li class="bg-white"> Hire naive students! </li>
+                        <li class="bg-white"> Pay as much as you want! </li>
+                        <li class="bg-white"> Give them a rating! </li>
                     </ul>
                 </div>
                 <div class="myText1 fade">
-                    <ul>
+                    <ul class="bg-white">
                         <li> 100% satisfied customers! </li>
                         <li> The largest number of orders! </li>
                         <li> Simplest application handling! </li>
@@ -188,26 +188,26 @@
             </div>
 
 
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="myText2 fade">
-                    <ul>
-                        <li> World's biggest company! </li>
-                        <li> Top service reviews! </li>
-                        <li> For free! </li>
+            <div class="mt-8 bg-white  overflow-hidden shadow sm:rounded-lg">
+                <div class="myText2 fade bg-white">
+                    <ul class="bg-white">
+                        <li class="bg-white"> World's biggest company! </li>
+                        <li class="bg-white"> Top service reviews! </li>
+                        <li class="bg-white"> For free! </li>
                     </ul>
                 </div>
-                <div class="myText2 fade">
-                    <ul>
-                        <li> Hire naive students! </li>
-                        <li> Pay as much as you want! </li>
-                        <li> Give them a rating! </li>
+                <div class="myText2 fade bg-white">
+                    <ul class="bg-white">
+                        <li class="bg-white"> Hire naive students! </li>
+                        <li class="bg-white"> Pay as much as you want! </li>
+                        <li class="bg-white"> Give them a rating! </li>
                     </ul>
                 </div>
-                <div class="myText2 fade">
-                    <ul>
-                        <li> 100% satisfied customers! </li>
-                        <li> The largest number of orders! </li>
-                        <li> Simplest application handling! </li>
+                <div class="myText2 fade bg-white">
+                    <ul class="bg-white">
+                        <li class="bg-white"> 100% satisfied customers! </li>
+                        <li class="bg-white"> The largest number of orders! </li>
+                        <li class="bg-white"> Simplest application handling! </li>
                     </ul>
                 </div>
             </div>
@@ -231,7 +231,6 @@
             <li>View map</li>
         </ul>
     </div>
-
 
 <script>
     var slideIndex = 0;
