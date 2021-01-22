@@ -13,6 +13,7 @@
     </style>
 
     <style>
+        html{ scroll-behavior: smooth;}
         * {box-sizing: border-box; background-color: #f7fafc;}
         body {font-family: Verdana, sans-serif;}
         .mySlides1 {display: none;}
@@ -27,8 +28,6 @@
             margin: auto;
         }
 
-
-        /* The dots/bullets/indicators */
         .dot {
             height: 15px;
             width: 15px;
@@ -68,15 +67,14 @@
 
         .cont {
             width: 50%;
-            margin: 100px auto;
+            border-bottom: 100px;
         }
         .progressbar {
             counter-reset: step;
-
         }
         .progressbar li {
             list-style-type: none;
-            width: 25%;
+            width: 15%;
             float: left;
             font-size: 12px;
             position: relative;
@@ -107,12 +105,26 @@
             top: 15px;
             left: -50%;
             z-index: -1;
-
         }
         .progressbar li:first-child:after {
             content: none;
         }
 
+        .text {
+            font-size: 28px;
+            position: relative;
+            font-weight: bold;
+            color: dimgrey;
+        }
+        .small-text{
+            font-size: 18px;
+            max-width: 400px;
+            font-weight: normal;
+        }
+        .mediumtext{
+            font-size: 20px;
+            font-weight: normal;
+        }
     </style>
 
 </head>
@@ -121,10 +133,25 @@
 
 <body>
 
-<div class="flex justify-center  bg-gray-100 top-0 " >
+<div class="flex justify-center  top-0 " >
     <img src="{{asset('images/logo4.png')}}" alt="logo">
+
 </div>
 
+<h2 class="flex justify-center text-gray-600 font-semibold " style="font-size: 48px;">How it works?</h2>
+
+<div class="flex justify-center  bg-gray-100 ">
+<div  class="cont">
+    <ul class="progressbar ">
+        <li>Register</li>
+        <li>Create offer</li>
+        <li>Choose deadline</li>
+        <li>Choose max price</li>
+        <li>Select contractor </li>
+        <li>Rate</li>
+    </ul>
+</div>
+</div>
 
 <div class="relative flex items-top justify-center mx-auto bg-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
@@ -142,7 +169,7 @@
 
 
     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg bg-gray-100">
-        <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="grid  md:grid-cols-2">
             <div class="slideshow-container">
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg  ">
                     @for($i=1; $i<4; $i++)
@@ -153,26 +180,24 @@
                 </div>
             </div>
 
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="myText1 fade">
-                    <ul class="bg-white">
-                        <li class="bg-white"> World's biggest company! </li>
-                        <li class="bg-white"> Top service reviews! </li>
-                        <li class="bg-white"> For free! </li>
+            <div class="mt-8 bg-white  overflow-hidden text text-center shadow sm:rounded-lg">
+                Why We?
+                <div class="myText1 fade  bg-white">
+                    <ul class="bg-white small-text ">
+                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                        Our director of engineering will work with you to understand your goals, technical needs, and team dynamics.
                     </ul>
                 </div>
-                <div class="myText1 fade">
-                    <ul class="bg-white">
-                        <li class="bg-white"> Hire naive students! </li>
-                        <li class="bg-white"> Pay as much as you want! </li>
-                        <li class="bg-white"> Give them a rating! </li>
+                <div class="myText1 fade   bg-white">
+                    <ul class="bg-white small-text ">
+                        <a class="mediumtext">Work With Hand-Selected Talent</a>
+                        Within days, You will find the right developer for your project. Average time to match is under 24 hours.
                     </ul>
                 </div>
-                <div class="myText1 fade">
-                    <ul class="bg-white">
-                        <li> 100% satisfied customers! </li>
-                        <li> The largest number of orders! </li>
-                        <li> Simplest application handling! </li>
+                <div class="myText1 fade   bg-white">
+                    <ul class="bg-white small-text ">
+                        <a class="mediumtext">The Right Fit, Guaranteed</a>
+                        Work with your new developer for a trial period (pay only if satisfied), ensuring they're the right fit before starting the engagement.
                     </ul>
                 </div>
             </div>
@@ -188,26 +213,24 @@
             </div>
 
 
-            <div class="mt-8 bg-white  overflow-hidden shadow sm:rounded-lg">
-                <div class="myText2 fade bg-white">
-                    <ul class="bg-white">
-                        <li class="bg-white"> World's biggest company! </li>
-                        <li class="bg-white"> Top service reviews! </li>
-                        <li class="bg-white"> For free! </li>
+            <div class="mt-8 bg-white  overflow-hidden text text-center shadow sm:rounded-lg">
+                Why We?
+                <div class="myText2 fade   bg-white">
+                    <ul class="bg-white small-text ">
+                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                        A Toptal director of engineering will work with you to understand your goals, technical needs, and team dynamics.
                     </ul>
                 </div>
-                <div class="myText2 fade bg-white">
-                    <ul class="bg-white">
-                        <li class="bg-white"> Hire naive students! </li>
-                        <li class="bg-white"> Pay as much as you want! </li>
-                        <li class="bg-white"> Give them a rating! </li>
+                <div class="myText2 fade   bg-white">
+                    <ul class="bg-white small-text ">
+                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                        A Toptal director of engineering will work with you to understand your goals, technical needs, and team dynamics.
                     </ul>
                 </div>
-                <div class="myText2 fade bg-white">
-                    <ul class="bg-white">
-                        <li class="bg-white"> 100% satisfied customers! </li>
-                        <li class="bg-white"> The largest number of orders! </li>
-                        <li class="bg-white"> Simplest application handling! </li>
+                <div class="myText2 fade   bg-white">
+                    <ul class="bg-white small-text ">
+                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                        A Toptal director of engineering will work with you to understand your goals, technical needs, and team dynamics.
                     </ul>
                 </div>
             </div>
@@ -222,15 +245,7 @@
     <span class="dot"></span>
 </div>
 
-    <h1 class="h-5 text-gray-600 text-center">How it works?</h1>
-    <div class="cont">
-        <ul class="progressbar">
-            <li>login</li>
-            <li>choose interest</li>
-            <li>add friends</li>
-            <li>View map</li>
-        </ul>
-    </div>
+
 
 <script>
     var slideIndex = 0;
