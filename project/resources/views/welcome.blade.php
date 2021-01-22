@@ -7,6 +7,7 @@
     <title>Order Directory For Freelancers</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -65,7 +66,6 @@
         }
 
 
-
         .flex {
             display: flex
         }
@@ -75,8 +75,6 @@
         }
 
 
-
-
         .justify-center {
             justify-content: center
         }
@@ -84,7 +82,6 @@
         .font-semibold {
             font-weight: 600
         }
-
 
 
         .text-sm {
@@ -107,7 +104,6 @@
         }
 
 
-
         .overflow-hidden {
             overflow: hidden
         }
@@ -125,7 +121,6 @@
             padding-left: 1.5rem;
             padding-right: 1.5rem
         }
-
 
 
         .fixed {
@@ -215,7 +210,6 @@
             .sm\:items-center {
                 align-items: center
             }
-
 
 
             .sm\:px-6 {
@@ -327,8 +321,7 @@
         .active {
             background-color: #717171;
         }
-
-        /* Fading animation */
+        
         .fade {
             -webkit-animation-name: fade;
             -webkit-animation-duration: 1.5s;
@@ -354,7 +347,6 @@
             }
         }
 
-        /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
             .text {
                 font-size: 11px
@@ -412,10 +404,44 @@
 
         }
 
-        .text-green-600{
+        .text-green-600 {
             color: darkgreen;
             text-shadow: yellowgreen;
         }
+
+        .icon-bar {
+            position: fixed;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+
+
+        .icon-bar a:hover {
+            background-color: #000;
+        }
+
+        .facebook {
+            background: #3B5998;
+        }
+
+        .twitter {
+            background: #55ACEE;
+        }
+
+        .linkedin {
+            background: #007bb5;
+        }
+
     </style>
 
 </head>
@@ -427,6 +453,15 @@
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 
 </div>
+
+
+
+<div class="icon-bar">
+    <a href="https://www.agh.edu.pl/" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.agh.edu.pl/" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.agh.edu.pl/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+</div>
+
 
 <h2 class="flex justify-center text-green-600 font-semibold " style="font-size: 48px;">How it works?</h2>
 
@@ -465,7 +500,7 @@
 
 <div class="flex justify-center">
     @auth
-    <a href="{{url('/dashboard')}}" class="but"> Try it now!</a>
+        <a href="{{url('/dashboard')}}" class="but"> Try it now!</a>
     @else
         <a href="{{route('register')}}" class="but"> Try it now!</a>
     @endauth
