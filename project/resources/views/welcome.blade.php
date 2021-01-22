@@ -69,46 +69,18 @@
             width: 50%;
             border-bottom: 100px;
         }
-        .progressbar {
-            counter-reset: step;
-        }
+
         .progressbar li {
             list-style-type: none;
-            width: 15%;
+            width: 25%;
             float: left;
             font-size: 12px;
             position: relative;
             text-align: center;
             text-transform: uppercase;
-            color: #7d7d7d;
 
         }
-        .progressbar li:before {
-            width: 50px;
-            height: 50px;
-            content: counter(step);
-            counter-increment: step;
-            line-height: 50px;
-            border: 2px solid black;
-            display: block;
-            text-align: center;
-            margin: 0 auto 10px auto;
-            border-radius: 40%;
-            background-color: white;
-        }
-        .progressbar li:after {
-            width: 100%;
-            height: 2px;
-            content: '';
-            position: absolute;
-            background-color: #7d7d7d;
-            top: 15px;
-            left: -50%;
-            z-index: -1;
-        }
-        .progressbar li:first-child:after {
-            content: none;
-        }
+
 
         .text {
             font-size: 28px;
@@ -142,13 +114,29 @@
 
 <div class="flex justify-center  bg-gray-100 ">
 <div  class="cont">
-    <ul class="progressbar ">
-        <li>Register</li>
-        <li>Create offer</li>
-        <li>Choose deadline</li>
-        <li>Choose max price</li>
-        <li>Select contractor </li>
-        <li>Rate</li>
+    <ul class="progressbar justify-center ">
+        <li> <img src="{{asset('images/image1.png')}}">
+            <br>
+            Post a job (it’s free)
+            <br>
+            Tell us about your project. Upwork connects you with top talent around the world, or near you.
+        </li>
+        <li> <img src="{{asset('images/image2.png')}}">
+            <br>
+            Freelancers come to you
+            <br>
+            Get qualified proposals within 24 hours. Compare bids, reviews, and prior work. Interview favorites and hire the best fit.
+        </li> <li> <img src="{{asset('images/image3.png')}}">
+            <br>
+            Collaborate easily
+            <br>
+            Use Upwork to chat or video call, share files, and track project milestones from your desktop or mobile.
+        </li> <li> <img src="{{asset('images/image4.png')}}">
+            <br>
+            Payment simplified
+            <br>
+            Pay hourly or fixed-price and receive invoices through Upwork. Pay for work you authorize.
+        </li>
     </ul>
 </div>
 </div>
