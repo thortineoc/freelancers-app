@@ -9,18 +9,304 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->
     <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+        html {
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        a {
+            background-color: transparent
+        }
+
+        [hidden] {
+            display: none
+        }
+
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            line-height: 1.5
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+            border: 0 solid #e2e8f0
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        svg, video {
+            display: block;
+            vertical-align: middle
+        }
+
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        .bg-white {
+            --bg-opacity: 1;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, var(--bg-opacity))
+        }
+
+        .bg-gray-100 {
+            --bg-opacity: 1;
+            background-color: #f7fafc;
+            background-color: rgba(247, 250, 252, var(--bg-opacity))
+        }
+
+
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+
+
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+
+
+        .text-sm {
+            font-size: .875rem
+        }
+
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+
+        .ml-4 {
+            margin-left: 1rem
+        }
+
+        .mt-8 {
+            margin-top: 2rem
+        }
+
+
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem
+        }
+
+
+
+        .fixed {
+            position: fixed
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .top-0 {
+            top: 0
+        }
+
+        .right-0 {
+            right: 0
+        }
+
+        .shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-gray-200 {
+            --text-opacity: 1;
+            color: #edf2f7;
+            color: rgba(237, 242, 247, var(--text-opacity))
+        }
+
+        .text-gray-300 {
+            --text-opacity: 1;
+            color: #e2e8f0;
+            color: rgba(226, 232, 240, var(--text-opacity))
+        }
+
+        .text-gray-400 {
+            --text-opacity: 1;
+            color: #cbd5e0;
+            color: rgba(203, 213, 224, var(--text-opacity))
+        }
+
+        .text-gray-500 {
+            --text-opacity: 1;
+            color: #a0aec0;
+            color: rgba(160, 174, 192, var(--text-opacity))
+        }
+
+        .text-gray-600 {
+            --text-opacity: 1;
+            color: #718096;
+            color: rgba(113, 128, 150, var(--text-opacity))
+        }
+
+        .text-gray-700 {
+            --text-opacity: 1;
+            color: #4a5568;
+            color: rgba(74, 85, 104, var(--text-opacity))
+        }
+
+        .text-gray-900 {
+            --text-opacity: 1;
+            color: #1a202c;
+            color: rgba(26, 32, 44, var(--text-opacity))
+        }
+
+        .underline {
+            text-decoration: underline
+        }
+
+
+        .grid-cols-1 {
+            grid-template-columns:repeat(1, minmax(0, 1fr))
+        }
+
+        @media (min-width: 640px) {
+            .sm\:rounded-lg {
+                border-radius: .5rem
+            }
+
+            .sm\:block {
+                display: block
+            }
+
+            .sm\:items-center {
+                align-items: center
+            }
+
+
+
+            .sm\:px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem
+            }
+
+
+        }
+
+        @media (min-width: 768px) {
+
+
+            .md\:grid-cols-2 {
+                grid-template-columns:repeat(2, minmax(0, 1fr))
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:px-8 {
+                padding-left: 2rem;
+                padding-right: 2rem
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dark\:bg-gray-800 {
+                --bg-opacity: 1;
+                background-color: #2d3748;
+                background-color: rgba(45, 55, 72, var(--bg-opacity))
+            }
+
+            .dark\:bg-gray-900 {
+                --bg-opacity: 1;
+                background-color: #1a202c;
+                background-color: rgba(26, 32, 44, var(--bg-opacity))
+            }
+
+            .dark\:border-gray-700 {
+                --border-opacity: 1;
+                border-color: #4a5568;
+                border-color: rgba(74, 85, 104, var(--border-opacity))
+            }
+
+            .dark\:text-white {
+                --text-opacity: 1;
+                color: #fff;
+                color: rgba(255, 255, 255, var(--text-opacity))
+            }
+
+            .dark\:text-gray-400 {
+                --text-opacity: 1;
+                color: #cbd5e0;
+                color: rgba(203, 213, 224, var(--text-opacity))
+            }
+        }
     </style>
 
     <style>
-        html{ scroll-behavior: smooth;}
-        * {box-sizing: border-box; background-color: #f7fafc;}
-        body {font-family: Verdana, sans-serif;}
-        .mySlides1 {display: none;}
-        .mySlides2 {display: none;}
-        .myText1 {display: none;}
-        .myText2 {display: none;}
-        img {vertical-align: middle;}
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            background-color: #f7fafc;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+        }
+
+        .mySlides1 {
+            display: none;
+        }
+
+        .mySlides2 {
+            display: none;
+        }
+
+        .myText1 {
+            display: none;
+        }
+
+        .myText2 {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
 
         .slideshow-container {
             max-width: 1000px;
@@ -51,22 +337,32 @@
         }
 
         @-webkit-keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
         }
 
         @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
         }
 
         /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
-            .text {font-size: 11px}
+            .text {
+                font-size: 11px
+            }
         }
 
         .cont {
-            width: 50%;
+            width: 66%;
             border-bottom: 100px;
         }
 
@@ -81,65 +377,100 @@
 
         }
 
-
         .text {
             font-size: 28px;
             position: relative;
             font-weight: bold;
             color: dimgrey;
         }
-        .small-text{
+
+        .small-text {
             font-size: 18px;
             max-width: 400px;
             font-weight: normal;
         }
-        .mediumtext{
+
+        .mediumtext {
             font-size: 20px;
             font-weight: normal;
+        }
+
+        .but {
+            margin-top: 80px;
+            background-color: darkgreen;
+            border: 2px yellowgreen;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 12%;
+            min-width: 200px;
+            margin-bottom: 80px;
+
+        }
+
+        .text-green-600{
+            color: darkgreen;
+            text-shadow: yellowgreen;
         }
     </style>
 
 </head>
 
 
-
 <body>
 
-<div class="flex justify-center  top-0 " >
+<div class="flex justify-center  top-0 ">
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 
 </div>
 
-<h2 class="flex justify-center text-gray-600 font-semibold " style="font-size: 48px;">How it works?</h2>
+<h2 class="flex justify-center text-green-600 font-semibold " style="font-size: 48px;">How it works?</h2>
 
 <div class="flex justify-center  bg-gray-100 ">
-<div  class="cont">
-    <ul class="progressbar justify-center ">
-        <li> <img src="{{asset('images/image1.png')}}">
-            <br>
-            Post a job (it’s free)
-            <br>
-            Tell us about your project. Upwork connects you with top talent around the world, or near you.
-        </li>
-        <li> <img src="{{asset('images/image2.png')}}">
-            <br>
-            Freelancers come to you
-            <br>
-            Get qualified proposals within 24 hours. Compare bids, reviews, and prior work. Interview favorites and hire the best fit.
-        </li> <li> <img src="{{asset('images/image3.png')}}">
-            <br>
-            Collaborate easily
-            <br>
-            Use Upwork to chat or video call, share files, and track project milestones from your desktop or mobile.
-        </li> <li> <img src="{{asset('images/image4.png')}}">
-            <br>
-            Payment simplified
-            <br>
-            Pay hourly or fixed-price and receive invoices through Upwork. Pay for work you authorize.
-        </li>
-    </ul>
+    <div class="cont">
+        <ul class="progressbar justify-center ">
+            <li><img src="{{asset('images/image1.png')}}">
+                <br>
+                <a class="mediumtext">Post a job (it’s free)</a>
+                <br>
+                Tell us about your project. Upwork connects you with top talent around the world, or near you.
+            </li>
+            <li><img src="{{asset('images/image2.png')}}">
+                <br>
+                <a class="mediumtext">Freelancers come to you</a>
+                <br>
+                Get qualified proposals within 24 hours. Compare bids, reviews, and prior work. Interview favorites and
+                hire the best fit.
+            </li>
+            <li><img src="{{asset('images/image3.png')}}">
+                <br>
+                <a class="mediumtext"> Collaborate easily</a>
+                <br>
+                Use Upwork to chat or video call, share files, and track project milestones from your desktop or mobile.
+            </li>
+            <li><img src="{{asset('images/image4.png')}}">
+                <br>
+                <a class="mediumtext"> Payment simplified</a>
+                <br>
+                Pay hourly or fixed-price and receive invoices through Upwork. Pay for work you authorize.
+            </li>
+        </ul>
+    </div>
 </div>
+
+
+<div class="flex justify-center">
+    @auth
+    <a href="{{url('/dashboard')}}" class="but"> Try it now!</a>
+    @else
+        <a href="{{route('register')}}" class="but"> Try it now!</a>
+    @endauth
 </div>
+
 
 <div class="relative flex items-top justify-center mx-auto bg-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
@@ -156,77 +487,82 @@
     @endif
 
 
-    <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg bg-gray-100">
-        <div class="grid  md:grid-cols-2">
-            <div class="slideshow-container">
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg  ">
-                    @for($i=1; $i<4; $i++)
-                        <div class="mySlides1 fade">
-                            <img src="{{asset('images/obrazek'.$i.'.jpeg')}}" style="width:100%">
-                        </div>
-                    @endfor
-                </div>
+    <div class="grid  md:grid-cols-2">
+        <div class="slideshow-container">
+            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg  ">
+                @for($i=1; $i<4; $i++)
+                    <div class="mySlides1 fade">
+                        <img src="{{asset('images/obrazek'.$i.'.jpeg')}}" style="width:100%">
+                    </div>
+                @endfor
             </div>
+        </div>
 
-            <div class="mt-8 bg-white  overflow-hidden text text-center shadow sm:rounded-lg">
-                Why We?
-                <div class="myText1 fade  bg-white">
-                    <ul class="bg-white small-text ">
-                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
-                        Our director of engineering will work with you to understand your goals, technical needs, and team dynamics.
-                    </ul>
-                </div>
-                <div class="myText1 fade   bg-white">
-                    <ul class="bg-white small-text ">
-                        <a class="mediumtext">Work With Hand-Selected Talent</a>
-                        Within days, You will find the right developer for your project. Average time to match is under 24 hours.
-                    </ul>
-                </div>
-                <div class="myText1 fade   bg-white">
-                    <ul class="bg-white small-text ">
-                        <a class="mediumtext">The Right Fit, Guaranteed</a>
-                        Work with your new developer for a trial period (pay only if satisfied), ensuring they're the right fit before starting the engagement.
-                    </ul>
-                </div>
+        <div class="mt-8 bg-white  overflow-hidden text text-center shadow sm:rounded-lg">
+            Why We?
+            <div class="myText1 fade  bg-white">
+                <ul class="bg-white small-text ">
+                    <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                    Our director of engineering will work with you to understand your goals, technical needs, and team
+                    dynamics.
+                </ul>
             </div>
-
-            <div class="slideshow-container">
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    @for($i=1; $i<4; $i++)
-                        <div class="mySlides2 fade">
-                            <img src="{{asset('images/obrazek'.$i.'.jpeg')}}" style="width:100%">
-                        </div>
-                    @endfor
-                </div>
+            <div class="myText1 fade   bg-white">
+                <ul class="bg-white small-text ">
+                    <a class="mediumtext">Work With Hand-Selected Talent</a>
+                    Within days, You will find the right developer for your project. Average time to match is under 24
+                    hours.
+                </ul>
             </div>
-
-
-            <div class="mt-8 bg-white  overflow-hidden text text-center shadow sm:rounded-lg">
-                Why We?
-                <div class="myText2 fade   bg-white">
-                    <ul class="bg-white small-text ">
-                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
-                        A Toptal director of engineering will work with you to understand your goals, technical needs, and team dynamics.
-                    </ul>
-                </div>
-                <div class="myText2 fade   bg-white">
-                    <ul class="bg-white small-text ">
-                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
-                        A Toptal director of engineering will work with you to understand your goals, technical needs, and team dynamics.
-                    </ul>
-                </div>
-                <div class="myText2 fade   bg-white">
-                    <ul class="bg-white small-text ">
-                        <a class="mediumtext">Talk to One of Our Industry Experts</a>
-                        A Toptal director of engineering will work with you to understand your goals, technical needs, and team dynamics.
-                    </ul>
-                </div>
+            <div class="myText1 fade   bg-white">
+                <ul class="bg-white small-text ">
+                    <a class="mediumtext">The Right Fit, Guaranteed</a>
+                    Work with your new developer for a trial period (pay only if satisfied), ensuring they're the right
+                    fit before starting the engagement.
+                </ul>
             </div>
+        </div>
 
+        <div class="slideshow-container">
+            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                @for($i=1; $i<4; $i++)
+                    <div class="mySlides2 fade">
+                        <img src="{{asset('images/obrazek'.$i.'.jpeg')}}" style="width:100%">
+                    </div>
+                @endfor
+            </div>
+        </div>
+
+
+        <div class="mt-8 bg-white  overflow-hidden text text-center shadow sm:rounded-lg">
+            Why We?
+            <div class="myText2 fade   bg-white">
+                <ul class="bg-white small-text ">
+                    <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                    A Toptal director of engineering will work with you to understand your goals, technical needs, and
+                    team dynamics.
+                </ul>
+            </div>
+            <div class="myText2 fade   bg-white">
+                <ul class="bg-white small-text ">
+                    <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                    A Toptal director of engineering will work with you to understand your goals, technical needs, and
+                    team dynamics.
+                </ul>
+            </div>
+            <div class="myText2 fade   bg-white">
+                <ul class="bg-white small-text ">
+                    <a class="mediumtext">Talk to One of Our Industry Experts</a>
+                    A Toptal director of engineering will work with you to understand your goals, technical needs, and
+                    team dynamics.
+                </ul>
+            </div>
         </div>
 
     </div>
+
 </div>
+
 <div style="text-align:center">
     <span class="dot"></span>
     <span class="dot"></span>
@@ -234,19 +570,18 @@
 </div>
 
 
-
 <script>
-    var slideIndex = 0;
+    let slideIndex = 0;
     showSlides();
 
     function showSlides() {
-        var i;
-        var slide_one = document.getElementsByClassName("mySlides1");
-        var slide_two = document.getElementsByClassName("mySlides2");
-        var text_one = document.getElementsByClassName("myText1");
-        var text_two = document.getElementsByClassName("myText2");
+        let i;
+        let slide_one = document.getElementsByClassName("mySlides1");
+        let slide_two = document.getElementsByClassName("mySlides2");
+        let text_one = document.getElementsByClassName("myText1");
+        let text_two = document.getElementsByClassName("myText2");
 
-        var dots = document.getElementsByClassName("dot");
+        let dots = document.getElementsByClassName("dot");
         for (i = 0; i < slide_one.length; i++) {
             slide_one[i].style.display = "none";
             slide_two[i].style.display = "none";
@@ -254,15 +589,17 @@
             text_two[i].style.display = "none";
         }
         slideIndex++;
-        if (slideIndex > slide_one.length) {slideIndex = 1}
+        if (slideIndex > slide_one.length) {
+            slideIndex = 1
+        }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        slide_one[slideIndex-1].style.display = "block";
-        slide_two[slideIndex-1].style.display = "block";
-        text_one[slideIndex-1].style.display = "block";
-        text_two[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
+        slide_one[slideIndex - 1].style.display = "block";
+        slide_two[slideIndex - 1].style.display = "block";
+        text_one[slideIndex - 1].style.display = "block";
+        text_two[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
         setTimeout(showSlides, 4000); // Change image every 2 seconds
     }
 
