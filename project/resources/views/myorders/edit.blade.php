@@ -34,12 +34,12 @@
                     <textarea id="description" name="description" class="w-full rounded-md shadow-sm border-gray-300 focus:border-green-100 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4">{{$order->description}}</textarea>
                 </div>
                 <div class="my-3">
-                    <x-label for="payment" :value="__('Payment')" />
-                    <x-input id="payment" class="block mt-1 w-full" type="number" name="payment" placeholder="e.g. 799,99" :value="$order->budget" required autofocus />
+                    <x-label for="payment" :value="__('Payment (in $)')" />
+                    <x-input id="payment" class="block mt-1 w-full" type="number" min="0.00" step="0.01" name="payment" placeholder="e.g. 799.99" :value="$order->budget" required autofocus />
                 </div>
                 <div class="mb-8 mt-3">
                     <x-label for="deadline" :value="__('Deadline')" />
-                    <x-data-picker name="deadline" id="deadline" />
+                    <x-data-picker name="deadline" id="deadline" old="$order->deadline" />
                 </div>
 
                 <x-my-button>Update</x-my-button>

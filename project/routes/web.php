@@ -32,8 +32,11 @@ Route::get('/dashboard', function () {
 Route::resource('myorders', MyOrdersController::Class)->middleware('auth');
 Route::resource('myorders.offers', MyOrderOffersController::Class)->middleware('auth');
 Route::get('myoffers', AllMyOffersController::Class)->middleware('auth')->name('myoffers');
-Route::get('orders', OrdersController::Class)->middleware('auth')->name('orders');
+Route::resource('orders', OrdersController::Class)->only(['index', 'show'])->middleware('auth');
 Route::post('update', PriorityPostController::class);
-Route::resource('orders.offer', MyOfferController::Class)->middleware('auth');
+Route::post('orders/{order}/offer/{offer}/accept', [MyOfferController::class, 'accept_offer'] )
+    ->name('orders.offer.accept')
+    ->middleware('auth');
+Route::resource('orders.offer', MyOfferController::Class)->except(['index'])->middleware('auth');
 
 require __DIR__.'/auth.php';

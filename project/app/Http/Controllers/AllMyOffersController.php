@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+
 class AllMyOffersController extends Controller
 {
     /**
@@ -12,6 +15,7 @@ class AllMyOffersController extends Controller
      */
     public function __invoke()
     {
-        echo "AllMyOffersController index";
+        $myOffers=Offer::where('user_id', Auth::id())->get();
+        return view('allmyoffers.index')->withOffers($myOffers);
     }
 }

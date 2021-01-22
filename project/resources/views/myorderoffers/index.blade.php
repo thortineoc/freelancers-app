@@ -10,7 +10,7 @@
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
 
-        <p class="my-10">You can choose up to 3 applications. The order in which you select is going to indicate the priorities.</p>
+        <p class="my-10">You can choose a few applications. The order in which you select is going to indicate the priorities.</p>
 
         @forelse ($offers as $offer)
 
@@ -29,6 +29,7 @@
                     Deadline: {{ $offer->deadline }}
                 </div>
                 <div class="flex justify-end">
+                    <span class="m-2 justify-center text-gray-500" id="{{ $offer->id }}_priority"></span>
                     <input type="checkbox" name="{{ $offer->id }}" id="{{ $offer->id }}" class="focus:outline-none form-checkbox h-10 w-10 text-green-600">
                 </div>
             </div>
@@ -39,29 +40,33 @@
 
         @endforelse
 
+        @if(count($offers))
+
         <form id="sampleForm" name="sampleForm" method="post" action="{{url('/update')}}" >
-        @csrf <!-- {{ csrf_field() }} -->
-            <input type="hidden" name="total" id="total" value="aa">
-            <a href="#" onclick="setValue();">Click to submit</a>
+            @csrf <!-- {{ csrf_field() }} -->
+            <input type="hidden" name="total" id="total" value="">
+            <x-my-button onclick="setValue();" class="my-10">Sumbit</x-my-button>
         </form>
 
-    </div>
+        @endif
+
     </div>
 
     <script>
-        let elementList = document.querySelectorAll('input[type=checkbox]');
-        let ids = [...elementList].map(item => item.id);
-        let map = new Map();
-        ids.forEach(element => map.set(element, 0))
+        const elementList = document.querySelectorAll('input[type=checkbox]');
+        const map = new Map();
 
         let priority = 1;
         elementList.forEach(element => element.addEventListener('change', function() {
             if(this.checked) {
                 map.set(this.id, priority);
-                console.log(this.id, 'has priority', priority);
+                let spanId = this.id + "_priority";
+                document.getElementById(spanId).innerHTML = "priority " + priority;
                 priority++;
             } else {
-                map.set(this.id, 0);
+                map.delete(this.id);
+                let spanId = this.id + "_priority";
+                document.getElementById(spanId).innerHTML = "";
                 priority--;
             }
         }))
@@ -72,7 +77,6 @@
 
         function setValue() {
             document.sampleForm.total.value = mapToJson(map);
-            console.log(document.sampleForm.total.value);
             document.forms["sampleForm"].submit();
         }
 

@@ -69,5 +69,13 @@ class OfferSeeder extends Seeder
             'user_id'=>2,
             'order_id'=>3
         ]);
+
+        DB::table('offers')->insert([
+            'deadline' => '2202-01-20 15:00',
+            'price'=>50.3,
+            'details' => 'details7',
+            'user_id'=>1,
+            'order_id'=>5
+        ]);
     }
 }

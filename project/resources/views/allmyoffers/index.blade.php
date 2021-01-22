@@ -18,13 +18,20 @@
                     {{ $order->title }}
                 </h1>
                 <div class="my-5">
-                    {{ $offer->details}}
+                    <div>Job description: </div>
+                    <div>{{ $order->description }}</div>
+                </div>
+                <div class="my-3 font-bolder">
+                    My offer:
+                </div>
+                <div class="my-5">
+                    {{ $offer->details }}
                 </div>
                 <div>
-                    Payment: {{ $order->price }} $
+                    Price: {{ $offer->price }} $
                 </div>
                 <div class="mb-5">
-                    Deadline: {{ $order->deadline }}
+                    Deadline: {{ $offer->deadline }}
                 </div>
 
                 </div>
