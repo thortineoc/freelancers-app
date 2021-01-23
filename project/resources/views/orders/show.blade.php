@@ -20,7 +20,7 @@
                 {{ $order->description }}
             </div>
             <div>
-                Payment: {{ $order->payment }} $
+                Payment: {{ $order->budget }} $
             </div>
             <div class="mb-5">
                 Deadline: {{ $order->deadline }}

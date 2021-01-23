@@ -40,7 +40,7 @@
                 @if($offer->accepted)
                     @if($offer->accepted->selected)
 
-                    <form method="get" action="{{ route('orders.offer.finish', $offer->order, $offer) }}">
+                    <form method="get" action="{{ route('orders.offer.finish', [$offer->order, $offer]) }}">
                         @csrf
                         <x-my-button>Finished</x-my-button>
                     </form>
