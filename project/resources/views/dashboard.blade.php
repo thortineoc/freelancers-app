@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Notifications') }}
         </h2>
     </x-slot>
 
@@ -48,11 +48,18 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
 
-                <!-- dispaly if is finished -->
+                <!-- display if is finished -->
+
+                <div class="flex justify-between p-6 bg-yellow-100 font-bold ">
+                    <span>User $name $surname finished his work</span>
+                    <i>
+                        <svg class="w-8 h-8 animate-pulse text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </i>
+
+                </div>
 
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="my-3">Please rate $name $surname's work on $order</div>
@@ -60,7 +67,7 @@
                             <div>Quality of work:</div>
                             <div class="rating">
                                 <input id="star5" name="quality_rate" type="radio" value="5" class="radio-btn hidden" />
-                                <label for="star5" class="w-6 h-6">★</label>
+                                <label for="star5">★</label>
                                 <input id="star4" name="quality_rate" type="radio" value="4" class="radio-btn hidden" />
                                 <label for="star4">★</label>
                                 <input id="star3" name="quality_rate" type="radio" value="3" class="radio-btn hidden" />
@@ -73,18 +80,17 @@
 
                             <div>Satisfaction with time:</div>
                             <div class="rating">
-                                <input id="star6" name="time_rate" type="radio" value="5" class="radio-btn hidden" />
-                                <label for="star6" class="w-6 h-6">★</label>
-                                <input id="star7" name="time_rate" type="radio" value="4" class="radio-btn hidden" />
-                                <label for="star7">★</label>
+                                <input id="star10" name="time_rate" type="radio" value="5" class="radio-btn hidden" />
+                                <label for="star10" class>★</label>
+                                <input id="star9" name="time_rate" type="radio" value="4" class="radio-btn hidden" />
+                                <label for="star9">★</label>
                                 <input id="star8" name="time_rate" type="radio" value="3" class="radio-btn hidden" />
                                 <label for="star8">★</label>
-                                <input id="star9" name="time_rate" type="radio" value="2" class="radio-btn hidden" />
-                                <label for="star9">★</label>
-                                <input id="star10" name="time_rate" type="radio" value="1" class="radio-btn hidden" />
-                                <label for="star10">★</label>
+                                <input id="star7" name="time_rate" type="radio" value="2" class="radio-btn hidden" />
+                                <label for="star7">★</label>
+                                <input id="star6" name="time_rate" type="radio" value="1" class="radio-btn hidden" />
+                                <label for="star6">★</label>
                             </div>
-
                             <x-my-button>Sumbit</x-my-button>
                         </form>
                     </div>
