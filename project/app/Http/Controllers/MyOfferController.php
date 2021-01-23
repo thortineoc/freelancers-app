@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
+use App\Models\Selected;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -37,7 +39,7 @@ class MyOfferController extends Controller
     {
         $validated = $request->validate([
             'price' => 'required|numeric',
-            'deadline' => 'required|date',
+            'deadline' => 'required|date|after:today',
             'details' => 'required'
         ]);
 
@@ -65,6 +67,7 @@ class MyOfferController extends Controller
         {
             abort(403, 'Unauthorized action.');
         }
+        $offer = $offer::where('id', $offer->id)->with('accepted.selected')->first();
         return view('offers.show')->withOrder($order)->withOffer($offer);
     }
 
@@ -81,6 +84,11 @@ class MyOfferController extends Controller
         {
             abort(403, 'Unauthorized action.');
         }
+        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        if( $offer->accepted )
+        {
+            abort(403, 'Cant change already selected offer');
+        }
         return view('offers.edit')->withOrder($order)->withOffer($offer);
     }
 
@@ -96,7 +104,7 @@ class MyOfferController extends Controller
     {
         $validated = $request->validate([
             'price' => 'required|numeric',
-            'deadline' => 'required|date',
+            'deadline' => 'required|date|after:today',
             'details' => 'required'
         ]);
 
@@ -124,6 +132,27 @@ class MyOfferController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $offer->delete();
-        return redirect()->route('orders', $order);
+        return redirect()->route('orders');
+    }
+
+    public function accept_offer(Order $order, Offer $offer, Request $request)
+    {
+        if ($offer->user_id != Auth::id())
+        {
+            abort(403, 'Unauthorized action.');
+        }
+        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        if ( $offer->accepted->selected )
+        {
+            abort(403, 'Cannot revert acceptation.');
+        }
+        $selected = new Selected();
+        $selected->finished = false;
+        $selected->rejected = !boolval($request->post('accept'));
+        $selected->rate_time = -1;
+        $selected->rate_quality = -1;
+        $selected->accepted_id = $offer->accepted->id;
+        $selected->save();
+        return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 }

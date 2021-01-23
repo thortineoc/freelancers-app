@@ -12,9 +12,14 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __invoke()
+    public function index()
     {
         $orders = Order::where('deadline', '>', Carbon::now())->get();
         return view('orders.index')->withOrders($orders);
+    }
+
+    public function show(Order $order)
+    {
+        return view('orders.show')->withOrder($order);
     }
 }

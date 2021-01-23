@@ -32,5 +32,10 @@ class AcceptedSeeder extends Seeder
             'priority' => 1,
             'offer_id' => 5
         ]);
+
+        DB::table('accepted')->insert([
+            'priority' => 1,
+            'offer_id' => 8
+        ]);
     }
 }
