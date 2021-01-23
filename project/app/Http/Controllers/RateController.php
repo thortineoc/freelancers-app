@@ -15,14 +15,16 @@ class RateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //todo
-        $rate1=5;
-        $rate2=5;
-        $userID=1;
 
-        $user=User::whereId($userID)->first();
-        $user->rate_quality_sum+=$rate1;
-        $user->rate_time_sum+=$rate2;
+        $validated = $request->validate([
+            'user_id' => 'required|numeric',
+            'rate_quality' => 'required|numeric|between:0,5',
+            'rate_time' => 'required|numeric|between:0,5'
+        ]);
+
+        $user=User::whereId($request->post('user_id'))->first();
+        $user->rate_quality_sum+=$request->post('rate_quality');
+        $user->rate_time_sum+=$request->post('rate_time');
         $user->number_of_rates++;
         $user->save();
     }
