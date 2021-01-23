@@ -34,6 +34,7 @@ Route::resource('myorders.offers', MyOrderOffersController::Class)->middleware('
 Route::get('myoffers', AllMyOffersController::Class)->middleware('auth')->name('myoffers');
 Route::resource('orders', OrdersController::Class)->only(['index', 'show'])->middleware('auth');
 Route::post('update', PriorityPostController::class);
+Route::post('rate', RatePostController::class);
 Route::post('orders/{order}/offer/{offer}/accept', [MyOfferController::class, 'accept_offer'] )
     ->name('orders.offer.accept')
     ->middleware('auth');
