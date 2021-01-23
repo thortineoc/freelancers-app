@@ -37,6 +37,9 @@ Route::post('update', PriorityPostController::class);
 Route::post('orders/{order}/offer/{offer}/accept', [MyOfferController::class, 'accept_offer'] )
     ->name('orders.offer.accept')
     ->middleware('auth');
+Route::get('orders/{order}/offer/{offer}/finish', [MyOfferController::class, 'finish_offer'] )
+    ->name('orders.offer.finish')
+    ->middleware('auth');
 Route::resource('orders.offer', MyOfferController::Class)->except(['index'])->middleware('auth');
 
 require __DIR__.'/auth.php';
