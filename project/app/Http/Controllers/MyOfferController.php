@@ -155,4 +155,20 @@ class MyOfferController extends Controller
         $selected->save();
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
+
+    public function finish_offer(Order $order, Offer $offer, Request $request)
+    {
+        if ($offer->user_id != Auth::id())
+        {
+            abort(403, 'Unauthorized action.');
+        }
+        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        if ( !$offer->accepted->selected )
+        {
+            abort(403, 'Not selected.');
+        }
+        $offer->accepted->selected->finished = true;
+        $offer->accepted->selected->save();
+        return redirect()->route('orders.offer.show', [$order, $offer]);
+    }
 }
