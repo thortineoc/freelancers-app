@@ -14,13 +14,13 @@
 
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
-                <h1 class="font-bold text-2xl my-3">
+                <h1 class="font-bold text-2xl mt-2">
                     {{ $offer->order->title }}
                 </h1>
-                <!--<div class="my-5">
+                <div class="my-2 mt-0 underline text-gray-500">
                     <a href="/order/{{$offer->order_id}}">Display order</a>
-                </div> -->
-                <div class="font-bolder text-lg text-green-900">
+                </div>
+                <div class="font-bold text-lg text-green-900 mt-2">
                     My offer:
                 </div>
                 <div class="my-5">
@@ -33,7 +33,7 @@
                     Deadline: {{ $offer->deadline }}
                 </div>
 
-                </div>
+            </div>
 
         @empty
 
