@@ -19,20 +19,11 @@ class SelectFinish
      * Create a new event instance.
      *
      * @param Offer $offer
+     * @param string $notificationType
      */
     public function __construct(Offer $offer, string $notificationType)
     {
         $this->offer = $offer;
         $this->notificationType = $notificationType;
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    public function broadcastOn()
-    {
-        return new PrivateChannel('channel-name');
     }
 }

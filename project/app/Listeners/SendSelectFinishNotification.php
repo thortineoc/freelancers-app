@@ -6,7 +6,7 @@ use App\Events\SelectFinish;
 use App\Models\User;
 use App\Notifications\FinishSelectNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Queue\InteractsWithQueue;
 
 class SendSelectFinishNotification
@@ -37,9 +37,10 @@ class SendSelectFinishNotification
         }
         else
         {
-            $order = $offer::with('order')->get();
-            $user = User::where('id', $order->user_id)->get();
+            $offer = $offer::where('id', $offer->order_id)->with('order')->first();
+            $user = User::where('id', $offer->order->user_id)->get();
         }
-        Notification::send($user, new FinishSelectNotification($user, $notificationType));
+        Notification::send($user, new FinishSelectNotification($offer, $notificationType));
     }
 }
+

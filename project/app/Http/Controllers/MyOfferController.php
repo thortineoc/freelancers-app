@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SelectFinish;
 use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
@@ -169,6 +170,7 @@ class MyOfferController extends Controller
         }
         $offer->accepted->selected->finished = true;
         $offer->accepted->selected->save();
+        SelectFinish::dispatch($offer, 'finish');
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 }
