@@ -3,7 +3,7 @@
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('My offers') }}
+                {{ __('My offer') }}
             </h2>
         </div>
     </x-slot>
@@ -18,7 +18,7 @@
                     {{ $offer->order->title }}
                 </h1>
                 <div class="my-2 mt-0 underline text-gray-500">
-                    <a href="/order/{{$offer->order_id}}">Display order</a>
+                    <a href="/orders/{{$offer->order_id}}">Display order</a>
                 </div>
                 <div class="font-bold text-lg text-green-900 mt-2">
                     My offer:
