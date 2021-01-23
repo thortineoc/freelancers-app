@@ -10,6 +10,10 @@
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
 
+        <p>
+            There are all of your job offers. When you finish working, please click on the "Finished" button to announce your employer that the job is done.
+        </p>
+
         @forelse ($offers as $offer)
 
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -32,6 +36,18 @@
                 <div class="mb-5">
                     Deadline: {{ $offer->deadline }}
                 </div>
+
+                @if($offer->accepted)
+                    @if($offer->accepted->selected)
+
+                    <form method="get" action="{{ route('orders.offer.finish_offer'), $order, $offer}}">
+                        @csrf
+
+                        <x-my-button>Finished</x-my-button>
+                    </form>
+
+                    @endif
+                @endif
 
             </div>
 
