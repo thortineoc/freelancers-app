@@ -154,6 +154,22 @@ class MyOfferController extends Controller
         $selected->rate_quality = -1;
         $selected->accepted_id = $offer->accepted->id;
         $selected->save();
+        if ($selected->rejected)
+        {
+            $priority = $offer->accepted->priority + 1;
+            $offer = $offer::where('id', $offer->order_id)->with('order')->first();
+            $order = $offer->order;
+            $new_offers = $offer::where('order_id', $order->id)->with('accepted')->get();
+            foreach ($new_offers as $new_offer)
+            {
+                $tmp_accepted = Accepted::where('offer_id', $new_offer->id)->first();
+                if ($tmp_accepted->priority = $priority)
+                {
+                    SelectFinish::dispatch($new_offer, 'accept');
+                    break;
+                }
+            }
+        }
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 
