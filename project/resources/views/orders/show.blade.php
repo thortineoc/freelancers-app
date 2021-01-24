@@ -4,7 +4,7 @@
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Your order') }}
+                {{ __('Order') }}
             </h2>
         </div>
     </x-slot>
@@ -21,7 +21,7 @@
                 {{ $order->description }}
             </div>
             <div>
-                Payment: {{ $order->payment }} $
+                Payment: {{ $order->budget }} $
             </div>
             <div class="mb-5">
                 Deadline: {{ $order->deadline }}
