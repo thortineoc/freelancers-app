@@ -66,6 +66,10 @@ class MyOrdersController extends Controller
     public function show($id)
     {
         $order=Order::find($id);
+        if( $order->user_id != Auth::id() )
+        {
+            abort(403, 'Unauthorized action.');
+        }
         return view('myorders.show')->withOrder($order);
     }
 
