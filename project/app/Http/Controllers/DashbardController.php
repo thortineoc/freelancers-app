@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Notifications\FinishSelectNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashbardController extends Controller
 {
@@ -14,6 +17,8 @@ class DashbardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('dashboard');
+        $user = User::whereId(Auth::id())->first();
+
+        return view('dashboard')->withUser($user);
     }
 }
