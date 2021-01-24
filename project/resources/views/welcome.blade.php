@@ -8,9 +8,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Styles -->
     <style>
+
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
         html {
             line-height: 1.15;
             -webkit-text-size-adjust: 100%
@@ -266,9 +269,6 @@
                 color: rgba(203, 213, 224, var(--text-opacity))
             }
         }
-    </style>
-
-    <style>
         html {
             scroll-behavior: smooth;
         }
@@ -354,8 +354,7 @@
         }
 
         .cont {
-            width: 66%;
-            border-bottom: 100px;
+            max-width: 50%;
         }
 
         .progressbar li {
@@ -387,27 +386,7 @@
             font-weight: normal;
         }
 
-        .but {
-            margin-top: 80px;
-            background-color: darkgreen;
-            border: 2px yellowgreen;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 12%;
-            min-width: 200px;
-            margin-bottom: 80px;
 
-        }
-
-        .text-green-600 {
-            color: darkgreen;
-            text-shadow: yellowgreen;
-        }
 
         .icon-bar {
             position: fixed;
@@ -426,9 +405,6 @@
         }
 
 
-        .icon-bar a:hover {
-            background-color: #000;
-        }
 
         .facebook {
             background: #3B5998;
@@ -441,7 +417,16 @@
         .linkedin {
             background: #007bb5;
         }
-
+        .img{
+            margin-left: 25%;
+        }
+        .but{
+            max-width: 10%;
+            justify-content: center;
+            margin-left:45%;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
     </style>
 
 </head>
@@ -449,47 +434,63 @@
 
 <body>
 
+<script>
+    $(function(){
+        $('#slideshow > div:gt(0)').hide();
+        setInterval(function(){
+            $('#slideshow > div:first')
+                .fadeOut(2000)
+                .next()
+                .fadeIn(2000)
+                .end()
+                .appendTo('#slideshow');
+        }, 4000);
+    });
+</script>
+
 <div class="flex justify-center  top-0 ">
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 
 </div>
 
 
-
 <div class="icon-bar">
-    <a href="https://www.agh.edu.pl/" class="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="https://www.agh.edu.pl/" class="twitter"><i class="fa fa-twitter"></i></a>
-    <a href="https://www.agh.edu.pl/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+<a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
+<a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
+    <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>
 
 
-<h2 class="flex justify-center text-green-600 font-semibold " style="font-size: 48px;">How it works?</h2>
+
+
+
+<h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
 
 <div class="flex justify-center  bg-gray-100 ">
     <div class="cont">
-        <ul class="progressbar justify-center ">
-            <li><img src="{{asset('images/image1.png')}}">
+        <ul class="progressbar ">
+            <li><img src="{{asset('images/image1.png')}}" class="img">
                 <br>
                 <a class="mediumtext">Post a job (it’s free)</a>
                 <br>
                 Tell us about your project. Upwork connects you with top talent around the world, or near you.
             </li>
-            <li><img src="{{asset('images/image2.png')}}">
+            <li><img src="{{asset('images/image2.png')}}" class="img">
                 <br>
                 <a class="mediumtext">Freelancers come to you</a>
                 <br>
                 Get qualified proposals within 24 hours. Compare bids, reviews, and prior work. Interview favorites and
                 hire the best fit.
             </li>
-            <li><img src="{{asset('images/image3.png')}}">
+            <li><img src="{{asset('images/image3.png')}}" class="img">
                 <br>
                 <a class="mediumtext"> Collaborate easily</a>
                 <br>
                 Use Upwork to chat or video call, share files, and track project milestones from your desktop or mobile.
             </li>
-            <li><img src="{{asset('images/image4.png')}}">
+            <li><img src="{{asset('images/image4.png')}}" class="img">
                 <br>
-                <a class="mediumtext"> Payment simplified</a>
+                <a class="mediumtext "> Payment simplified</a>
                 <br>
                 Pay hourly or fixed-price and receive invoices through Upwork. Pay for work you authorize.
             </li>
@@ -498,11 +499,11 @@
 </div>
 
 
-<div class="flex justify-center">
+<div class="rounded-lg shadow text-white bg-green-900 max-w-20 block py-2 px-3 text-center hover:text-yellow-300 but" >
     @auth
-        <a href="{{url('/dashboard')}}" class="but"> Try it now!</a>
+        <a href="{{url('/dashboard')}}"> Try it now!</a>
     @else
-        <a href="{{route('register')}}" class="but"> Try it now!</a>
+        <a href="{{route('register')}}"> Try it now!</a>
     @endauth
 </div>
 
@@ -521,19 +522,44 @@
         </div>
     @endif
 
-
-    <div class="grid  md:grid-cols-2">
-        <div class="slideshow-container">
+ {{--  <div class="grid  md:grid-cols-2">
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg  ">
-                @for($i=5; $i<8; $i++)
-                    <div class="mySlides1 fade">
-                        <img src="{{asset('images/image'.$i.'.jpeg')}}" style="width:100%">
+                <div id="slideshow">
+                    <div>
+                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
                     </div>
-                @endfor
+                    <div>
+                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
+                    </div>
+                    <div>
+                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
+                    </div>
+                    <div>
+                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
+
+
+
+    </div>
+--}}
+</div>
+
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+</body>
+</html>
+
+
+
+{{--
+ <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
             Why We?
             <div class="myText1 fade  bg-white">
                 <ul class="bg-white small-text ">
@@ -558,18 +584,8 @@
             </div>
         </div>
 
-        <div class="slideshow-container">
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                @for($i=8; $i<11; $i++)
-                    <div class="mySlides2 fade">
-                        <img src="{{asset('images/image'.$i.'.jpeg')}}" style="width:100%">
-                    </div>
-                @endfor
-            </div>
-        </div>
 
-
-        <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
+  <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
             Why We are better?
             <div class="myText2 fade   bg-white">
                 <ul class="bg-white small-text ">
@@ -591,50 +607,7 @@
             </div>
         </div>
 
-    </div>
-
-</div>
-
-<div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-</div>
 
 
-<script>
-    let slideIndex = 0;
-    showSlides();
 
-    function showSlides() {
-        let i;
-        let slide_one = document.getElementsByClassName("mySlides1");
-        let slide_two = document.getElementsByClassName("mySlides2");
-        let text_one = document.getElementsByClassName("myText1");
-        let text_two = document.getElementsByClassName("myText2");
-
-        let dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slide_one.length; i++) {
-            slide_one[i].style.display = "none";
-            slide_two[i].style.display = "none";
-            text_one[i].style.display = "none";
-            text_two[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slide_one.length) {
-            slideIndex = 1
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slide_one[slideIndex - 1].style.display = "block";
-        slide_two[slideIndex - 1].style.display = "block";
-        text_one[slideIndex - 1].style.display = "block";
-        text_two[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 4000); // Change image every 2 seconds
-    }
-
-</script>
-</body>
-</html>
+--}}
