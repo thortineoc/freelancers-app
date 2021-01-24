@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllMyOffersController;
+use App\Http\Controllers\DashbardController;
 use App\Http\Controllers\MyOfferController;
 use App\Http\Controllers\MyOrderOffersController;
 use App\Http\Controllers\MyOrdersController;
@@ -25,9 +26,7 @@ Route::get('/', function () {
 })->name('/');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', DashbardController::class)->middleware(['auth'])->name('dashboard');
 
 
 Route::resource('myorders', MyOrdersController::Class)->middleware('auth');
