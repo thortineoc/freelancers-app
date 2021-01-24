@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SelectFinish;
 use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
@@ -153,6 +154,39 @@ class MyOfferController extends Controller
         $selected->rate_quality = -1;
         $selected->accepted_id = $offer->accepted->id;
         $selected->save();
+        if ($selected->rejected)
+        {
+            $priority = $offer->accepted->priority + 1;
+            $offer = $offer::where('id', $offer->order_id)->with('order')->first();
+            $order = $offer->order;
+            $new_offers = $offer::where('order_id', $order->id)->with('accepted')->get();
+            foreach ($new_offers as $new_offer)
+            {
+                $tmp_accepted = Accepted::where('offer_id', $new_offer->id)->first();
+                if ($tmp_accepted->priority = $priority)
+                {
+                    SelectFinish::dispatch($new_offer, 'accept');
+                    break;
+                }
+            }
+        }
+        return redirect()->route('orders.offer.show', [$order, $offer]);
+    }
+
+    public function finish_offer(Order $order, Offer $offer, Request $request)
+    {
+        if ($offer->user_id != Auth::id())
+        {
+            abort(403, 'Unauthorized action.');
+        }
+        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        if ( !$offer->accepted->selected )
+        {
+            abort(403, 'Not selected.');
+        }
+        $offer->accepted->selected->finished = true;
+        $offer->accepted->selected->save();
+        SelectFinish::dispatch($offer, 'finish');
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 }

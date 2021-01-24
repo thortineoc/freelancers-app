@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Accepted;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PriorityPostController extends Controller
 {
@@ -19,13 +20,13 @@ class PriorityPostController extends Controller
 
         foreach ($data as $d) {
 
-            $newAccepted = null;
             $existingAccepted = Accepted::where('offer_id', $d[0])->first();
+
             if ($existingAccepted) {
-                $newAccepted = $existingAccepted;
-            } else {
-                $newAccepted = new Accepted();
+                abort(403, 'Unauthorized action.');
             }
+
+            $newAccepted = new Accepted();
 
             $newAccepted->offer_id = $d[0];
 
