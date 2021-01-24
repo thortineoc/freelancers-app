@@ -5,61 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Order Directory For Freelancers</title>
-    <!-- Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <!-- Styles -->
     <style>
-
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
-        html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
-        }
-
-        body {
-            margin: 0
-        }
 
         a {
             background-color: transparent
         }
 
-        [hidden] {
-            display: none
-        }
-
-        html {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            line-height: 1.5
-        }
-
-        *, :after, :before {
-            box-sizing: border-box;
-            border: 0 solid #e2e8f0
-        }
 
         a {
             color: inherit;
             text-decoration: inherit
-        }
-
-        svg, video {
-            display: block;
-            vertical-align: middle
-        }
-
-        video {
-            max-width: 100%;
-            height: auto
-        }
-
-        .bg-white {
-            --bg-opacity: 1;
-            background-color: #fff;
-            background-color: rgba(255, 255, 255, var(--bg-opacity))
         }
 
         .bg-gray-100 {
@@ -67,7 +30,6 @@
             background-color: #f7fafc;
             background-color: rgba(247, 250, 252, var(--bg-opacity))
         }
-
 
         .flex {
             display: flex
@@ -102,18 +64,6 @@
             margin-left: 1rem
         }
 
-        .mt-8 {
-            margin-top: 2rem
-        }
-
-
-        .overflow-hidden {
-            overflow: hidden
-        }
-
-        .p-6 {
-            padding: 1.5rem
-        }
 
         .py-4 {
             padding-top: 1rem;
@@ -150,35 +100,6 @@
             text-align: center
         }
 
-        .text-gray-200 {
-            --text-opacity: 1;
-            color: #edf2f7;
-            color: rgba(237, 242, 247, var(--text-opacity))
-        }
-
-        .text-gray-300 {
-            --text-opacity: 1;
-            color: #e2e8f0;
-            color: rgba(226, 232, 240, var(--text-opacity))
-        }
-
-        .text-gray-400 {
-            --text-opacity: 1;
-            color: #cbd5e0;
-            color: rgba(203, 213, 224, var(--text-opacity))
-        }
-
-        .text-gray-500 {
-            --text-opacity: 1;
-            color: #a0aec0;
-            color: rgba(160, 174, 192, var(--text-opacity))
-        }
-
-        .text-gray-600 {
-            --text-opacity: 1;
-            color: #718096;
-            color: rgba(113, 128, 150, var(--text-opacity))
-        }
 
         .text-gray-700 {
             --text-opacity: 1;
@@ -186,20 +107,11 @@
             color: rgba(74, 85, 104, var(--text-opacity))
         }
 
-        .text-gray-900 {
-            --text-opacity: 1;
-            color: #1a202c;
-            color: rgba(26, 32, 44, var(--text-opacity))
-        }
 
         .underline {
             text-decoration: underline
         }
 
-
-        .grid-cols-1 {
-            grid-template-columns:repeat(1, minmax(0, 1fr))
-        }
 
         @media (min-width: 640px) {
             .sm\:rounded-lg {
@@ -239,11 +151,7 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            .dark\:bg-gray-800 {
-                --bg-opacity: 1;
-                background-color: #2d3748;
-                background-color: rgba(45, 55, 72, var(--bg-opacity))
-            }
+
 
             .dark\:bg-gray-900 {
                 --bg-opacity: 1;
@@ -251,23 +159,6 @@
                 background-color: rgba(26, 32, 44, var(--bg-opacity))
             }
 
-            .dark\:border-gray-700 {
-                --border-opacity: 1;
-                border-color: #4a5568;
-                border-color: rgba(74, 85, 104, var(--border-opacity))
-            }
-
-            .dark\:text-white {
-                --text-opacity: 1;
-                color: #fff;
-                color: rgba(255, 255, 255, var(--text-opacity))
-            }
-
-            .dark\:text-gray-400 {
-                --text-opacity: 1;
-                color: #cbd5e0;
-                color: rgba(203, 213, 224, var(--text-opacity))
-            }
         }
         html {
             scroll-behavior: smooth;
@@ -282,31 +173,11 @@
             font-family: Verdana, sans-serif;
         }
 
-        .mySlides1 {
-            display: none;
-        }
-
-        .mySlides2 {
-            display: none;
-        }
-
-        .myText1 {
-            display: none;
-        }
-
-        .myText2 {
-            display: none;
-        }
 
         img {
             vertical-align: middle;
         }
 
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
 
         .dot {
             height: 15px;
@@ -316,17 +187,6 @@
             border-radius: 50%;
             display: inline-block;
             transition: background-color 0.6s ease;
-        }
-
-        .active {
-            background-color: #717171;
-        }
-
-        .fade {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 1.5s;
-            animation-name: fade;
-            animation-duration: 1.5s;
         }
 
         @-webkit-keyframes fade {
@@ -368,19 +228,6 @@
 
         }
 
-        .text {
-            font-size: 28px;
-            position: relative;
-            font-weight: bold;
-            color: dimgrey;
-        }
-
-        .small-text {
-            font-size: 18px;
-            max-width: 400px;
-            font-weight: normal;
-        }
-
         .mediumtext {
             font-size: 20px;
             font-weight: normal;
@@ -394,7 +241,6 @@
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
         }
-
         .icon-bar a {
             display: block;
             text-align: center;
@@ -403,8 +249,6 @@
             color: white;
             font-size: 20px;
         }
-
-
 
         .facebook {
             background: #3B5998;
@@ -461,9 +305,6 @@
 </div>
 
 
-
-
-
 <h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
 
 <div class="flex justify-center  bg-gray-100 ">
@@ -497,6 +338,7 @@
         </ul>
     </div>
 </div>
+
 
 
 <div class="rounded-lg shadow text-white bg-green-900 max-w-20 block py-2 px-3 text-center hover:text-yellow-300 but" >
@@ -552,6 +394,8 @@
     <span class="dot"></span>
     <span class="dot"></span>
 </div>
+
+
 
 </body>
 </html>
