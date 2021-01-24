@@ -10,6 +10,24 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+   {{-- <script>
+        let liczba=0;
+        animacja();
+        function animacja(){
+            let i;
+            let x=document.getElementById("sliderimg");
+            for(i-0; i<x.length; i++){
+                x[i].style.display="none";
+            }
+            liczba++;
+            if(liczba>x.length)
+            {
+                liczba=1
+            }
+            x[liczba-1].style.display="block";
+            setTimeout(animacja, 2000);
+        }
+    </script>--}}
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -149,36 +167,26 @@
                 padding-right: 2rem
             }
         }
-
         @media (prefers-color-scheme: dark) {
-
-
             .dark\:bg-gray-900 {
                 --bg-opacity: 1;
                 background-color: #1a202c;
                 background-color: rgba(26, 32, 44, var(--bg-opacity))
             }
-
         }
         html {
             scroll-behavior: smooth;
         }
-
         * {
             box-sizing: border-box;
             background-color: #f7fafc;
         }
-
         body {
             font-family: Verdana, sans-serif;
         }
-
-
         img {
             vertical-align: middle;
         }
-
-
         .dot {
             height: 15px;
             width: 15px;
@@ -188,7 +196,6 @@
             display: inline-block;
             transition: background-color 0.6s ease;
         }
-
         @-webkit-keyframes fade {
             from {
                 opacity: .4
@@ -197,7 +204,6 @@
                 opacity: 1
             }
         }
-
         @keyframes fade {
             from {
                 opacity: .4
@@ -206,17 +212,14 @@
                 opacity: 1
             }
         }
-
         @media only screen and (max-width: 300px) {
             .text {
                 font-size: 11px
             }
         }
-
         .cont {
             max-width: 50%;
         }
-
         .progressbar li {
             list-style-type: none;
             width: 25%;
@@ -225,16 +228,11 @@
             position: relative;
             text-align: center;
             text-transform: uppercase;
-
         }
-
         .mediumtext {
             font-size: 20px;
             font-weight: normal;
         }
-
-
-
         .icon-bar {
             position: fixed;
             -webkit-transform: translateY(-50%);
@@ -249,15 +247,12 @@
             color: white;
             font-size: 20px;
         }
-
         .facebook {
             background: #3B5998;
         }
-
         .twitter {
             background: #55ACEE;
         }
-
         .linkedin {
             background: #007bb5;
         }
@@ -278,32 +273,16 @@
 
 <body>
 
-<script>
-    $(function(){
-        $('#slideshow > div:gt(0)').hide();
-        setInterval(function(){
-            $('#slideshow > div:first')
-                .fadeOut(2000)
-                .next()
-                .fadeIn(2000)
-                .end()
-                .appendTo('#slideshow');
-        }, 4000);
-    });
-</script>
-
 <div class="flex justify-center  top-0 ">
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 
 </div>
-
 
 <div class="icon-bar">
 <a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
 <a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>
-
 
 <h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
 
@@ -339,8 +318,6 @@
     </div>
 </div>
 
-
-
 <div class="rounded-lg shadow text-white bg-green-900 max-w-20 block py-2 px-3 text-center hover:text-yellow-300 but" >
     @auth
         <a href="{{url('/dashboard')}}"> Try it now!</a>
@@ -348,7 +325,6 @@
         <a href="{{route('register')}}"> Try it now!</a>
     @endauth
 </div>
-
 
 <div class="relative flex items-top justify-center mx-auto bg-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
@@ -363,31 +339,13 @@
             @endauth
         </div>
     @endif
-
- {{--  <div class="grid  md:grid-cols-2">
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg  ">
-                <div id="slideshow">
-                    <div>
-                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
-                    </div>
-                    <div>
-                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
-                    </div>
-                    <div>
-                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
-                    </div>
-                    <div>
-                        <img src="{{asset('images/image5.jpeg')}}" style="width:100%" class="top_pic">
-                    </div>
-                </div>
-            </div>
-
-
-
-
-    </div>
---}}
 </div>
+
+</body>
+</html>
+
+
+{{--
 
 <div style="text-align:center">
     <span class="dot"></span>
@@ -395,14 +353,6 @@
     <span class="dot"></span>
 </div>
 
-
-
-</body>
-</html>
-
-
-
-{{--
  <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
             Why We?
             <div class="myText1 fade  bg-white">
