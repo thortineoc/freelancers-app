@@ -10,28 +10,44 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-
+    {{-- <script>
+         let liczba=0;
+         animacja();
+         function animacja(){
+             let i;
+             let x=document.getElementById("sliderimg");
+             for(i-0; i<x.length; i++){
+                 x[i].style.display="none";
+             }
+             liczba++;
+             if(liczba>x.length)
+             {
+                 liczba=1
+             }
+             x[liczba-1].style.display="block";
+             setTimeout(animacja, 2000);
+         }
+     </script>--}}
 </head>
 
 
 <body>
 
-<div class="flex justify-center  top-0 ">
+<div class="flex logo  top-0 ">
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 
 </div>
 
 <div class="icon-bar">
-    <div data-id="fb">
-<a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
-    </div>
-<a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
+    <a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
+    <a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>
 
-<h2 class="flex justify-center text-green-900 font-semibold m-20" style="font-size: 48px;">How it works?</h2>
+<h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
 
-<div class="flex justify-center bg-gray-100 ">
+
+<div class="flex justify-center  bg-color-gray-100 ">
     <div class="cont">
         <ul class="progressbar ">
             <li><img src="{{asset('images/image1.png')}}" class="img">
@@ -63,6 +79,7 @@
     </div>
 </div>
 
+
 <div class="my_link_button">
 
     @auth
@@ -74,45 +91,7 @@
 </div>
 
 
-<h2 class="flex justify-center text-green-900 font-semibold m-20" style="font-size: 48px;">Opinions</h2>
-<div>
-    <x-slider></x-slider>
-</div>
-
-<h2 class="flex justify-center text-green-900 font-semibold m-20" style="font-size: 48px;">Contact</h2>
-
-<div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg" style="margin: auto; margin-bottom: 40px">
-    <div>
-        Do you have any questions?
-    </div>
-    <div>
-        You can send an e-mail to
-    </div>
-    <div class="text-gray-500">
-        <div>
-            orderdirectiory@gmail.com
-        </div>
-        <div>
-            directioryfeelancers@gmail.com
-        </div>
-    </div>
-
-    <div>
-        You can also call our consultants
-    </div>
-    <div class="text-gray-500">
-        <div>
-            +48 111 111 111
-        </div>
-        <div>
-            +48 111 222 111
-        </div>
-    </div>
-
-
-</div>
-
-<div class="relative flex items-top justify-center mx-auto bg-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
+<div class="relative flex items-top justify-center mx-auto bg-color-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
         <div class=" fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
@@ -128,6 +107,42 @@
 </div>
 
 
+<h2 class="flex justify-center text-green-900 font-semibold m-20" style="font-size: 48px;">Opinions</h2>
+<div>
+    <x-slider></x-slider>
+</div>
+
+
+<div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-color-gray-100 shadow-md overflow-hidden sm:rounded-lg" style="margin: auto; margin-bottom: 40px">
+    <div>
+        Do you have any questions?
+    </div>
+    <div>
+        You can send an e-mail to
+    </div>
+    <div class="text-gray-600">
+        <div>
+            orderdirectiory@gmail.com
+        </div>
+        <div>
+            directioryfeelancers@gmail.com
+        </div>
+    </div>
+
+    <div>
+        You can also call our consultants
+    </div>
+    <div class="text-gray-600">
+        <div>
+            +48 111 111 111
+        </div>
+        <div>
+            +48 111 222 111
+        </div>
+    </div>
+
+
+</div>
+
 </body>
 </html>
-

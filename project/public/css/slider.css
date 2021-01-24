@@ -1,0 +1,27 @@
+
+.snap-x {
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.snap-start {
+    scroll-snap-align: start;
+}
+
+.borders {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.padding{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 25%;
+    margin-left: 12.5%;
+    text-align: center;
+}
+
