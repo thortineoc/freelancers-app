@@ -33,20 +33,19 @@
 
 <body>
 
-<div class="flex justify-center  top-0 ">
+<div class="flex logo  top-0 ">
     <img src="{{asset('images/logo4.png')}}" alt="logo">
 
 </div>
 
 <div class="icon-bar">
-    <div data-id="fb">
 <a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
-    </div>
 <a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>
 
 <h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
+
 
 <div class="flex justify-center  bg-color-gray-100 ">
     <div class="cont">
@@ -80,13 +79,17 @@
     </div>
 </div>
 
-<div class="rounded-lg shadow text-white bg-green-900 max-w-20 block py-2 px-3 text-center hover:text-yellow-300 but" >
+
+<div class="my_link_button">
+
     @auth
-        <a href="{{url('/dashboard')}}"> Try it now!</a>
+        <x-link-button href="{{url('/dashboard')}}">Try it now!</x-link-button>
     @else
-        <a href="{{route('register')}}"> Try it now!</a>
+        <x-link-button href="{{route('register')}}">Try it now!</x-link-button>
     @endauth
+
 </div>
+
 
 <div class="relative flex items-top justify-center mx-auto bg-color-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
@@ -101,6 +104,44 @@
             @endauth
         </div>
     @endif
+</div>
+
+
+<h2 class="flex justify-center text-green-900 font-semibold m-20" style="font-size: 48px;">Opinions</h2>
+<div>
+ <x-slider></x-slider>
+</div>
+
+
+<div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-color-gray-100 shadow-md overflow-hidden sm:rounded-lg" style="margin: auto; margin-bottom: 40px">
+    <div>
+        Do you have any questions?
+    </div>
+    <div>
+        You can send an e-mail to
+    </div>
+    <div class="text-gray-600">
+        <div>
+            orderdirectiory@gmail.com
+        </div>
+        <div>
+            directioryfeelancers@gmail.com
+        </div>
+    </div>
+
+    <div>
+        You can also call our consultants
+    </div>
+    <div class="text-gray-600">
+        <div>
+            +48 111 111 111
+        </div>
+        <div>
+            +48 111 222 111
+        </div>
+    </div>
+
+
 </div>
 
 </body>
