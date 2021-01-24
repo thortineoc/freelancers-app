@@ -1,3 +1,4 @@
+<title>Order Directory For Freelancers</title>
 <x-app-layout>
 
     <x-slot name="header">
