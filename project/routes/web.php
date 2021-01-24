@@ -6,6 +6,7 @@ use App\Http\Controllers\MyOrderOffersController;
 use App\Http\Controllers\MyOrdersController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\PriorityPostController;
+use App\Http\Controllers\RateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,7 @@ Route::resource('myorders.offers', MyOrderOffersController::Class)->middleware('
 Route::get('myoffers', AllMyOffersController::Class)->middleware('auth')->name('myoffers');
 Route::resource('orders', OrdersController::Class)->only(['index', 'show'])->middleware('auth');
 Route::post('update', PriorityPostController::class);
+Route::post('rate', RateController::class);
 Route::post('orders/{order}/offer/{offer}/accept', [MyOfferController::class, 'accept_offer'] )
     ->name('orders.offer.accept')
     ->middleware('auth');
