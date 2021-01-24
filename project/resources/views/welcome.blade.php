@@ -279,7 +279,9 @@
 </div>
 
 <div class="icon-bar">
+    <div data-id="fb">
 <a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
+    </div>
 <a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>

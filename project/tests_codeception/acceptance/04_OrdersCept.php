@@ -28,14 +28,14 @@ $I->click('Create');
 $I->seeCurrentUrlEquals('/myorders/create');
 $I->see('Creating a new order');
 $I->seeInField('title', 'DevOps');
-$I->fillField('budget', 'Eternal gratitude');
+$I->fillField('payment', 'Eternal gratitude');
 $I->click('Create');
 
 $I->seeCurrentUrlEquals('/myorders/create');
 $I->see('Creating a new order');
 $I->seeInField('title', 'DevOps');
-$I->seeInField('budget', 'Eternal gratitude');
-$I->fillField('budget', '10');
+$I->seeInField('payment', 'Eternal gratitude');
+$I->fillField('payment', '10');
 $I->fillField('description', 'Needed: someone who can make photo editor with QTCreator.');
 $I->fillField('deadline', '2021-02-02 00:00');
 $I->click('Create');
