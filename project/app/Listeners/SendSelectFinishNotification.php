@@ -37,7 +37,7 @@ class SendSelectFinishNotification
         }
         else
         {
-            $offer = $offer::where('id', $offer->order_id)->with('order')->first();
+            $offer = $offer::where('id', $offer->id)->with('order')->first();
             $user = User::where('id', $offer->order->user_id)->get();
         }
         Notification::send($user, new FinishSelectNotification($offer, $notificationType));
