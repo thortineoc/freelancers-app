@@ -10,24 +10,24 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-   {{-- <script>
-        let liczba=0;
-        animacja();
-        function animacja(){
-            let i;
-            let x=document.getElementById("sliderimg");
-            for(i-0; i<x.length; i++){
-                x[i].style.display="none";
-            }
-            liczba++;
-            if(liczba>x.length)
-            {
-                liczba=1
-            }
-            x[liczba-1].style.display="block";
-            setTimeout(animacja, 2000);
-        }
-    </script>--}}
+    {{-- <script>
+         let liczba=0;
+         animacja();
+         function animacja(){
+             let i;
+             let x=document.getElementById("sliderimg");
+             for(i-0; i<x.length; i++){
+                 x[i].style.display="none";
+             }
+             liczba++;
+             if(liczba>x.length)
+             {
+                 liczba=1
+             }
+             x[liczba-1].style.display="block";
+             setTimeout(animacja, 2000);
+         }
+     </script>--}}
 </head>
 
 
@@ -39,8 +39,8 @@
 </div>
 
 <div class="icon-bar">
-<a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
-<a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
+    <a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
+    <a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>
 
@@ -109,7 +109,7 @@
 
 <h2 class="flex justify-center text-green-900 font-semibold m-20" style="font-size: 48px;">Opinions</h2>
 <div>
- <x-slider></x-slider>
+    <x-slider></x-slider>
 </div>
 
 
@@ -146,65 +146,3 @@
 
 </body>
 </html>
-
-
-{{--
-
-<div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-</div>
-
- <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
-            Why We?
-            <div class="myText1 fade  bg-white">
-                <ul class="bg-white small-text ">
-                    <a class="mediumtext">Talk to One of Our Industry Experts</a>
-                    Our director of engineering will work with you to understand your goals, technical needs, and team
-                    dynamics.
-                </ul>
-            </div>
-            <div class="myText1 fade   bg-white">
-                <ul class="bg-white small-text ">
-                    <a class="mediumtext">Work With Hand-Selected Talent</a>
-                    Within days, You will find the right developer for your project. Average time to match is under 24
-                    hours.
-                </ul>
-            </div>
-            <div class="myText1 fade   bg-white">
-                <ul class="bg-white small-text ">
-                    <a class="mediumtext">The Right Fit, Guaranteed</a>
-                    Work with your new developer for a trial period (pay only if satisfied), ensuring they're the right
-                    fit before starting the engagement.
-                </ul>
-            </div>
-        </div>
-
-
-  <div class="mt-8 bg-white text-green-600 overflow-hidden text text-center shadow sm:rounded-lg">
-            Why We are better?
-            <div class="myText2 fade   bg-white">
-                <ul class="bg-white small-text ">
-                    <a class="mediumtext">Our Katalog is GDPR ready</a>
-                    We believe data privacy is one of the most important aspects of business. Our users’ and partners’ data is protected in accordance with GDPR.
-                </ul>
-            </div>
-            <div class="myText2 fade   bg-white">
-                <ul class="bg-white small-text ">
-                    <a class="mediumtext">Competition</a>
-                    See how they compare to other developers worldwide. Our unique scoring algorithm helps you identify the rising stars.
-                </ul>
-            </div>
-            <div class="myText2 fade   bg-white">
-                <ul class="bg-white small-text ">
-                    <a class="mediumtext">Exponentially growing community</a>
-                    1+ users join us every month from Poland. You can access new job-seeker talent every year.
-                </ul>
-            </div>
-        </div>
-
-
-
-
---}}
