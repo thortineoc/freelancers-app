@@ -41,7 +41,7 @@ class MyOrdersController extends Controller
 
         $validated = $request->validate([
             'title' => 'required',
-            'payment' => 'required|numeric',
+            'budget' => 'required|numeric',
             'deadline' => 'required|date',
             'description' => 'required'
         ]);
@@ -49,7 +49,7 @@ class MyOrdersController extends Controller
         $newOrder = new Order();
         $newOrder->title = $request->post('title');
         $newOrder->description = $request->post('description');
-        $newOrder->budget = $request->post('payment');
+        $newOrder->budget = $request->post('budget');
         $newOrder->deadline = $request->post('deadline');
         $newOrder->user_id = Auth::id();
         $newOrder->save();
@@ -97,7 +97,7 @@ class MyOrdersController extends Controller
 
         $validated = $request->validate([
             'title' => 'required',
-            'payment' => 'required|numeric',
+            'budget' => 'required|numeric',
             'deadline' => 'required|date',
             'description' => 'required'
         ]);
@@ -105,7 +105,7 @@ class MyOrdersController extends Controller
         $newOrder = Order::find($id);
         $newOrder->title = $request->post('title');
         $newOrder->description = $request->post('description');
-        $newOrder->budget = $request->post('payment');
+        $newOrder->budget = $request->post('budget');
         $newOrder->deadline = $request->post('deadline');
         $newOrder->save();
 

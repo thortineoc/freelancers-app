@@ -15,6 +15,5 @@ $I->seeLink('My Offers', '/myoffers');
 $I->seeLink('Orders', '/orders');
 $I->seeLink('Home', '');
 $I->seeLink('Dashboard', '/dashboard');
-$I->see("You're logged in!");
 
 $I->see('John Doe');

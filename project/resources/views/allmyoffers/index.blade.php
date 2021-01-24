@@ -3,12 +3,16 @@
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('My offers') }}
+                {{ __('My offer') }}
             </h2>
         </div>
     </x-slot>
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+
+        <p>
+            There are all of your job offers. When you finish working, please click on the "Finished" button to announce your employer that the job is done.
+        </p>
 
         @forelse ($offers as $offer)
 
@@ -18,7 +22,7 @@
                     {{ $offer->order->title }}
                 </h1>
                 <div class="my-2 mt-0 underline text-gray-500">
-                    <a href="/order/{{$offer->order_id}}">Display order</a>
+                    <a href="/orders/{{$offer->order_id}}">Display order</a>
                 </div>
                 <div class="font-bold text-lg text-green-900 mt-2">
                     My offer:
@@ -32,6 +36,17 @@
                 <div class="mb-5">
                     Deadline: {{ $offer->deadline }}
                 </div>
+
+                @if($offer->accepted)
+                    @if($offer->accepted->selected)
+
+                    <form method="get" action="{{ route('orders.offer.finish', [$offer->order, $offer]) }}">
+                        @csrf
+                        <x-my-button>Finished</x-my-button>
+                    </form>
+
+                    @endif
+                @endif
 
             </div>
 
