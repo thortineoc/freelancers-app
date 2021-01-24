@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
    {{-- <script>
         let liczba=0;
         animacja();
@@ -28,246 +28,6 @@
             setTimeout(animacja, 2000);
         }
     </script>--}}
-    <!-- Styles -->
-    <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-
-        a {
-            background-color: transparent
-        }
-
-
-        a {
-            color: inherit;
-            text-decoration: inherit
-        }
-
-        .bg-gray-100 {
-            --bg-opacity: 1;
-            background-color: #f7fafc;
-            background-color: rgba(247, 250, 252, var(--bg-opacity))
-        }
-
-        .flex {
-            display: flex
-        }
-
-        .grid {
-            display: grid
-        }
-
-
-        .justify-center {
-            justify-content: center
-        }
-
-        .font-semibold {
-            font-weight: 600
-        }
-
-
-        .text-sm {
-            font-size: .875rem
-        }
-
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto
-        }
-
-
-        .ml-4 {
-            margin-left: 1rem
-        }
-
-
-        .py-4 {
-            padding-top: 1rem;
-            padding-bottom: 1rem
-        }
-
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem
-        }
-
-
-        .fixed {
-            position: fixed
-        }
-
-        .relative {
-            position: relative
-        }
-
-        .top-0 {
-            top: 0
-        }
-
-        .right-0 {
-            right: 0
-        }
-
-        .shadow {
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)
-        }
-
-        .text-center {
-            text-align: center
-        }
-
-
-        .text-gray-700 {
-            --text-opacity: 1;
-            color: #4a5568;
-            color: rgba(74, 85, 104, var(--text-opacity))
-        }
-
-
-        .underline {
-            text-decoration: underline
-        }
-
-
-        @media (min-width: 640px) {
-            .sm\:rounded-lg {
-                border-radius: .5rem
-            }
-
-            .sm\:block {
-                display: block
-            }
-
-            .sm\:items-center {
-                align-items: center
-            }
-
-
-            .sm\:px-6 {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem
-            }
-
-
-        }
-
-        @media (min-width: 768px) {
-
-
-            .md\:grid-cols-2 {
-                grid-template-columns:repeat(2, minmax(0, 1fr))
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .lg\:px-8 {
-                padding-left: 2rem;
-                padding-right: 2rem
-            }
-        }
-        @media (prefers-color-scheme: dark) {
-            .dark\:bg-gray-900 {
-                --bg-opacity: 1;
-                background-color: #1a202c;
-                background-color: rgba(26, 32, 44, var(--bg-opacity))
-            }
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        * {
-            box-sizing: border-box;
-            background-color: #f7fafc;
-        }
-        body {
-            font-family: Verdana, sans-serif;
-        }
-        img {
-            vertical-align: middle;
-        }
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-        @-webkit-keyframes fade {
-            from {
-                opacity: .4
-            }
-            to {
-                opacity: 1
-            }
-        }
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-            to {
-                opacity: 1
-            }
-        }
-        @media only screen and (max-width: 300px) {
-            .text {
-                font-size: 11px
-            }
-        }
-        .cont {
-            max-width: 50%;
-        }
-        .progressbar li {
-            list-style-type: none;
-            width: 25%;
-            float: left;
-            font-size: 12px;
-            position: relative;
-            text-align: center;
-            text-transform: uppercase;
-        }
-        .mediumtext {
-            font-size: 20px;
-            font-weight: normal;
-        }
-        .icon-bar {
-            position: fixed;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-        }
-        .icon-bar a {
-            display: block;
-            text-align: center;
-            padding: 16px;
-            transition: all 0.3s ease;
-            color: white;
-            font-size: 20px;
-        }
-        .facebook {
-            background: #3B5998;
-        }
-        .twitter {
-            background: #55ACEE;
-        }
-        .linkedin {
-            background: #007bb5;
-        }
-        .img{
-            margin-left: 25%;
-        }
-        .but{
-            max-width: 10%;
-            justify-content: center;
-            margin-left:45%;
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-    </style>
-
 </head>
 
 
@@ -288,7 +48,7 @@
 
 <h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
 
-<div class="flex justify-center  bg-gray-100 ">
+<div class="flex justify-center  bg-color-gray-100 ">
     <div class="cont">
         <ul class="progressbar ">
             <li><img src="{{asset('images/image1.png')}}" class="img">
@@ -328,7 +88,7 @@
     @endauth
 </div>
 
-<div class="relative flex items-top justify-center mx-auto bg-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
+<div class="relative flex items-top justify-center mx-auto bg-color-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
         <div class=" fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
