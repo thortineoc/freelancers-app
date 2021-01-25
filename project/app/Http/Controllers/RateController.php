@@ -17,14 +17,14 @@ class RateController extends Controller
     {
 
         $validated = $request->validate([
-            'user_id' => 'required|numeric',
-            'rate_quality' => 'required|numeric|between:0,5',
-            'rate_time' => 'required|numeric|between:0,5'
+            'user_id' => 'required',
+            'quality_rate' => 'required',
+            'time_rate' => 'required'
         ]);
 
-        $user=User::whereId($request->post('user_id'))->first();
-        $user->rate_quality_sum+=$request->post('rate_quality');
-        $user->rate_time_sum+=$request->post('rate_time');
+        $user=User::whereId(intVal($request->post('user_id')))->first();
+        $user->rate_quality_sum+=intval($request->post('quality_rate'));
+        $user->rate_time_sum+=intVal($request->post('time_rate'));
         $user->number_of_rates++;
         $user->save();
     }
