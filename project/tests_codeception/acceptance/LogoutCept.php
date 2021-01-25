@@ -1,8 +1,5 @@
 <?php
 
-use Codeception\Util\Locator;
-
-
 $I = new AcceptanceTester($scenario);
 $I->wantTo('logout and be on homepage');
 
