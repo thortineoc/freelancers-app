@@ -101,6 +101,7 @@
 
                                 <div>
                                     <input type="hidden" name="user_id" id="user_id" value={{intVal($notification->data['offer']['user_id'])}} />
+                                    <input type="hidden" name="notification_id" id="notification_id" value="{{$notification->id}}" />
                                 </div>
 
                                 <x-my-button>Submit</x-my-button>
@@ -131,6 +132,7 @@
                             <div class="mb-4 mt-2 text-red-700">
                                <label for="decline">Decline</label>
                                <input type="radio" value=0 id="decline" name="accept" class="text-red-700 cursor-pointer ml-2" />
+                                <input type="hidden" name="notification_id" id="notification_id" value="{{$notification->id}}" />
                             </div>
                             <x-my-button>Confirm</x-my-button>
                         </form>
