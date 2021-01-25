@@ -150,8 +150,6 @@ class MyOfferController extends Controller
         $selected = new Selected();
         $selected->finished = false;
         $selected->rejected = !boolval($request->post('accept'));
-        $selected->rate_time = -1;
-        $selected->rate_quality = -1;
         $selected->accepted_id = $offer->accepted->id;
         $selected->save();
         if ($selected->rejected)

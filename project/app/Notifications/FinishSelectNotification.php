@@ -47,7 +47,7 @@ class FinishSelectNotification extends Notification
     {
         return [
             'notificationType' => $this->notificationType,
-            'offer' => $this->offer,
+            'offer' => Offer::whereId($this->offer->id)->with('user')->first(),
             'order' => Order::whereId($this->offer->order_id)->with('user')->first()
         ];
     }

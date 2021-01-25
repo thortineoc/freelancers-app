@@ -18,7 +18,7 @@
 
                 <h2 class="font-bold text-2">
                     {{ $offer->user->name }}
-                </h2
+                </h2>
 
                 @if($offer->user->number_of_rates)
 
