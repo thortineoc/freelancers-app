@@ -18,8 +18,7 @@
 
                 <h2 class="font-bold text-2">
                     {{ $offer->user->name }}
-                </h2>
-
+                </h2
 
                 @if($offer->user->number_of_rates)
 
@@ -35,6 +34,7 @@
                         </i>
                     </button>
                 </div>
+
                 <div id="ratings_{{$offer->id}}" class="bg-gray-200 m-0 p-5" style="display: none">
 
                     <div id="quality p-3">
@@ -91,7 +91,7 @@
         <form id="sampleForm" name="sampleForm" method="post" action="{{url('/update')}}" >
             @csrf <!-- {{ csrf_field() }} -->
             <input type="hidden" name="total" id="total" value="">
-            <x-my-button onclick="setValue();" class="my-10">Sumbit</x-my-button>
+            <x-my-button onclick="setValue();" class="my-10">Submit</x-my-button>
         </form>
 
         @endif

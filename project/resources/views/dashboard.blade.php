@@ -53,13 +53,13 @@
                 You're logged in!
             </div>
 
-        @foreach($user->notifications as $notification)
+      {{--  @foreach($user->notifications as $notification)
 
-                @if($notification->data['$notificationType'] == 'finish')
+                @if($notification->data['$notificationType'] == 'finish')--}}
                 <!-- display if is finished -->
                 <div>
                     <div class="flex justify-between p-6 bg-yellow-100 font-bold border-yellow-500 mt-5">
-                        <span>{{--User $name $surname finished his work--}}</span>
+                        <span>User $name $surname has just finished working on $order</span>
                         <i>
                             <svg class="w-8 h-8 animate-pulse text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -98,12 +98,18 @@
                                     <input id="star6" name="time_rate" type="radio" value="1" class="radio-btn hidden" />
                                     <label for="star6">★</label>
                                 </div>
-                                <x-my-button>Sumbit</x-my-button>
+
+                              {{--  <div>
+                                    <input type="hidden" name="user_id" id="user_id" />
+                                </div>--}}
+
+                                <x-my-button>Submit</x-my-button>
                             </form>
                         </div>
                     </div>
-                @endif
-                @if($notification->data['$notificationType'] == 'accept')
+               {{-- @endif
+
+                @if($notification->data['$notificationType'] == 'accept')--}}
 
                 <!-- display if need to be accepted-->
                 <div>
@@ -116,7 +122,7 @@
                         </i>
                     </div>
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <form method="post" action="{{--route('orders.offer.accept', [$user->order, $offer])--}}">
+                        <form method="post" action="{{route('orders.offer.accept', [$user->order, $offer])}}">
                             @csrf
                             <div class="my-2 text-green-700">
                                 <label for="accept">Accept</label>
@@ -130,9 +136,9 @@
                         </form>
                     </div>
                 </div>
-
+{{--
                 @endif
-                @endforeach
+                @endforeach--}}
         </div>
     </div>
 </x-app-layout>
