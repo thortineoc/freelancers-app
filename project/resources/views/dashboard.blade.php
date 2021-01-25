@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <div class="my-3">Please rate $name $surname's work on $order</div>
+                        <div class="my-3">Please rate {{$notification->data['offer']['user']['name']}}'s work on {{$notification->data['order']['title']}}</div>
                             <form method="post" action="\rate">
                                 @csrf
                                 <div>Quality of work:</div>
