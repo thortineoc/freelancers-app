@@ -156,7 +156,7 @@ class MyOfferController extends Controller
         if ($selected->rejected)
         {
             $priority = $offer->accepted->priority + 1;
-            $offer = $offer::where('id', $offer->order_id)->with('order')->first();
+            $offer = $offer::where('id', $offer->id)->with('order')->first();
             $order = $offer->order;
             $new_offers = $offer::where('order_id', $order->id)->with('accepted')->get();
             foreach ($new_offers as $new_offer)
