@@ -24,7 +24,3 @@ $I->seeLink('My Orders', '/myorders');
 $I->seeLink('My Offers', '/myoffers');
 $I->seeLink('Orders', '/orders');
 $I->seeLink('Home', '');
-$I->click('Logout');
-$I->seeCurrentUrlEquals('/');
-$I->amOnPage('/');
-$I->seeLink('Dashboard', '/dashboard');
