@@ -42,6 +42,3 @@ $I->click('Create');
 
 $I->seeInDatabase('orders', ['title' => 'DevOps', 'budget' => '10', 'deadline' => '2021-02-02 00:00']);
 
-
-$I->amOnPage('/myorders');
-$I->see('DevOps');
