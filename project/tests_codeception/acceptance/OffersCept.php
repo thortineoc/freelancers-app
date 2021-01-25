@@ -18,10 +18,9 @@ $I->click('Apply');
 
 $I->seeCurrentUrlMatches('~/orders/[0-9]+/offer/create~');
 
-$I->fillField('details', 'Details about offer');
 $I->click('Create');
 
-$I->seeInField('details', 'Details about offer');
+$I->fillField('details', 'Details about offer');
 $I->fillField('price', 10);
 $I->fillField('deadline', 'Wed Mar 31 2021');
 $I->click('Create');
