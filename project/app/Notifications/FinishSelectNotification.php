@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Models\Offer;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -46,7 +47,8 @@ class FinishSelectNotification extends Notification
     {
         return [
             'notificationType' => $this->notificationType,
-            'offer_id' => $this->offer->id
+            'offer' => $this->offer,
+            'order' => Order::whereId($this->offer->order_id)->with('user')->first()
         ];
     }
 }
