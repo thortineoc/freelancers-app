@@ -14,7 +14,7 @@ modules:
             dsn: 'mysql:host=127.0.0.1;dbname=test'
             user: 'test'
             password: 'test123'
-            populate: true
+            populate: false
             cleanup: true
             dump: tests_codeception/_data/dump.sql
 step_decorators: ~
