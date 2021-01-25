@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SelectFinish;
 use App\Models\Accepted;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +34,10 @@ class PriorityPostController extends Controller
 
             if ($d[1]) {
                 $newAccepted->priority = $d[1];
+                if($d[1]==1)
+                    {
+                        SelectFinish::dispatch(Offer::whereId($d[0])->first(), 'accept');
+                    }
                 $newAccepted->save();
             }
         }

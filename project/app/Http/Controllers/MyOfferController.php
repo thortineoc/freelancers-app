@@ -7,6 +7,7 @@ use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
 use App\Models\Selected;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -150,26 +151,24 @@ class MyOfferController extends Controller
         $selected = new Selected();
         $selected->finished = false;
         $selected->rejected = !boolval($request->post('accept'));
-        $selected->rate_time = -1;
-        $selected->rate_quality = -1;
         $selected->accepted_id = $offer->accepted->id;
         $selected->save();
         if ($selected->rejected)
         {
             $priority = $offer->accepted->priority + 1;
-            $offer = $offer::where('id', $offer->order_id)->with('order')->first();
+            $offer = $offer::where('id', $offer->id)->with('order')->first();
             $order = $offer->order;
-            $new_offers = $offer::where('order_id', $order->id)->with('accepted')->get();
+            $new_offers = Offer::where('order_id', $order->id)->with('accepted')->get();
             foreach ($new_offers as $new_offer)
             {
-                $tmp_accepted = Accepted::where('offer_id', $new_offer->id)->first();
-                if ($tmp_accepted->priority = $priority)
+                if ($new_offer->accepted->priority == $priority)
                 {
                     SelectFinish::dispatch($new_offer, 'accept');
                     break;
                 }
             }
         }
+        User::whereId(Auth::id())->first()->notifications()->whereId($request->post('notification_id'))->first()->delete();
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 
