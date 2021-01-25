@@ -10,18 +10,8 @@
     scroll-snap-align: start;
 }
 
-.borders {
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
 .padding{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    margin-top: 25%;
-    margin-left: 12.5%;
+    max-width: 50vw;
+    margin-top: 18rem;
     text-align: center;
 }
-

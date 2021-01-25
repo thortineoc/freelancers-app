@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
-<div class="flex flex-col items-center m-8 borders bg-color-gray-100" >
+<div class="flex flex-col items-center m-8 borders " >
 
     <div class="w-full bg-white rounded overflow-x-hidden flex snap-x " style="height: 40vh">
         <div
-            class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0  relative"
+            class="snap-start w-full h-full flex items-center justify-center text-4xl font-bold flex-shrink-0  relative"
             id="slide-1">
             <img
                 src="https://cdn.datafloq.com/cache/blog_pictures/878x531/artificial-intelligence-future-of-programming.jpg"
@@ -12,7 +12,7 @@
                 dynamics.</h1>
         </div>
         <div
-            class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0  relative "
+            class="snap-start w-full h-full flex items-center justify-center  text-4xl font-bold flex-shrink-0  relative "
             id="slide-2">
             <img
                 src="https://www.goodcore.co.uk/blog/wp-content/uploads/2019/08/coding-vs-programming-2.jpg"
@@ -21,7 +21,7 @@
                 hours.</h1>
         </div>
         <div
-            class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0  relative "
+            class="snap-start w-full h-full flex items-center justify-center  text-4xl font-bold flex-shrink-0  relative "
             id="slide-3">
             <img
                 src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Best-Programming-Languages-to-Start-Learning-Today.jpg"
@@ -29,7 +29,7 @@
             <h1 class="z-20 padding text-green-900">The largest selection of professionals. Freelancers from all over the world specialized in each programming language.</h1>
         </div>
         <div
-            class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0  relative "
+            class="snap-start w-full h-full flex items-center justify-center  text-4xl font-bold flex-shrink-0  relative "
             id="slide-4">
             <img
                 src="https://termly.io/wp-content/uploads/2019/11/Privacy-Policy-Template-Featured-Image.png"
