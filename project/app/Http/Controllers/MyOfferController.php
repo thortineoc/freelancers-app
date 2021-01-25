@@ -158,11 +158,11 @@ class MyOfferController extends Controller
             $priority = $offer->accepted->priority + 1;
             $offer = $offer::where('id', $offer->id)->with('order')->first();
             $order = $offer->order;
-            $new_offers = $offer::where('order_id', $order->id)->with('accepted')->get();
+            $new_offers = Offer::where('order_id', $order->id)->with('accepted')->get();
             foreach ($new_offers as $new_offer)
             {
-                $tmp_accepted = Accepted::where('offer_id', $new_offer->id)->first();
-                if ($tmp_accepted->priority = $priority)
+                //$tmp_accepted = Accepted::where('offer_id', $new_offer->id)->first();
+                if ($new_offer->accepted->priority == $priority)
                 {
                     SelectFinish::dispatch($new_offer, 'accept');
                     break;
