@@ -7,6 +7,7 @@ use App\Models\Accepted;
 use App\Models\Offer;
 use App\Models\Order;
 use App\Models\Selected;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -168,6 +169,7 @@ class MyOfferController extends Controller
                 }
             }
         }
+        User::whereId(Auth::id())->first()->notifications()->whereId($request->post('notification_id'))->first()->delete();
         return redirect()->route('orders.offer.show', [$order, $offer]);
     }
 
