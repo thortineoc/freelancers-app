@@ -46,7 +46,7 @@ class FinishSelectNotification extends Notification
     {
         return [
             'notificationType' => $this->notificationType,
-            'offer_id' => $this->offer->id
+            'offer' => $this->offer
         ];
     }
 }
