@@ -1,15 +1,6 @@
 .my_link_button {
     max-width: 120px;
     min-height: 50px;
-    margin: auto;
-    margin-top: 50px;
-
-}
-
-a {
-    background-color: transparent;
-    color: inherit;
-    text-decoration: inherit
 }
 
 .bg-color-gray-100 {
@@ -18,45 +9,30 @@ a {
     background-color: rgba(247, 250, 252, var(--bg-opacity))
 }
 
-.grid {
-    display: grid
-}
-
-* {
-    box-sizing: border-box;
-    background-color: #f7fafc;
-}
-
-img {
-    vertical-align: middle;
-    margin-left: 25%;
-}
-
-
-
-.cont {
-    max-width: 65%;
-}
-
 .progressbar li {
-    list-style-type: none;
     width: 25%;
+    margin:auto;
     float: left;
     font-size: 12px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
 }
+
 .mediumtext {
     font-size: 20px;
     font-weight: normal;
 }
+
 .icon-bar {
+    z-index: 15;
+    margin-top: 10%;
     position: fixed;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 .icon-bar a {
     display: block;
     text-align: center;
@@ -65,25 +41,19 @@ img {
     color: white;
     font-size: 20px;
 }
+
 .facebook {
     background: #3B5998;
 }
+
 .twitter {
     background: #55ACEE;
 }
+
 .linkedin {
     background: #007bb5;
 }
 
-.but{
-    max-width: 10%;
-    justify-content: center;
-    margin-left:45%;
-    margin-top: 25px;
-    margin-bottom: 25px;
+.img{
+    margin: auto;
 }
-
-.logo{
-    margin-left: 20%;
-}
-

@@ -33,22 +33,21 @@
 
 <body>
 
-<div class="flex logo  top-0 ">
-    <img src="{{asset('images/logo4.png')}}" alt="logo">
-
-</div>
-
 <div class="icon-bar">
     <a href="https://www.agh.edu.pl/" class="fa fa-facebook facebook hover:bg-blue-500"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-twitter twitter hover:bg-blue-200"></a>
     <a href="https://www.agh.edu.pl/" class="fa fa-linkedin linkedin hover:bg-blue-300"></a>
 </div>
 
+
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-color-gray-100">
+
+    <img src="{{asset('images/logo4.png')}}" >
+
+
 <h2 class="flex justify-center text-green-900 font-semibold " style="font-size: 48px;">How it works?</h2>
 
 
-<div class="flex justify-center  bg-color-gray-100 ">
-    <div class="cont">
         <ul class="progressbar ">
             <li><img src="{{asset('images/image1.png')}}" class="img">
                 <br>
@@ -76,11 +75,11 @@
                 Pay hourly or fixed-price and receive invoices through Upwork. Pay for work you authorize.
             </li>
         </ul>
-    </div>
-</div>
 
 
-<div class="my_link_button">
+
+
+<div class="my_link_button mt-20 ">
 
     @auth
         <x-link-button href="{{url('/dashboard')}}">Try it now!</x-link-button>
@@ -141,8 +140,7 @@
         </div>
     </div>
 
-
 </div>
-
+</div>
 </body>
 </html>
