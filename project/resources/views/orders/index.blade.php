@@ -28,12 +28,19 @@
                 <div class="mb-5">
                     Deadline: {{ $order->deadline }}
                 </div>
+                @if ($order->user_id != $user->id)
                 <div class="flex">
                     <div class="m-w-50">
                         <x-link-button href="{{ route('orders.offer.create', $order) }}">Apply</x-link-button>
                     </div>
-
                 </div>
+                @else
+                    <div class="flex">
+                        <div class="m-w-50">
+                            It's your order
+                        </div>
+                    </div>
+                @endif
             </div>
 
         @empty
