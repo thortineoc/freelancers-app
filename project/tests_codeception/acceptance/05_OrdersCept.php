@@ -1,6 +1,6 @@
 <?php
 $I = new AcceptanceTester($scenario);
-$I->wantTo('browse and create orders');
+$I->wantTo('browse, create, update and delete orders');
 
 $I->amOnPage('/orders');
 
@@ -48,8 +48,14 @@ $I->seeCurrentUrlMatches('~/myorders/[0-9]+/edit?~');
 $I->fillField('title', 'DevOps');
 $I->fillField('deadline', 'Wed Mar 31 2021');
 $I->click('Update');
-
 $I->seeCurrentUrlEquals('/myorders');
+$I->dontsee('Dev Ops');
+$I->see('DevOps');
 
 $I->click('See offers...');
 $I->seeCurrentUrlMatches('~/myorders/[0-9]+/offers~');
+$I->see('Nobody applied for that job.');
+$I->amOnPage('/myorders');
+$I->click('delete');
+$I->seeCurrentUrlEquals('/myorders');
+$I->dontsee('DevOps');
