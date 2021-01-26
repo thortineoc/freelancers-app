@@ -37,7 +37,7 @@
                 @else
                     <div class="flex">
                         <div class="m-w-50">
-                            It's your offer
+                            It's your order
                         </div>
                     </div>
                 @endif
