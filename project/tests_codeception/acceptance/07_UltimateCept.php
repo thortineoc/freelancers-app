@@ -3,7 +3,7 @@
 use Codeception\Util\Locator;
 
 $I = new AcceptanceTester($scenario);
-$I->wantTo('test everything I can think of');
+$I->wantTo('test interactions between users');
 
 //Login as John
 
