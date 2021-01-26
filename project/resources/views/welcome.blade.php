@@ -92,9 +92,9 @@
 
 <div class="relative flex items-top justify-center mx-auto bg-color-gray-100  dark:bg-gray-900 sm:items-center sm:px-6">
     @if (Route::has('login'))
-        <div class=" fixed top-0 right-0 px-6 py-4 sm:block">
+        <div class=" fixed top-0 z-20 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Notifications</a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
                 @if (Route::has('register'))
