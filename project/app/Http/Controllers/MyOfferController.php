@@ -179,13 +179,17 @@ class MyOfferController extends Controller
             abort(403, 'Unauthorized action.');
         }
         $offer = $offer::where('id', $offer->id)->with('accepted.selected')->first();
+        if ( !$offer->accepted )
+        {
+            abort(403, 'Not accepted.');
+        }
         if ( !$offer->accepted->selected )
         {
             abort(403, 'Not selected.');
         }
-        if ( $offer->accepted->selected->finished )
+        if ( $offer->accepted->selected->finished || $offer->accepted->selected->rejected )
         {
-            abort(403, 'Already finished.');
+            abort(403, 'Already finished or rejected.');
         }
         $offer->accepted->selected->finished = true;
         $offer->accepted->selected->save();
