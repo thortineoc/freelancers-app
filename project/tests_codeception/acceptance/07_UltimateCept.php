@@ -67,16 +67,22 @@ $I->seeCurrentUrlMatches('~/myorders/[0-9]+/offers~');
 //$I->checkOption(['id' => '1']);               //Unreachable field "1".
 //$I->click(['id' => '1']);                     //seems to click, but apparently doesn't
 //$I->checkOption('#1');                        //Unreachable field "1".
-//$I->click('#1');                              //seems to click, but apparently doesn't
+$I->click('#1');                              //seems to click, but apparently doesn't
 //$I->checkOption('input[type="checkbox"]');    //Unreachable field "1".    <-but i found it!
 //$I->seeCheckboxIsChecked('*[@id="1"]');
 
-$I->see('priority 1');
+$I->haveInDatabase('accepted', [
+    'priority' => 1,
+    'offer_id' => 1
+]);
+
+//$I->see('priority 1');
 
 $I->click('Submit');
 
 //Logout and login as Max
 
+$I->amOnPage('/dashboard');
 $I->click('Logout');
 $I->seeLink('Login', '/login');
 $I->click('Login');
