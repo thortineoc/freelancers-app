@@ -306,7 +306,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `rate_time_sum`, `rate_quality_sum`, `number_of_rates`) VALUES (1,'John Doe','john.doe@gmail.com',NULL,'$2y$10$OFfsjaZFG/BXJH.D1d5DT.dj.p9OhP0Mn29M4M96FZFE0ZgvjbXO.',NULL,NULL,NULL,0,0,NULL),(2,'Max Doe','max.doe@gmail.com',NULL,'$2y$10$L1kQkbEJtBz7kX2InzvcUui.BuAW7zyFRQEdqcAg.USbN4.Nnv8Fy',NULL,NULL,NULL,3.2,2.4,1),(3,'Joe Doe','joe.doe@gmail.com',NULL,'$2y$10$36Ku8m5Rt.2qXTdbaRrEBeZtYu0h.otZupukIcX7egac8jl2t6jp6',NULL,NULL,NULL,0,0,NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `rate_time_sum`, `rate_quality_sum`, `number_of_rates`) VALUES (1,'John Doe','john.doe@gmail.com',NULL,'$2y$10$F7sZ127u1Ard7BCMYISede7TYLNQiZzrHbUq1LFUqKCBNhKIVz8Q2',NULL,NULL,NULL,0,0,NULL),(2,'Max Doe','max.doe@gmail.com',NULL,'$2y$10$9DUGLKE3LQrB6PtnQBpswujJr2AuIdBJaTaJYQTkK6JxaziznU4wy',NULL,NULL,NULL,3.2,2.4,1),(3,'Joe Doe','joe.doe@gmail.com',NULL,'$2y$10$k9GSQgLSwujRNTGJa1qdleXJzGF.AoDu3fpbKKm/PTtqwcckoIJ0q',NULL,NULL,NULL,0,0,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -319,4 +319,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-26 13:21:56
+-- Dump completed on 2021-01-26 18:03:49
