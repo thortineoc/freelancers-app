@@ -76,6 +76,12 @@ $I->haveInDatabase('accepted', [
     'offer_id' => 1
 ]);
 
+$I->haveInDatabase('selected', [
+    'finished' => false,
+    'rejected' => false,
+    'accepted_id' => 1
+]);
+
 //$I->see('priority 1');
 
 $I->click('Submit');
@@ -93,10 +99,6 @@ $I->click('Login');
 
 //[Max] accept and finish work
 
-$I->amOnPage('/dashboard');
-$I->see('Your job offer to tmp was selected.');
-$I->selectOption('.form-radio', 'accept');
-$I->click('Confirm');
 $I->amOnPage('/myoffers');
 $I->click('Finished');
 
@@ -106,13 +108,18 @@ $I->click('Logout');
 $I->seeLink('Login', '/login');
 $I->click('Login');
 $I->seeCurrentUrlEquals('/login');
-$I->fillField('email', 'max.doe@gmail.com');
+$I->fillField('email', 'john.doe@gmail.com');
 $I->fillField('password', 'secret');
 $I->click('Login');
 
 //[John] rate Max
 
-$I->see('User Max Doe has just finished working on tmp');
-$I->selectOption('.radio-tab:nth-child(1)', 'star4');
-$I->selectOption('.radio-tab:nth-child(2)', 'star4');
+$I->see('User Max Doe has just finished working on DevOps');
+$I->selectOption('quality_rate', '4');
+$I->selectOption('time_rate', '4');
 $I->click('Submit');
+
+$I->seeInDatabase('users', [
+    'name' => 'Max Doe',
+    'number_of_rates'   =>  1
+]);
