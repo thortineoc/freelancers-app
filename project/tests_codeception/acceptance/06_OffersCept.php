@@ -1,7 +1,7 @@
 <?php
 
 $I = new AcceptanceTester($scenario);
-$I->wantTo('create offers and browse mine');
+$I->wantTo('create, update and delete offers');
 
 //Login as John and create order
 
@@ -44,10 +44,17 @@ $I->fillField('deadline', 'Wed Mar 31 2021');
 $I->click('Create');
 
 $I->seeCurrentUrlMatches('~/orders/[0-9]+/offer/[0-9]+~');
-
-
-
-$I->amOnPage('/myoffers');
-
-$I->see('There are all of your job offers. When you finish working, please click on the "Finished" button to announce your employer that the job is done. ');
 $I->see('Details about offer');
+$I->click('edit');
+
+$I->seeCurrentUrlMatches('~/orders/[0-9]+/offer/[0-9]+/edit?~');
+$I->fillField('details', 'New details about offer');
+$I->fillField('deadline', 'Wed Mar 31 2021');
+$I->click('Update');
+$I->seeCurrentUrlMatches('~/orders/[0-9]+/offer/[0-9]+~');
+$I->see('New details about offer');
+$I->click('delete');
+$I->seeCurrentUrlEquals('/orders');
+
+
+
