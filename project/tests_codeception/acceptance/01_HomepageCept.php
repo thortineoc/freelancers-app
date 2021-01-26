@@ -26,8 +26,8 @@ $I->fillField('password', 'secret');
 $I->click("Login");
 $I->seeCurrentUrlEquals('/dashboard');
 $I->amOnPage('/');
-$I->seeLink('Dashboard', '/dashboard');
-$I->click('Dashboard');
+$I->seeLink('Notifications', '/dashboard');
+$I->click('Notifications');
 $I->seeCurrentUrlEquals('/dashboard');
 
 
