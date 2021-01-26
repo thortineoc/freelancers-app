@@ -7,6 +7,9 @@
 actor: AcceptanceTester
 modules:
     enabled:
+        #- WebDriver:
+        #    url:  http://localhost:8888
+        #    browser: 'firefox'
         - PhpBrowser:
             url: http://localhost:8888
         - \Helper\Acceptance
@@ -14,7 +17,7 @@ modules:
             dsn: 'mysql:host=127.0.0.1;dbname=test'
             user: 'test'
             password: 'test123'
-            populate: false
+            populate: true
             cleanup: true
             dump: tests_codeception/_data/dump.sql
 step_decorators: ~
