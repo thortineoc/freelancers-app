@@ -12,6 +12,13 @@
 
         <p class="my-10">You can choose a few applications. The order in which you select is going to indicate the priorities.</p>
 
+        @foreach($offers as $offer)
+            @if($offer->accepted)
+                <p class="my-10">You have already chosen the offers and you cannot do it again.</p>
+                @break
+            @endif
+        @endforeach
+
         @forelse ($offers as $offer)
 
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
