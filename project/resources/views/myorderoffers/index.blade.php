@@ -89,7 +89,7 @@
         @if(count($offers))
 
         <form id="sampleForm" name="sampleForm" method="post" action="{{url('/update')}}" >
-            @csrf
+            @csrf <!-- {{ csrf_field() }} -->
             <input type="hidden" name="total" id="total" value="">
             <x-my-button onclick="setValue();" class="my-10">Submit</x-my-button>
         </form>

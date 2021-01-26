@@ -31,7 +31,7 @@ CREATE TABLE `accepted` (
   PRIMARY KEY (`id`),
   KEY `accepted_offer_id_foreign` (`offer_id`),
   CONSTRAINT `accepted_offer_id_foreign` FOREIGN KEY (`offer_id`) REFERENCES `offers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,6 @@ CREATE TABLE `accepted` (
 
 LOCK TABLES `accepted` WRITE;
 /*!40000 ALTER TABLE `accepted` DISABLE KEYS */;
-INSERT INTO `accepted` VALUES (1,2,1,NULL,NULL),(2,1,2,NULL,NULL),(3,3,3,NULL,NULL),(4,1,5,NULL,NULL);
 /*!40000 ALTER TABLE `accepted` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +114,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,8 +123,38 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_01_08_163829_create_orders_table',1),(5,'2021_01_08_163838_create_offers_table',1),(6,'2021_01_11_200735_create_accepted_table',1),(7,'2021_01_11_205939_create_selected_table',1),(8,'2021_01_13_161254_create_messages_table',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_01_08_163829_create_orders_table',1),(5,'2021_01_08_163838_create_offers_table',1),(6,'2021_01_11_200735_create_accepted_table',1),(7,'2021_01_11_205939_create_selected_table',1),(8,'2021_01_13_161254_create_messages_table',1),(9,'2021_01_23_210823_create_notifications_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notifications`
+--
+
+DROP TABLE IF EXISTS `notifications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notifications` (
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_id` bigint unsigned NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `read_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notifications`
+--
+
+LOCK TABLES `notifications` WRITE;
+/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -149,7 +178,7 @@ CREATE TABLE `offers` (
   KEY `offers_order_id_foreign` (`order_id`),
   CONSTRAINT `offers_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   CONSTRAINT `offers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +187,6 @@ CREATE TABLE `offers` (
 
 LOCK TABLES `offers` WRITE;
 /*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-INSERT INTO `offers` VALUES (1,NULL,NULL,'2012-01-20 1-:00',200,'details1',2,1),(2,NULL,NULL,'2012-01-20 15:00',200,'details2',3,1),(3,NULL,NULL,'2012-01-20 15:00',1000,'details3',1,1),(4,NULL,NULL,'2012-01-20 15:00',2000,'details4',3,1),(5,NULL,NULL,'2012-01-20 15:00',1000,'details5',1,2),(6,NULL,NULL,'2012-01-20 15:00',1000,'details5',1,3),(7,NULL,NULL,'2012-01-20 15:00',5000,'details6',2,3);
 /*!40000 ALTER TABLE `offers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +209,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `orders_user_id_foreign` (`user_id`),
   CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +218,6 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,NULL,NULL,'new_order1','description1','2012-01-20 15:00',500,1),(2,NULL,NULL,'new_order2','description2','2012-01-30 14:00',100,2),(3,NULL,NULL,'new_order3','description3','2012-01-05 10:00',2000,3),(4,NULL,NULL,'new_order4_no_offer','description4_no_offer','2012-01-05 11:00',200,3);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,15 +256,13 @@ CREATE TABLE `selected` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `finished` tinyint(1) NOT NULL DEFAULT '0',
   `rejected` tinyint(1) NOT NULL DEFAULT '0',
-  `rate_time` int NOT NULL,
-  `rate_quality` int NOT NULL,
   `accepted_id` bigint unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `selected_accepted_id_foreign` (`accepted_id`),
   CONSTRAINT `selected_accepted_id_foreign` FOREIGN KEY (`accepted_id`) REFERENCES `accepted` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +271,6 @@ CREATE TABLE `selected` (
 
 LOCK TABLES `selected` WRITE;
 /*!40000 ALTER TABLE `selected` DISABLE KEYS */;
-INSERT INTO `selected` VALUES (1,0,0,0,0,1,NULL,NULL),(2,0,1,4,3,2,NULL,NULL),(3,0,0,4,3,4,NULL,NULL);
 /*!40000 ALTER TABLE `selected` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,6 +290,11 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `rate_time_sum` double NOT NULL DEFAULT '0',
+  `rate_quality_sum` double NOT NULL DEFAULT '0',
+  `number_of_rates` int DEFAULT NULL,
+  `avg_rate_time` double GENERATED ALWAYS AS ((`rate_time_sum` / `number_of_rates`)) STORED,
+  `avg_rate_quality` double GENERATED ALWAYS AS ((`rate_quality_sum` / `number_of_rates`)) STORED,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -277,7 +306,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'John Doe','john.doe@gmail.com',NULL,'$2y$10$LbiLA1WiDLQuu28ytZDNL.mmLClhI2ow0eLcB3k1paG1uDhrUluPu',NULL,NULL,NULL),(2,'Max Doe','max.doe@gmail.com',NULL,'$2y$10$.h8tpex66l5rD.k9O70lLen3G6eWNBUDlOQX8YT87FAiCDqJ48XkK',NULL,NULL,NULL),(3,'Joe Doe','joe.doe@gmail.com',NULL,'$2y$10$tOud81/QOZQPaUNhZzOdHOnA5b0uNR94Ec.j1a6jNDBfcFg9mAyI6',NULL,NULL,NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `rate_time_sum`, `rate_quality_sum`, `number_of_rates`) VALUES (1,'John Doe','john.doe@gmail.com',NULL,'$2y$10$m/XTs4CiTIE5wvBiUjdAqOCio3nTROoiCD4W/A62lBOm8ngOQDyni',NULL,NULL,NULL,0,0,NULL),(2,'Max Doe','max.doe@gmail.com',NULL,'$2y$10$QlyorZl7Au/A4nnBc2yZEuWupPOUzHTZnyMMAVIZ50owpecaNFjDi',NULL,NULL,NULL,3.2,2.4,1),(3,'Joe Doe','joe.doe@gmail.com',NULL,'$2y$10$.CD0xuJOoX4d3rJd0l6/qOSBTkmS1ht9TPdAKZy3ZrCpXmDAY7y86',NULL,NULL,NULL,0,0,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -290,4 +319,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-15  7:19:05
+-- Dump completed on 2021-01-26  7:30:08

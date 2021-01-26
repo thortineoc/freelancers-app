@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <x-application-logo class="block h-5 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
@@ -27,28 +27,9 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Notifications') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('myorders.index')" :active="request()->routeIs('myorders')">
-                        {{ __('My Orders') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('myoffers')" :active="request()->routeIs('myoffers')">
-                        {{ __('My Offers') }}
-                    </x-nav-link>
-                </div>
-
-
-
-
-
-
-
             </div>
 
             <!-- Settings Dropdown -->
@@ -76,16 +57,9 @@
                         <x-dropdown-link :href="route('myorders.index')">
                             {{ __('My Orders') }}
                         </x-dropdown-link>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-
-                            <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Logout') }}
-                            </x-dropdown-link>
-                        </form>
+                        <x-dropdown-link :href="route('logout')">
+                            {{ __('Logout') }}
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -118,7 +92,7 @@
 
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Notifications') }}
             </x-responsive-nav-link>
         </div>
 

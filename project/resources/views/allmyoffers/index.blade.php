@@ -16,8 +16,6 @@
 
         @forelse ($offers as $offer)
 
-            @if($offer->accepted && $offer->accepted->selected && !$offer->accepted->selected->finished || !$offer->accepted || !$offer->accepted->selected || !$offer->accepted->selected->finished)
-
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
                 <h1 class="font-bold text-2xl mt-2">
@@ -39,17 +37,18 @@
                     Deadline: {{ $offer->deadline }}
                 </div>
 
-                @if($offer->accepted && $offer->accepted->selected)
+                @if($offer->accepted)
+                    @if($offer->accepted->selected)
 
                     <form method="get" action="{{ route('orders.offer.finish', [$offer->order, $offer]) }}">
                         @csrf
                         <x-my-button>Finished</x-my-button>
                     </form>
 
+                    @endif
                 @endif
-            </div>
 
-            @endif
+            </div>
 
         @empty
 
