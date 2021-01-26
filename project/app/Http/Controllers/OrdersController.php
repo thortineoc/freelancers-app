@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -15,7 +16,8 @@ class OrdersController extends Controller
     public function index()
     {
         $orders = Order::where('deadline', '>', Carbon::now())->get();
-        return view('orders.index')->withOrders($orders);
+        $user = Auth::user();
+        return view('orders.index')->withOrders($orders)->withUser($user);
     }
 
     public function show(Order $order)

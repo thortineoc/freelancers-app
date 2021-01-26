@@ -25,7 +25,7 @@ class MyOfferController extends Controller
     {
         if ($order->user_id == Auth::id())
         {
-            abort(403, 'Unauthorized action.');
+            abort(403, 'Unauthorized action. Cannot create offer for your own order');
         }
         return view('offers.create')->withOrder($order);
     }
@@ -178,10 +178,18 @@ class MyOfferController extends Controller
         {
             abort(403, 'Unauthorized action.');
         }
-        $offer = $offer::where('id', $offer->id)->with('accepted')->first();
+        $offer = $offer::where('id', $offer->id)->with('accepted.selected')->first();
+        if ( !$offer->accepted )
+        {
+            abort(403, 'Not accepted.');
+        }
         if ( !$offer->accepted->selected )
         {
             abort(403, 'Not selected.');
+        }
+        if ( $offer->accepted->selected->finished || $offer->accepted->selected->rejected )
+        {
+            abort(403, 'Already finished or rejected.');
         }
         $offer->accepted->selected->finished = true;
         $offer->accepted->selected->save();
