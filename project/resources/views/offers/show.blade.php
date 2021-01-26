@@ -29,6 +29,8 @@
 
                     <div class="flex">
 
+                        @if(!$offer->accepted)
+
                         <form method="get" action="{{route('orders.offer.edit', [$order, $offer])}}">
                             <button class="focus:outline-none">
                                 <svg class="m-2 h-6 w-6 text-gray-500 hover:text-gray-900 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -47,6 +49,8 @@
                                 </svg>
                             </button>
                         </form>
+
+                        @endif
 
                     </div>
                 </div>
