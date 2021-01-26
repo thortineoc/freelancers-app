@@ -16,39 +16,44 @@
 
         @forelse ($offers as $offer)
 
-            <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            @if($offer->accepted && $offer->accepted->selected && !$offer->accepted->selected->finished || !$offer->accepted || !$offer->accepted->selected || !$offer->accepted->selected->finished)
+                @if($offer->accepted && $offer->accepted->selected && $offer->accepted->selected->rejected)
+                    @continue
+                @else
 
-                <h1 class="font-bold text-2xl mt-2">
-                    {{ $offer->order->title }}
-                </h1>
-                <div class="my-2 mt-0 underline text-gray-500">
-                    <a href="/orders/{{$offer->order_id}}">Display order</a>
-                </div>
-                <div class="font-bold text-lg text-green-900 mt-2">
-                    My offer:
-                </div>
-                <div class="my-5">
-                    {{ $offer->details }}
-                </div>
-                <div>
-                    Price: {{ $offer->price }} $
-                </div>
-                <div class="mb-5">
-                    Deadline: {{ $offer->deadline }}
-                </div>
+                <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
-                @if($offer->accepted)
-                    @if($offer->accepted->selected)
+                    <h1 class="font-bold text-2xl mt-2">
+                        {{ $offer->order->title }}
+                    </h1>
+                    <div class="my-2 mt-0 underline text-gray-500">
+                        <a href="/orders/{{$offer->order_id}}">Display order</a>
+                    </div>
+                    <div class="font-bold text-lg text-green-900 mt-2">
+                        My offer:
+                    </div>
+                    <div class="my-5">
+                        {{ $offer->details }}
+                    </div>
+                    <div>
+                        Price: {{ $offer->price }} $
+                    </div>
+                    <div class="mb-5">
+                        Deadline: {{ $offer->deadline }}
+                    </div>
 
-                    <form method="get" action="{{ route('orders.offer.finish', [$offer->order, $offer]) }}">
-                        @csrf
-                        <x-my-button>Finished</x-my-button>
-                    </form>
+                    @if($offer->accepted && $offer->accepted->selected)
+
+                        <form method="get" action="{{ route('orders.offer.finish', [$offer->order, $offer]) }}">
+                            @csrf
+                            <x-my-button>Finished</x-my-button>
+                        </form>
 
                     @endif
-                @endif
+                </div>
 
-            </div>
+                @endif
+            @endif
 
         @empty
 

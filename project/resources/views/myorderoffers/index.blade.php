@@ -12,6 +12,13 @@
 
         <p class="my-10">You can choose a few applications. The order in which you select is going to indicate the priorities.</p>
 
+        @foreach($offers as $offer)
+            @if($offer->accepted)
+                <p class="my-10">You have already chosen the offers and you cannot do it again.</p>
+                @break
+            @endif
+        @endforeach
+
         @forelse ($offers as $offer)
 
             <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -43,7 +50,7 @@
                         </div>
                         <div class="m-3 flex">
                             <div id="quality_{{$offer->id}}" class="flex flex-row"></div>
-                            <span class="text-gray-600 mx-6 justify-center">Exact rate: {{ $offer->user->avg_rate_quality }}</span>
+                            <span class="text-gray-600 mx-6 justify-center">Exact rate: {{ $offer->user->avg_rate_quality }} {{$offer->user->number_of_rates == 1 ? '(' . $offer->user->number_of_rates . ' rate)' : '(' . $offer->user->number_of_rates . ' rates)'}}</span>
                         </div>
                     </div>
                     <div id="time">
@@ -52,7 +59,7 @@
                         </div>
                         <div class="m-3 flex">
                             <div id="time_{{$offer->id}}" class="flex flex-row"></div>
-                            <span class="text-gray-600 mx-6 justify-center">Exact rate: {{ $offer->user->avg_rate_time }}</span>
+                            <span class="text-gray-600 mx-6 justify-center">Exact rate: {{ $offer->user->avg_rate_time }} {{$offer->user->number_of_rates == 1 ? '(' . $offer->user->number_of_rates . ' rate)' : '(' . $offer->user->number_of_rates . ' rates)'}}</span>
                         </div>
                     </div>
                 </div>
