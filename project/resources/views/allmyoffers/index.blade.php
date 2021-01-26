@@ -17,6 +17,9 @@
         @forelse ($offers as $offer)
 
             @if($offer->accepted && $offer->accepted->selected && !$offer->accepted->selected->finished || !$offer->accepted || !$offer->accepted->selected || !$offer->accepted->selected->finished)
+                @if($offer->accepted && $offer->accepted->selected && $offer->accepted->selected->rejected)
+                    @continue
+                @else
 
                 <div class="flex flex-col w-full sm:max-w-md my-8 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
@@ -49,6 +52,7 @@
                     @endif
                 </div>
 
+                @endif
             @endif
 
         @empty
