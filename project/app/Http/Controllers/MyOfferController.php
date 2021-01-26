@@ -25,7 +25,7 @@ class MyOfferController extends Controller
     {
         if ($order->user_id == Auth::id())
         {
-            abort(403, 'Unauthorized action.');
+            abort(403, 'Unauthorized action. Cannot create offer for your own order');
         }
         return view('offers.create')->withOrder($order);
     }
