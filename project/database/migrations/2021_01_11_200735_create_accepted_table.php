@@ -17,7 +17,7 @@ class CreateAcceptedTable extends Migration
             $table->id();
             $table->integer('priority');
             $table->foreignId('offer_id');
-            $table->foreign('offer_id')->references('id')->on('offers');
+            $table->foreign('offer_id')->references('id')->on('offers')->onDelete('cascade');
             $table->timestamps();
         });
     }

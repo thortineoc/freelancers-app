@@ -18,7 +18,7 @@ class CreateSelectedTable extends Migration
             $table->boolean('finished')->default(false);
             $table->boolean('rejected')->default(false);
             $table->foreignId('accepted_id');
-            $table->foreign('accepted_id')->references('id')->on('accepted');
+            $table->foreign('accepted_id')->references('id')->on('accepted')->onDelete('cascade');
             $table->timestamps();
         });
     }
