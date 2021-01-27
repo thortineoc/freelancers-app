@@ -52,6 +52,11 @@
             <div class="p-6 bg-white border-b border-gray-200">
                 You're logged in!
             </div>
+            @if($user->number_of_rates)
+                <div class="p-6 bg-white border-b border-gray-200">
+                    Your rating is: {{$user->avg_rate_time}} for time of work and {{$user->avg_rate_quality}} for quality.
+                </div>
+            @endif
 
         @foreach($user->notifications as $notification)
 
