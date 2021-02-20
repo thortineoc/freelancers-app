@@ -7,3 +7,7 @@ This is group student project. It represents web app with job offers for freelan
 ### How do I get set up? ###
 
 The program can be set using mySQL database.
+
+### My impact in project ###
+
+I created all of the views for the app that can be found in project/resources/views/ in subdirectiories allmyoffers, offers, orders, myorders, myorderoffers and also dashboard.blade.php file.
