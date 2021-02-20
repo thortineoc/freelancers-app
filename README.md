@@ -1,32 +1,9 @@
-# KATALOG ZLECEŃ DLA FREELANCERÓW #
-
-
 # README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This is group student project. It represents web app with job offers for freelancers. User who wants to find a job can see avaliable offers in orders tab. Then he can apply where he wants to. The employee will be able to see the applicants, compare their raitings and then choose the best ones. The first chosen person is given the highest priority and receives a notification. He can accept or decline this offer. If he declines then the notification goes to second chosen person and so on. When the job is done the worker informs the employee by clicking finished button in his offers tab. Then the employee gets notification and can rate this user based on quality of work and satisfaction with time. Offers can be added, edited and deleted according to CRUD. 
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+The program can be set using mySQL database.
